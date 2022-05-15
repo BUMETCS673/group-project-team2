@@ -16,3 +16,8 @@ Hello everyone! My name is Bharat Gogineni and I'm enrolled on the MS CIS Progra
 ## Benoît Clemenceau
 
 Hello everyone! My name is Benoît Clemenceau, I come from Paris, France, and I have been in Boston since January. I am doing the MS in Computer Information Systems and not following any specific concentration. This is my first online class. I come from a French Engineering school named ECE Paris and I am here thanks to a double degree program I managed to get in. I studied Mathematics, Physics, Electronics, and Informatics there. I learned C, C++, Java, JavaScript, and Python, and did a bunch of Data Science and Machine Learning. The technology I am most comfortable with is JavaScript, especially with React. I have done a couple of internships and freelancing in Java, JavaScript, React, React Native, and Kotlin. My last side-project was building a web portfolio/blog in React with Next.js, you can check it out live here: [benclem.dev](https://benclem.dev/)
+
+## Ruiqi Chang
+
+Hello everyone! My name is Ruiqi Chang. I am in MSCS program. I graduated in Management Information System major at Temple University in Phily. I am comfortable with JavaScript, Node.js, Java and mySql. I am exciting to create a amazing project for my first online class with yours.I am doing my first intern now, but I will my schedule and cooperate well with you.
+
