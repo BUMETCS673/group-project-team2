@@ -8,3 +8,6 @@ Hi everyone! My name is Taina and I'm currently enrolled on the MSSD program. I 
 
 Hey all! I am Chinmay and I am completing the Masters in Computer Information Systems with a Minor in Web App Development :)
 I am passionate about development and distributed systems and I am very excited to take this class and create an awesome project.
+
+## Bharat Gogineni
+Hello everyone! My name is Bharat Gogineni and I'm enrolled on the MS CIS Program with the Web Application Development concentration. I completed my computer science engineering in 2014 and worked for the past 7 years as a Software Architect at Vantage Agora Inc. I've been working mainly in a Product's division ,Building Web applications for the insurance industry. Apart from development I enjoy travelling and photography
