@@ -13,16 +13,32 @@ export const Container = styled.div`
 `
 export const StyledNav = styled.nav`
 display: flex;
-justify-content: space-between;
-align-items: center;
-height: 100px;
+height: 60px;
 background-color: ${(props) => props.theme.colors.nav.backgroundColor};
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 opacity: 1;
-padding: 0 20px;
+
 `
 
-export const Logo = styled.div`
-flex-grow: 2;
+export const Logo = styled.img`
 text-align: center;
+width: 80%;
+
 `;
+export const Collapse = styled.div`
+    display: none;
+    @media (min-width: 768px) {
+        display: flex;
+    }
+`
+export const StyledMenuButton = styled.button`
+    display: flex;
+    align-self:center;
+    border: 1px solid ${props => props.theme.colors.text.main};
+    color: ${props => props.theme.colors.text.main};
+    padding: 8px;
+    border-radius: 10px;
+    @media (min-width: 768px) {
+        display: none;
+    }
+`
