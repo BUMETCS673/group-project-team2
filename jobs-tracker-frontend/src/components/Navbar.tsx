@@ -1,10 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { StyledNav } from '../styles/styles';
 import Logout from './Logout'
 
 export const Navbar: React.FC = () => (
-  <nav>
-    <div className="nav-wrapper cyan darken-1 px1">
+  
+    <StyledNav >
       <NavLink to="/" className="brand-logo">
         Job Tracker
       </NavLink>
@@ -24,6 +25,6 @@ export const Navbar: React.FC = () => (
           <Logout />
         </li>
       </ul>
-    </div>
-  </nav>
+    </StyledNav>
+  
 )

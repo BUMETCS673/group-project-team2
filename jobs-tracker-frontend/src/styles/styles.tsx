@@ -11,3 +11,13 @@ export const Container = styled.div`
   border: 2px solid blue;
   width: 100px;
 `
+export const StyledNav = styled.nav`
+display: flex;
+justify-content: space-between;
+align-items: stretch;
+height: 100px;
+background: rgba(0, 0, 0, 0.83) no-repeat padding-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+opacity: 1;
+padding: 0 20px;
+`
