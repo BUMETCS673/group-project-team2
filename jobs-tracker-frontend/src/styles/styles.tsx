@@ -51,12 +51,19 @@ export const Collapse = styled.div`
     }
 `
 export const StyledMenuButton = styled.button`
+    background-color: transparent;
     display: flex;
     align-self:center;
-    border: 1px solid ${props => props.theme.colors.text.main};
+    border: 2px solid ${props => props.theme.colors.text.main};
     color: ${props => props.theme.colors.text.main};
-    padding: 8px;
+    padding: 0px;
     border-radius: 10px;
+    &:hover {
+      background-color: transparent;
+      color: ${props => props.theme.colors.text.secondary};
+      border-color: ${props => props.theme.colors.text.secondary};
+      opacity: 0.9;
+    }
     @media (min-width: 768px) {
         display: none;
     }
