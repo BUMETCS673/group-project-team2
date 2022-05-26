@@ -27,13 +27,15 @@ color: ${props => props.theme.colors.primary.main};
 font-size: 20px;
 text-align: left;
 padding: 10px 0;
-&.hover {
+&:hover {
       font-size: 25px;
+      background-color: transparent;
+      opacity: 0.5;
   }
-  @media (min-width: 768px) {
-    margin: 0 20px;
-    padding: 0;
-  }
+@media (min-width: 768px) {
+  margin: 0 20px;
+  padding: 0;
+}
 `
 
 
@@ -108,4 +110,17 @@ z-index: 9999;
     display: none;
 }
 `;
+
+export const StyledCloseButton = styled.button`
+    background-color: transparent;
+    border: none;
+    color: ${props => props.theme.colors.text.main};
+    align-self: flex-end;
+    position: absolute; top: 10px; right: 10px;
+    &:hover {
+      background-color: transparent;
+      color: ${props => props.theme.colors.text.secondary};
+
+  }
+`
 
