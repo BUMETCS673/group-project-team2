@@ -1,13 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { StyledNav } from '../styles/styles';
+import { StyledNav, Logo } from '../styles/styles';
+import followUpLogo from '../assets/images/logo.png'
 import Logout from './Logout'
 
 export const Navbar: React.FC = () => (
   
     <StyledNav >
       <NavLink to="/" className="brand-logo">
-        Job Tracker
+        <Logo>
+          <img src = {followUpLogo} alt = {'FollowUp logo'}/>
+        </Logo>
+        
       </NavLink>
       <ul className="right hide-on-med-and-down">
         <li>
