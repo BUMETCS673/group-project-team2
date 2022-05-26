@@ -14,9 +14,9 @@ export const Container = styled.div`
 export const StyledNav = styled.nav`
 display: flex;
 justify-content: space-between;
-align-items: stretch;
+align-items: center;
 height: 100px;
-background: rgba(0, 0, 0, 0.83) no-repeat padding-box;
+background-color: ${(props) => props.theme.colors.nav.backgroundColor};
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 opacity: 1;
 padding: 0 20px;

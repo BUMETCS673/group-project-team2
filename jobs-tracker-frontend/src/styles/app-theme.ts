@@ -2,6 +2,9 @@ import { DefaultTheme } from "styled-components";
 
 const appTheme: DefaultTheme = {
   colors: {
+      nav: {
+          backgroundColor:"rgba(0, 0, 0, 0.83)",
+      },
     primary: {
       main: "#80D0C2",
     },
@@ -26,6 +29,7 @@ const appTheme: DefaultTheme = {
     },
     opacity: 0.4,
   },
+
 };
 
 export { appTheme };
