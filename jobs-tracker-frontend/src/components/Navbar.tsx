@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { NavLink } from 'react-router-dom'
 import { StyledNav, Logo, Collapse, StyledMenuButton, MenuLinkGroup,  StyledNavLink, StyledSidebar, StyledCloseButton } from '../styles/styles';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import followUpLogo from '../assets/images/logo.png'
@@ -10,9 +9,11 @@ export const Navbar: React.FC = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   return (
     <StyledNav >
-      <NavLink to="/" className="brand-logo">
-        <Logo src = {followUpLogo} alt = {'FollowUp logo'}/>
-      </NavLink>
+      
+      <Logo to="/" exact >
+        <img src = {followUpLogo} alt = {'FollowUp logo'}/>
+      </Logo>
+      
       <StyledMenuButton onClick = {() => setToggleSidebar(!toggleSidebar)}>
         <BiMenu size={40} />
       </StyledMenuButton>

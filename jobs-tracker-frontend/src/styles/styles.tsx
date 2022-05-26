@@ -14,6 +14,7 @@ export const Container = styled.div`
 `
 export const StyledNav = styled.nav`
 display: flex;
+justify-content: space-between;
 height: 60px;
 background-color: ${(props) => props.theme.colors.nav.backgroundColor};
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -38,11 +39,13 @@ padding: 10px 0;
 }
 `
 
-
-export const Logo = styled.img`
+export const Logo = styled(NavLink)`
 text-align: center;
-width: 80%;
-
+margin-left: 20px;
+width: 200px;
+img {
+  width: 90%;
+}
 `;
 export const Collapse = styled.div`
     display: none;
@@ -58,6 +61,7 @@ export const StyledMenuButton = styled.button`
     color: ${props => props.theme.colors.text.main};
     padding: 0px;
     border-radius: 10px;
+    margin-right: 30px;
     &:hover {
       background-color: transparent;
       color: ${props => props.theme.colors.text.secondary};
