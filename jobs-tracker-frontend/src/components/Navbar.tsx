@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { StyledNav, Logo, Collapse, StyledMenuButton } from '../styles/styles';
 import followUpLogo from '../assets/images/logo.png'
 import Logout from './Logout'
+import { BiMenu } from "react-icons/bi";
 
 export const Navbar: React.FC = () => (
   
@@ -11,7 +12,7 @@ export const Navbar: React.FC = () => (
         <Logo src = {followUpLogo} alt = {'FollowUp logo'}/>
       </NavLink>
       <StyledMenuButton>
-        x
+        <BiMenu size={40} />
       </StyledMenuButton>
       <Collapse>
         <ul className="right hide-on-med-and-down">
