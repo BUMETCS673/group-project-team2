@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from "react-router-dom"
 
 export const button = styled.button`
   border: 1px dotted yellow;
@@ -42,3 +43,54 @@ export const StyledMenuButton = styled.button`
         display: none;
     }
 `
+export const MenuLinkGroup = styled.div`
+display: flex;
+flex-direction: column;
+align-items: start;
+padding: 20px 0 40px 0;
+margin: 0 15px;
+border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+@media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    border-bottom: none;
+}
+`
+export const StyledNavLink = styled(NavLink)`
+  font-size: 20px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 0.25;
+  text-decoration: none;
+  padding: 10px 0;
+  &.active {
+      opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin: 0 20px;
+    padding: 0;
+  }
+  
+`;
+
+interface SidebarProps {
+  readonly toggleSidebar?: boolean;
+}
+
+export const StyledSidebar =styled.div<SidebarProps>`
+display: ${(props) => (props.toggleSidebar ? "flex" : "none")};
+flex-direction: column;
+width: 150px;
+height: 100vh;
+position: fixed;
+top: 0;
+right: 0;
+padding: 2rem 1rem 1rem 1rem;
+background-color: #1a1a1a;
+z-index: 9999;
+@media (min-width: 768px) {
+    display: none;
+}
+`;
+

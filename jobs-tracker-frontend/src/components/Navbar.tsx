@@ -1,38 +1,55 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
-import { StyledNav, Logo, Collapse, StyledMenuButton } from '../styles/styles';
+import { StyledNav, Logo, Collapse, StyledMenuButton, MenuLinkGroup,  StyledNavLink, StyledSidebar } from '../styles/styles';
 import followUpLogo from '../assets/images/logo.png'
 import Logout from './Logout'
 import { BiMenu } from "react-icons/bi";
 
-export const Navbar: React.FC = () => (
-  
+export const Navbar: React.FC = () => {
+  const [toggleSidebar, setToggleSidebar] = useState(false);
+  return (
     <StyledNav >
       <NavLink to="/" className="brand-logo">
         <Logo src = {followUpLogo} alt = {'FollowUp logo'}/>
       </NavLink>
-      <StyledMenuButton>
+      <StyledMenuButton onClick = {() => setToggleSidebar(!toggleSidebar)}>
         <BiMenu size={40} />
       </StyledMenuButton>
-      <Collapse>
-        <ul className="right hide-on-med-and-down">
-          <li>
-            <NavLink to="/">Landing</NavLink>
-          </li>
-          <li cy-data="home-nav-link">
-            <NavLink to="/home">Home</NavLink>
-          </li>
+      <Collapse >
+        <MenuLinkGroup>
+          
+            <StyledNavLink to="/" exact >Landing</StyledNavLink>
+          
+          
+            <StyledNavLink to="/home">Home</StyledNavLink>
+          
 
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
+          
+            <StyledNavLink to="/about">About</StyledNavLink>
+          
 
-          <li>
-            <Logout />
-          </li>
-        </ul>
+          
+            
+          
+        </MenuLinkGroup>
+        <Logout />
       </Collapse>
+      <StyledSidebar toggleSidebar = {toggleSidebar}>
+          <StyledNavLink to="/" exact >Landing</StyledNavLink>
+          
+          
+          <StyledNavLink to="/home">Home</StyledNavLink>
+        
+
+        
+          <StyledNavLink to="/about">About</StyledNavLink>
+
+      </StyledSidebar>
       
     </StyledNav>
+    
+  )
+}
   
-)
+    
+
