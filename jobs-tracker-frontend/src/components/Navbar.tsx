@@ -30,9 +30,9 @@ export const Navbar: React.FC = () => {
 
           
             
-          
+            <Logout />
         </MenuLinkGroup>
-        <Logout />
+        
       </Collapse>
       <StyledSidebar toggleSidebar = {toggleSidebar}>
           <StyledNavLink to="/" exact >Landing</StyledNavLink>
@@ -43,6 +43,7 @@ export const Navbar: React.FC = () => {
 
         
           <StyledNavLink to="/about">About</StyledNavLink>
+          <Logout />
 
       </StyledSidebar>
       

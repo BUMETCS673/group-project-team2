@@ -20,6 +20,22 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 opacity: 1;
 
 `
+export const SimpleButton = styled.button`
+border: none;
+background-color: transparent;
+color: ${props => props.theme.colors.primary.main};
+font-size: 20px;
+text-align: left;
+padding: 10px 0;
+&.hover {
+      font-size: 25px;
+  }
+  @media (min-width: 768px) {
+    margin: 0 20px;
+    padding: 0;
+  }
+`
+
 
 export const Logo = styled.img`
 text-align: center;
@@ -59,8 +75,7 @@ border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 `
 export const StyledNavLink = styled(NavLink)`
   font-size: 20px;
-  letter-spacing: 0px;
-  color: #ffffff;
+  color: ${props => props.theme.colors.text.secondary};
   opacity: 0.25;
   text-decoration: none;
   padding: 10px 0;
