@@ -183,4 +183,8 @@ export const StyledCloseButton = styled.button`
 
   }
 `
+export const StyledCardWrapper = styled.div`
+  display: flex;
+  
+`
 

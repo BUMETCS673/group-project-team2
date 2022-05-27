@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import JobCard from '../components/JobCard'
 // import Counter from '../components/counter/Counter'
 
 export const Home: React.FC = () => {
@@ -10,6 +11,7 @@ export const Home: React.FC = () => {
         template and bootstrapped with Redux, React Router, TypeScript, ESlint,
         Prettier for you. Take a look around ;)
       </p>
+      <JobCard/>
     </Fragment>
   )
 }
