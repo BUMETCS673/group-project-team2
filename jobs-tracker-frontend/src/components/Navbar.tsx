@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { StyledNav, Logo, Collapse, StyledMenuButton, MenuLinkGroup,  StyledNavLink, StyledSidebar, StyledCloseButton } from '../styles/styles';
+import { StyledNav, Logo, Collapse, StyledMenuButton, StyledSidebar, StyledCloseButton } from '../styles/styles';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import followUpLogo from '../assets/images/logo.png'
-import Logout from './Logout'
+import NavMenuItems from './NavMenuItems'
 import { BiMenu } from "react-icons/bi";
 
 export const Navbar: React.FC = () => {
@@ -18,37 +18,13 @@ export const Navbar: React.FC = () => {
         <BiMenu size={40} />
       </StyledMenuButton>
       <Collapse >
-        <MenuLinkGroup>
-          
-            <StyledNavLink to="/" exact >Landing</StyledNavLink>
-          
-          
-            <StyledNavLink to="/home">Home</StyledNavLink>
-          
-
-          
-            <StyledNavLink to="/about">About</StyledNavLink>
-          
-
-          
-            
-            <Logout />
-        </MenuLinkGroup>
-        
+          <NavMenuItems/> 
       </Collapse>
       <StyledSidebar toggleSidebar = {toggleSidebar}>
           <StyledCloseButton onClick = {() => setToggleSidebar(!toggleSidebar)}>
             <IoCloseCircleOutline size = {35}/>
           </StyledCloseButton>
-          <StyledNavLink to="/" exact >Landing</StyledNavLink>
-          
-          
-          <StyledNavLink to="/home">Home</StyledNavLink>
-        
-
-        
-          <StyledNavLink to="/about">About</StyledNavLink>
-          <Logout />
+          <NavMenuItems/>
 
       </StyledSidebar>
       
