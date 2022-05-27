@@ -184,9 +184,13 @@ export const StyledCloseButton = styled.button`
   }
 `
 export const StyledCardsContainer = styled.div`
-border: 1px solid blue;
+  margin: auto;
+  background-color: ${props => props.theme.colors.background.secondary};
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
-    width: 
+    width: 70%;
   }
 `
 export const StyledCardWrapper = styled.div`
