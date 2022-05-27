@@ -12,6 +12,19 @@ export const Container = styled.div`
   border: 2px solid blue;
   width: 100px;
 `
+interface FlexContainerProps {
+  readonly menu?: boolean;
+}
+export const FlexContainer = styled.div<FlexContainerProps>`
+  display: flex;
+  flex-direction: column;
+  ${(props) => (props.menu && `
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+  `)}
+
+`
 export const StyledNav = styled.nav`
 display: flex;
 justify-content: space-between;
@@ -22,21 +35,20 @@ opacity: 1;
 
 `
 export const SimpleButton = styled.button`
-border: none;
 background-color: transparent;
 color: ${props => props.theme.colors.primary.main};
 font-size: 20px;
 text-align: left;
-padding: 10px 0;
+border: none;
 &:hover {
       font-size: 25px;
       background-color: transparent;
       opacity: 0.5;
   }
-@media (min-width: 768px) {
-  margin: 0 20px;
-  padding: 0;
-}
+  @media (min-width: 768px) {
+    margin-left: 10px;
+  }
+
 `
 
 export const Logo = styled(NavLink)`
@@ -102,11 +114,11 @@ export const StyledNavLink = styled(NavLink)`
   
 `;
 export const UserContainer = styled.div`
-
   display: flex;
   color: ${props => props.theme.colors.text.secondary};
   align-items: center;
-
+  margin: 0px;
+  padding: 0px;
   img {
     width: 30px;
     height: 30px;
@@ -116,14 +128,9 @@ export const UserContainer = styled.div`
   p {
     opacity: 0.25;
     font-size: 20px;
+    width: 110px;
   }
-  &.active {
-      opacity: 1;
-  }
-  @media (min-width: 768px) {
-    margin: 0 20px;
-    padding: 0;
-  }
+
   
 `
 interface SidebarProps {
