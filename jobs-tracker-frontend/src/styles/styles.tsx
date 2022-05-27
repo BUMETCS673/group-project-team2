@@ -195,6 +195,7 @@ export const StyledCardsContainer = styled.div`
 `
 export const StyledCardWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   border: 1px solid red;
   border-radius: 5px;
   align-items: center;
@@ -202,9 +203,20 @@ export const StyledCardWrapper = styled.div`
 
 `
 export const StyledCardHeader = styled.div`
+  display: flex;
+  
 
 `
 export const StyledCardBody = styled.div`
+  h1 {
+    font-size: 26px;
+
+  }
+  h2 {
+    font-size: 20px;
+    color: ${props => props.theme.colors.text.main};
+    
+  }
 
 `
 export const StyledCardFooter = styled.div`
