@@ -12,10 +12,10 @@ export const Container = styled.div`
   border: 2px solid blue;
   width: 100px;
 `
-interface FlexContainerProps {
+interface MenuItemsProps {
   readonly menu?: boolean;
 }
-export const FlexContainer = styled.div<FlexContainerProps>`
+export const FlexContainer = styled.div<MenuItemsProps>`
   display: flex;
   flex-direction: column;
   ${(props) => (props.menu && `
@@ -34,6 +34,24 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 opacity: 1;
 
 `
+export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 5px 30px;
+  font-weight: bold;
+  background-color: ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors.text.secondary};
+  border: none;
+  ${props => (props.menu ? `
+  margin: 0px;
+  @media (min-width: 768px) {
+    margin: 0 20px;
+  }
+  `: `
+  margin: 10px;
+  `)};
+`
+
 export const SimpleButton = styled.button`
 background-color: transparent;
 color: ${props => props.theme.colors.primary.main};

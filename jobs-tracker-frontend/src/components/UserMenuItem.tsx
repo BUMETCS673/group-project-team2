@@ -18,7 +18,7 @@ const UserMenuItem = () => {
       </FlexContainer>
     )
 
-  return <Login/>
+  return <Login menu/>
 }
 
 export default UserMenuItem
