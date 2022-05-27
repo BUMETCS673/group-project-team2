@@ -233,6 +233,11 @@ export const StyledCardBody = styled.div`
 
 `
 export const StyledCardFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 0 10px;
+  }
 
 `
 
