@@ -196,8 +196,18 @@ export const StyledCardsContainer = styled.div`
 export const StyledCardWrapper = styled.div`
   display: flex;
   border: 1px solid red;
+  border-radius: 5px;
   align-items: center;
   justify-content: center;
+
+`
+export const StyledCardHeader = styled.div`
+
+`
+export const StyledCardBody = styled.div`
+
+`
+export const StyledCardFooter = styled.div`
 
 `
 
