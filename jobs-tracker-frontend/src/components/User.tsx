@@ -1,4 +1,4 @@
-import React from 'react'
+import {UserContainer} from '../styles/styles'
 import { useAuth0 } from '@auth0/auth0-react'
 
 const User = () => {
@@ -6,12 +6,10 @@ const User = () => {
 
   if (isAuthenticated && user)
     return (
-      <div>
-        <h3>Info</h3>
-        <img src={user.picture}></img>
-        <h4>{user.email}</h4>
-        <h4>{user.given_name}</h4>
-      </div>
+      <UserContainer>
+        <img src={user.picture}/>
+        <p>{`Hello, ${user.given_name}!`}</p>
+      </UserContainer>
     )
 
   return <div>Not Logged In</div>

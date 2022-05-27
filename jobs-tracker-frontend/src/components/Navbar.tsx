@@ -17,15 +17,16 @@ export const Navbar: React.FC = () => {
       <StyledMenuButton onClick = {() => setToggleSidebar(!toggleSidebar)}>
         <BiMenu size={40} />
       </StyledMenuButton>
+
       <Collapse >
           <NavMenuItems/> 
       </Collapse>
+
       <StyledSidebar toggleSidebar = {toggleSidebar}>
           <StyledCloseButton onClick = {() => setToggleSidebar(!toggleSidebar)}>
             <IoCloseCircleOutline size = {35}/>
           </StyledCloseButton>
           <NavMenuItems/>
-
       </StyledSidebar>
       
     </StyledNav>

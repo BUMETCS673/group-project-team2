@@ -101,7 +101,31 @@ export const StyledNavLink = styled(NavLink)`
   }
   
 `;
+export const UserContainer = styled.div`
 
+  display: flex;
+  color: ${props => props.theme.colors.text.secondary};
+  align-items: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  p {
+    opacity: 0.25;
+    font-size: 20px;
+  }
+  &.active {
+      opacity: 1;
+  }
+  @media (min-width: 768px) {
+    margin: 0 20px;
+    padding: 0;
+  }
+  
+`
 interface SidebarProps {
   readonly toggleSidebar?: boolean;
 }
@@ -109,7 +133,7 @@ interface SidebarProps {
 export const StyledSidebar =styled.div<SidebarProps>`
 display: ${(props) => (props.toggleSidebar ? "flex" : "none")};
 flex-direction: column;
-width: 150px;
+width: 250px;
 height: 100vh;
 position: fixed;
 top: 0;
