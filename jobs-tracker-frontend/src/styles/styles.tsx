@@ -183,8 +183,17 @@ export const StyledCloseButton = styled.button`
 
   }
 `
+export const StyledCardsContainer = styled.div`
+border: 1px solid blue;
+  @media (min-width: 768px) {
+    width: 
+  }
+`
 export const StyledCardWrapper = styled.div`
   display: flex;
-  
+  border: 1px solid red;
+  align-items: center;
+  justify-content: center;
+
 `
 
