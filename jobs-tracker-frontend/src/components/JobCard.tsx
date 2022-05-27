@@ -1,10 +1,11 @@
 import {StyledCardWrapper, StyledCardHeader, StyledCardBody, StyledCardFooter } from '../styles/styles'
+import DeleteBtn from './DeleteBtn'
 
 
 const JobCard = () => (
     <StyledCardWrapper>
         <StyledCardHeader>
-            <p> header</p>
+            <DeleteBtn/>
         </StyledCardHeader>
         <StyledCardBody>
             <h1>COMPANY</h1>

@@ -200,11 +200,24 @@ export const StyledCardWrapper = styled.div`
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+  position: relative;
 
+`
+export const StyledDeleteBtn = styled.button`
+background-color: transparent;
+border: none;
+border-radius: 10px;
+color: ${props => props.theme.colors.text.main};
+align-self: flex-end;
+position: absolute; top: 10px; right: 10px;
+&:hover {
+  background-color: ${props => props.theme.colors.primary.main} ;
+  color: ${props => props.theme.colors.text.secondary};
+}
 `
 export const StyledCardHeader = styled.div`
   display: flex;
-  
+
 
 `
 export const StyledCardBody = styled.div`
