@@ -19,6 +19,7 @@ const appTheme: DefaultTheme = {
     background: {
       primary: "rgba(128, 208, 194, 0.1)",
       secondary: "#F9F9F9",
+      addbtn: '#73D689',
     }
   },
   input: {
@@ -26,6 +27,7 @@ const appTheme: DefaultTheme = {
     backgroundColor: {
       primary: "#F8F8F8",
       secondary: 'rgba(239, 223, 75, .23)',
+      
     },
     opacity: 0.4,
   },

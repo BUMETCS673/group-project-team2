@@ -21,6 +21,7 @@ declare module 'styled-components' {
       background: {
         primary: string;
         secondary: string;
+        addbtn: string;
       }
     
     }
@@ -29,6 +30,7 @@ declare module 'styled-components' {
         backgroundColor: {
             primary: string;
             secondary: string;
+            
 
         },
         opacity: number;
