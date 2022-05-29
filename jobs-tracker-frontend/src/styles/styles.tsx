@@ -261,8 +261,8 @@ export const StyledAddBtn = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border: none;
   background-color: ${props => props.theme.colors.background.addbtn};
   color: ${props => props.theme.colors.text.secondary};
@@ -276,10 +276,8 @@ export const StyledAddBtn = styled.button`
     display: inline;
     font-size: 20px;
     font-weight: bold;
-    margin: 0 5px 0 0;
-    
-    
-  }
+    margin: 0 5px 0 0;  
+    }
   }
 `
 
