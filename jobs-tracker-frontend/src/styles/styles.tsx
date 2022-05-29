@@ -269,7 +269,7 @@ export const StyledAddBtn = styled.button`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
     border-radius: 30px;
-    padding: 0px 30px;
+    padding: 5px 25px;
     width: auto;
     height: auto;
     p {
