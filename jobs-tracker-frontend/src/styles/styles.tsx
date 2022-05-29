@@ -254,34 +254,32 @@ export const StyledHomeHeaderContainer = styled.div`
   }
 `
 export const StyledAddBtn = styled.button`
-p {
-  display: none;
-}
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-width: 50px;
-height: 50px;
-border: none;
-background-color: ${props => props.theme.colors.background.addbtn};
-color: ${props => props.theme.colors.text.secondary};
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-@media (min-width: 768px) {
-  border-radius: 30px;
-  padding: 0px 30px;
-  width: auto;
-  height: auto;
   p {
-  display: inline;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0 5px 0 0;
-  
-  
-}
-}
-
-
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: ${props => props.theme.colors.background.addbtn};
+  color: ${props => props.theme.colors.text.secondary};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @media (min-width: 768px) {
+    border-radius: 30px;
+    padding: 0px 30px;
+    width: auto;
+    height: auto;
+    p {
+    display: inline;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+    
+    
+  }
+  }
 `
 
