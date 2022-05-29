@@ -25,6 +25,9 @@ export const FlexContainer = styled.div<MenuItemsProps>`
   `)}
 
 `
+export const FlexRowContainer = styled.div`
+  display: flex;
+`
 export const StyledNav = styled.nav`
 display: flex;
 justify-content: space-between;
@@ -280,4 +283,25 @@ export const StyledAddBtn = styled.button`
     }
   }
 `
+export const StyledSortByContainer = styled.div`
+  display: flex;
+  align-items: center;
+  p {
+    font-size: 20px;
+    margin: 0 5px 0 0; 
+  }
+`
+
+export const StyledSelect = styled.select`
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: ${props => props.theme.input.backgroundColor.primary};
+  color: ${props => props.theme.colors.text.main};
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-align: center;
+
+`
+
 

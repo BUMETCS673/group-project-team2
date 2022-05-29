@@ -1,8 +1,20 @@
-import { FlexContainer } from "../styles/styles"
+import { StyledSortByContainer, StyledSelect } from "../styles/styles"
 
 const SortBySelect = () => (
-    <FlexContainer>
-        sort by: 
-    </FlexContainer>
+    <StyledSortByContainer>
+        <p>
+            Sort by: 
+        </p>
+        <StyledSelect>
+            <option value = "" >
+                one
+            </option>
+            <option value = "1" >
+                dd
+            </option>
+        </StyledSelect>
+    
+        
+    </StyledSortByContainer>
 )
 export default SortBySelect
