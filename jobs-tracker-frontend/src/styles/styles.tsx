@@ -240,4 +240,10 @@ export const StyledCardFooter = styled.div`
   }
 
 `
+export const StyledHomeHeaderContainer = styled(FlexContainer)`
+  h1 {
+    border-bottom: 1px solid ${props => props.theme.colors.text.main};
+    color: ${props => props.theme.colors.text.main};
+  }
+`
 
