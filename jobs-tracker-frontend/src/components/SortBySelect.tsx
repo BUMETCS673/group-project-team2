@@ -1,8 +1,4 @@
-import { FlexContainer } from "../styles/styles"
+import { FlexContainer } from '../styles/styles'
 
-const SortBySelect = () => (
-    <FlexContainer>
-        sort by: 
-    </FlexContainer>
-)
+const SortBySelect = () => <FlexContainer>Sort By :</FlexContainer>
 export default SortBySelect
