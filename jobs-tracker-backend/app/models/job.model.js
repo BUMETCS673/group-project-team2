@@ -1,0 +1,26 @@
+module.exports = (sequelize, Sequelize) => {
+  const Job = sequelize.define("job", {
+    jobTitle: {
+      type: Sequelize.STRING
+    },
+    companyName: {
+      type: Sequelize.STRING
+    },
+    description: {
+      type: Sequelize.STRING
+    },
+    userId: {
+      type: Sequelize.INTEGER
+    },
+    status: {
+      type: Sequelize.STRING
+    },
+    createdAt: {
+      type: Sequelize.DATETIME
+    },
+    updatedAt: {
+      type: Sequelize.DATETIME
+    }
+  });
+  return Job;
+};
