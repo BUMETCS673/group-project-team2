@@ -17,5 +17,8 @@
     "mysql-migrations": "^1.0.7",
     "mysql2": "^2.3.3",
     "sequelize": "^6.20.0"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
   }
 }
