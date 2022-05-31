@@ -333,3 +333,10 @@ export const LandingPageSubContentRight = styled.div`
 export const AboutPageContent = styled.div`
   margin-left: 5%;
 `
+
+// if User has no Jobs they are tracking
+
+export const NoJobsComponent = styled.div`
+  margin-left: 5%;
+  margin-top: 5%;
+`
