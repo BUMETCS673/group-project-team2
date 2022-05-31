@@ -24,7 +24,11 @@ const JobCardNew: React.FC<CardProps> = ({
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>{`${companyName} |  ${jobTitle}  |   ${status}`}</Typography>
+          <Typography fontSize = {16} mr= {2}>{`${companyName}`}</Typography>
+          <Typography fontSize = {18}>{`|`}</Typography>
+          <Typography fontSize = {14} mr= {2} ml= {2}>{`${jobTitle} `} </Typography>
+          <Typography fontSize = {18}>{`|`}</Typography>
+          <Typography fontSize = {12} ml= {2}>{`${status}`}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
