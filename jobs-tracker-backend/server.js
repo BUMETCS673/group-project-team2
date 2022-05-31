@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-
+const { auth } = require('express-oauth2-jwt-bearer');
 var corsOptions = {
   origin: "http://localhost:8081"
 };
@@ -17,7 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // database
 const db = require("./app/models");
-
+const checkJwt = auth({
+  audience: 'https://cs673-api-auth0.com',
+  issuerBaseURL: `http://localhost:3000/`,
+});
 db.sequelize.sync();
 // force: true will drop the table if it already exists
 // db.sequelize.sync({force: true}).then(() => {
@@ -31,9 +34,9 @@ app.get("/", (req, res) => {
 });
 
 // routes
-require('./app/routes/auth.routes')(app);
-require('./app/routes/user.routes')(app);
-require('./app/routes/job.routes')(app);
+require('./app/routes/auth.routes')(app,checkJwt);
+require('./app/routes/user.routes')(app,checkJwt);
+require('./app/routes/job.routes')(app,checkJwt);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
