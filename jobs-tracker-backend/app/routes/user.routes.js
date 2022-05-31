@@ -1,7 +1,7 @@
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/user.controller");
 
-module.exports = function(app) {
+module.exports = function(app,checkJwt) {
   app.use(function(req, res, next) {
     res.header(
       "Access-Control-Allow-Headers",
@@ -12,5 +12,5 @@ module.exports = function(app) {
 
   app.get("/test", controller.allAccess);
 
-  app.get("/user",[authJwt.verifyToken], controller.findOne);
+  app.get("/user",checkJwt, controller.findOne);
 };
