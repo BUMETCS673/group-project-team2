@@ -444,6 +444,83 @@ export const jobData = {
       ],
     },
   ],
+  'danazh@bu.edu': [
+    {
+      jobTitle: 'Software Development Engineer',
+      companyName: 'Amazon',
+      description: 'Software Development Engineer Level 5',
+      status: 'In Progress',
+      jobId: '1',
+      activities: [
+        {
+          category: 'Phone Screen',
+          description: 'Amazon',
+          startDate: '05/01/2022',
+          endDate: '06/01/2022',
+          ActivityID: '1',
+          jobId: '1',
+        },
+        {
+          category: 'Coding Round',
+          description: 'Amazon',
+          startDate: '05/01/2022',
+          endDate: '06/01/2022',
+          ActivityID: '2',
+          jobId: '1',
+        },
+        {
+          category: 'Final Round',
+          description: 'Amazon',
+          startDate: '05/01/2022',
+          endDate: '06/01/2022',
+          ActivityID: '3',
+          jobId: '1',
+        },
+      ],
+    },
+    {
+      jobTitle: 'Product Manager',
+      companyName: 'Google',
+      description: 'Product Manager @ Google',
+      status: 'In Progress',
+      jobId: '2',
+      activities: [
+        {
+          category: 'Coding Round',
+          description: 'Google',
+          startDate: '05/01/2022',
+          endDate: '06/01/2022',
+          ActivityID: '1',
+          jobId: '2',
+        },
+        {
+          category: 'On Site Interview',
+          description: 'Google',
+          startDate: '05/01/2022',
+          endDate: '06/01/2022',
+          ActivityID: '2',
+          jobId: '2',
+        },
+      ],
+    },
+    {
+      jobTitle: 'Risk Analyst',
+      companyName: 'LinkedIn',
+      description: 'Risk Analyst @ LinkedIn',
+      status: 'In Progress',
+      jobId: '3',
+      activities: [
+        {
+          category: 'Risk Analyst',
+          description: 'LinkedIn',
+          startDate: '05/01/2022',
+          endDate: '06/01/2022',
+          ActivityID: '1',
+          jobId: '3',
+        },
+      ],
+    },
+  ],
 }
 
 // export const activityData = {
