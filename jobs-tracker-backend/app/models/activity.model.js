@@ -3,6 +3,9 @@ module.exports = (sequelize, Sequelize) => {
       category: {
         type: Sequelize.STRING
       },
+      name: {
+        type: Sequelize.STRING
+      },
       description: {
         type: Sequelize.STRING
       },
@@ -19,10 +22,16 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER
       },
       createdAt: {
-        type: Sequelize.DATETIME
+        type: Sequelize.DATE
       },
       updatedAt: {
-        type: Sequelize.DATETIME
+        type: Sequelize.DATE
+      },
+      startDate: {
+        type: Sequelize.DATE
+      },
+      endDate: {
+        type: Sequelize.DATE
       }
     });
     return Activity;

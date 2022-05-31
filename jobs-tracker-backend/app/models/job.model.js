@@ -15,11 +15,14 @@ module.exports = (sequelize, Sequelize) => {
     status: {
       type: Sequelize.STRING
     },
+    link: {
+      type: Sequelize.STRING
+    },
     createdAt: {
-      type: Sequelize.DATETIME
+      type: Sequelize.DATE
     },
     updatedAt: {
-      type: Sequelize.DATETIME
+      type: Sequelize.DATE
     }
   });
   return Job;
