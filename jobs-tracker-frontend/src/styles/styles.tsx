@@ -200,8 +200,8 @@ export const StyledCloseButton = styled.button`
   color: ${(props) => props.theme.colors.text.main};
   align-self: flex-end;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   &:hover {
     background-color: transparent;
     color: ${(props) => props.theme.colors.text.secondary};
@@ -348,18 +348,24 @@ export const StyledBox = styled(Box)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  min-width: 350px;
+  width: 80%;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: ${props => props.theme.colors.background.primary};
+  @media (min-width: 768px) {
+    width: 600px;
+  }
 `
 export const StyledModalHeader = styled.div`
   background-color : ${props => props.theme.colors.primary.main};
   color: ${props => props.theme.colors.text.secondary};
   border-radius: 5px 5px 0 0;
-  padding: 5px;
+  padding: 10px;
 `
 export const StyledModalFooter = styled(StyledModalHeader)`
   background-color : ${props => props.theme.colors.background.secondary.dark};
   border-radius: 0 0 5px 5px;
+  text-align: right;
+  
 `

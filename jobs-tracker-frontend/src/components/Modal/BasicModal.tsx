@@ -1,9 +1,9 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
-import {StyledBox,  StyledModalHeader, StyledModalFooter} from '../../styles/styles'
-import Button from '@mui/material/Button';
+import {StyledBox,  StyledModalHeader, StyledModalFooter, StyledAddBtn, StyledCloseButton} from '../../styles/styles'
+import { MdAdd } from 'react-icons/md'
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 const BasicModal = () => {
     const [open, setOpen] = React.useState(false);
@@ -12,7 +12,10 @@ const BasicModal = () => {
     return (
         <div>
             {/*<AddBtn onClick = {handleOpen}/>*/}
-            <Button onClick={handleOpen}>Open modal</Button>
+            <StyledAddBtn onClick = {handleOpen}>
+                <p>New</p>
+                <MdAdd size={25} />
+            </StyledAddBtn>
             <Modal
                 open = {open}
                 onClose = {handleClose}
@@ -20,13 +23,16 @@ const BasicModal = () => {
                 aria-describedby="modal-modal-description"
             >
                 <StyledBox>
-                    <StyledModalHeader id="modal-modal-title">
-                        <Typography variant="h6" component="h2">
+                    <StyledModalHeader >
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
                             Text in a modal
                         </Typography>
+                        <StyledCloseButton onClick = {handleClose}>
+                            <IoCloseCircleOutline size = {30} color= 'white'/>
+                        </StyledCloseButton>
                     </StyledModalHeader>
                     
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    <Typography id="modal-modal-description" sx={{ m: 2 }}>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography>
                     <StyledModalFooter>
