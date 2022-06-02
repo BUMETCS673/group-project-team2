@@ -209,7 +209,7 @@ export const StyledCloseButton = styled.button`
 `
 export const StyledCardsContainer = styled.div`
   margin: auto;
-  background-color: ${(props) => props.theme.colors.background.secondary};
+  background-color: ${(props) => props.theme.colors.background.secondary.light};
   height: 100vh;
   padding: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -283,7 +283,7 @@ export const StyledAddBtn = styled.button`
   width: 45px;
   height: 45px;
   border: none;
-  background-color: ${(props) => props.theme.colors.background.addbtn};
+  background-color: ${(props) => props.theme.colors.button.add};
   color: ${(props) => props.theme.colors.text.secondary};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
@@ -349,9 +349,17 @@ export const StyledBox = styled(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  border: 1px solid ${props => props.theme.colors.text.main};
+  border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  padding: 4px;
-
-
+  background-color: ${props => props.theme.colors.background.primary};
+`
+export const StyledModalHeader = styled.div`
+  background-color : ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors.text.secondary};
+  border-radius: 5px 5px 0 0;
+  padding: 5px;
+`
+export const StyledModalFooter = styled(StyledModalHeader)`
+  background-color : ${props => props.theme.colors.background.secondary.dark};
+  border-radius: 0 0 5px 5px;
 `

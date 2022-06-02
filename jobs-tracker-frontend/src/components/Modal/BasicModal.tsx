@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-import {StyledBox} from '../styles/styles'
+import {StyledBox,  StyledModalHeader, StyledModalFooter} from '../../styles/styles'
 import Button from '@mui/material/Button';
 
 const BasicModal = () => {
@@ -20,12 +20,18 @@ const BasicModal = () => {
                 aria-describedby="modal-modal-description"
             >
                 <StyledBox>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
+                    <StyledModalHeader id="modal-modal-title">
+                        <Typography variant="h6" component="h2">
+                            Text in a modal
+                        </Typography>
+                    </StyledModalHeader>
+                    
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography>
+                    <StyledModalFooter>
+                        button
+                    </StyledModalFooter>
 
                 </StyledBox>
 
