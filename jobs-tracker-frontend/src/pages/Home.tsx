@@ -19,9 +19,7 @@ export const Home = () => {
   if (isAuthenticated && user) {
     const email = user?.email ?? 'none'
     const jobItems = jobData[email as keyof typeof jobData]
-
-    if (jobItems)
-      return (
+    return (
         <StyledCardsContainer>
           <HomePageHeader />
 
@@ -29,18 +27,18 @@ export const Home = () => {
           <br />
           <br />
           <br />
-          {jobItems.map((item: any) => {
-            return (
+          {jobItems ? ( jobItems.map((item: any) => (
               <JobCardNew
                 companyName={item.companyName}
                 jobTitle={item.jobTitle}
                 status={item.status}
-              />
-            )
-          })}
+              />)
+            ))
+            
+             : (<NoJobs/>)
+          }
         </StyledCardsContainer>
       )
-    else return <NoJobs />
   }
 
   return <div>None</div>
