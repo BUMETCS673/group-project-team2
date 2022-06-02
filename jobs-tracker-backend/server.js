@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const { auth } = require('express-oauth2-jwt-bearer');
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:3000"
 };
 
 app.use(cors(corsOptions));
@@ -18,9 +18,10 @@ app.use(express.urlencoded({ extended: true }));
 // database
 const db = require("./app/models");
 const checkJwt = auth({
-  audience: 'https://cs673-api-auth0.com',
-  issuerBaseURL: `http://localhost:3000/`,
+  audience: 'http://localhost:3000/',
+  issuerBaseURL: `dev-yrw0t0fy.us.auth0.com`,
 });
+app.use(checkJwt);
 db.sequelize.sync();
 // force: true will drop the table if it already exists
 // db.sequelize.sync({force: true}).then(() => {
