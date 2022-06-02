@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import Box from '@mui/material/Box'
 
 export const button = styled.button`
   border: 1px dotted yellow;
@@ -339,4 +340,18 @@ export const AboutPageContent = styled.div`
 export const NoJobsComponent = styled.div`
   margin-left: 5%;
   margin-top: 5%;
+`
+//  BasicModal
+
+export const StyledBox = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  border: 1px solid ${props => props.theme.colors.text.main};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 4px;
+
+
 `
