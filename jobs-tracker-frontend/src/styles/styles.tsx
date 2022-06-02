@@ -294,6 +294,18 @@ export const StyledAddBtn = styled.button`
     }
   }
 `
+export const StyledSaveBtn = styled.button`
+  border-radius: 30px;
+  padding: 5px 25px;
+  border: none;
+  background-color: ${props => props.theme.colors.button.save};
+  color: ${props => props.theme.colors.text.secondary};
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+  }
+`
 export const StyledDeleteBtn = styled.button`
   background-color: transparent;
   border: none;

@@ -1,7 +1,7 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import {StyledBox,  StyledModalHeader, StyledModalFooter, StyledAddBtn, StyledCloseButton} from '../../styles/styles'
+import {StyledBox,  StyledModalHeader, StyledModalFooter, StyledAddBtn, StyledCloseButton, StyledSaveBtn} from '../../styles/styles'
 import { MdAdd } from 'react-icons/md'
 import { IoCloseCircleOutline } from "react-icons/io5";
 
@@ -36,7 +36,12 @@ const BasicModal = () => {
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </Typography>
                     <StyledModalFooter>
-                        button
+                        <StyledSaveBtn>
+                            <p>
+                                Save
+                            </p>
+                        </StyledSaveBtn>
+                        
                     </StyledModalFooter>
 
                 </StyledBox>
