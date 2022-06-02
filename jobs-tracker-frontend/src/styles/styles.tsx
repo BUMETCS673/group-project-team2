@@ -281,6 +281,10 @@ export const StyledAddBtn = styled.button`
   background-color: ${(props) => props.theme.colors.button.add};
   color: ${(props) => props.theme.colors.text.secondary};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  &:hover  {
+    background-color: ${(props) => props.theme.colors.button.add};
+    opacity: 0.5;
+  }
   @media (min-width: 768px) {
     border-radius: 30px;
     padding: 5px 25px;
@@ -304,6 +308,10 @@ export const StyledSaveBtn = styled.button`
     font-size: 20px;
     font-weight: bold;
     margin: 0 5px 0 0;
+  }
+  &:hover {
+    background-color: ${props => props.theme.colors.button.save};
+    opacity: 0.5;
   }
 `
 export const StyledDeleteBtn = styled.button`
