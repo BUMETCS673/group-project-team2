@@ -40,4 +40,3 @@ export const Home = () => {
       }
       return (<div>None</div>)
     }
-    
