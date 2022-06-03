@@ -1,7 +1,7 @@
 import { StyledHomeHeaderContainer } from '../styles/styles'
 
 import SortBySelect from './SortBySelect'
-import BasicModal from './Modal/BasicModal'
+import BasicModal from './BasicModal'
 const HomePageHeader = () => (
   <StyledHomeHeaderContainer>
     <h1>Jobs</h1>
