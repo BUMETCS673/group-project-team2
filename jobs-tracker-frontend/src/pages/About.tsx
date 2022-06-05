@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AboutPageContent } from '../styles/styles'
 
-export const About: React.FC = () => {
+export default function About() {
   const history = useHistory()
 
   return (
