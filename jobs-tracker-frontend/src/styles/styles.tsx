@@ -310,7 +310,7 @@ export const StyledSaveBtn = styled.button`
     margin: 0 5px 0 0;
   }
   &:hover {
-    background-color: ${props => props.theme.colors.button.save};
+    
     opacity: 0.5;
   }
 `

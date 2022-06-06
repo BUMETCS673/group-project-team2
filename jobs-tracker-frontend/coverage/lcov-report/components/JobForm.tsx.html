@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Link.js</title>
+    <title>Code coverage report for components/JobForm.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> Link.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> JobForm.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/29</span>
+                <span class='fraction'>30/32</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">93.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>29/29</span>
+                <span class='fraction'>30/32</span>
             </div>
         
             
@@ -91,7 +91,10 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -99,55 +102,61 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import React, {useState} from 'react';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import {Formik, Field, Form, FormikHelpers} from 'formik'
+interface Values {
+    companyName: string;
+    jobTitle: string;
+}
 &nbsp;
-const STATUS = {
-  HOVERED: 'hovered',
-  NORMAL: 'normal',
-};
+const JobForm = () =&gt; {
+    &lt;div&gt;
+      &lt;Formik
+        initialValues={{
+          companyName: '',
+          jobTitle: '',
+        }}
+        onSubmit={<span class="fstat-no" title="function not covered" >(values:Values, {setSubmitting}: FormikHelpers&lt;Values&gt;) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            //dispatch action</span>
+<span class="cstat-no" title="statement not covered" >            setSubmitting(false)</span>
+        }}
+      &gt;
+        &lt;Form&gt;
+          &lt;label htmlFor="companyName"&gt;Company&lt;/label&gt;
+          &lt;Field id="companyName" name="companyName" /&gt;
 &nbsp;
-export default function Link({page, children}) {
-  const [status, setStatus] = useState(STATUS.NORMAL);
+          &lt;label htmlFor="jobTitle"&gt;Last Name&lt;/label&gt;
+          &lt;Field id="jobTitle" name="jobTitle" /&gt;
 &nbsp;
-  const onMouseEnter = () =&gt; {
-    setStatus(STATUS.HOVERED);
-  };
-&nbsp;
-  const onMouseLeave = () =&gt; {
-    setStatus(STATUS.NORMAL);
-  };
-&nbsp;
-  return (
-    &lt;a
-      className={status}
-      href={page<span class="branch-0 cbranch-no" title="branch not covered" > || '#'}</span>
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    &gt;
-      {children}
-    &lt;/a&gt;
-  );
-}</pre></td></tr></table></pre>
+          
+          &lt;button type="submit"&gt;Save&lt;/button&gt;
+        &lt;/Form&gt;
+      &lt;/Formik&gt;
+    &lt;/div&gt;
+}
+export default JobForm</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

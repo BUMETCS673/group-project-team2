@@ -8,7 +8,10 @@ import BasicModal from './BasicModal';
 describe("BasicModal component", () => {
     it('renders without crashing', () => {
         const component = renderer.create(
-            <BasicModal/>
+            <ThemeProvider>
+
+            </ThemeProvider>
+            
         )
         let tree = component.toJSON()
         expect(tree).toMatchSnapshot()
@@ -16,7 +19,7 @@ describe("BasicModal component", () => {
     
     it('has an add button that opens a modal',  () => {
         render(<BasicModal/>)
-        const button = screen.getByRole('button', {name: /New/i})
+        const button = screen.getByRole('button', {name: /add/i})
         fireEvent.click(button)
         const closeBtn = screen.getByRole('button', {name: /close-modal/i})
         expect(closeBtn).toBeInTheDocument()

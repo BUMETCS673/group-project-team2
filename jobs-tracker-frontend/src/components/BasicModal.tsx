@@ -1,10 +1,9 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
-import {StyledBox,  StyledModalHeader, StyledModalFooter, StyledAddBtn, StyledCloseButton, StyledSaveBtn} from '../styles/styles'
+import {StyledBox,  StyledModalHeader, StyledAddBtn, StyledCloseButton} from '../styles/styles'
 import { MdAdd } from 'react-icons/md'
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
 
 
 const BasicModal = () => {
@@ -13,10 +12,10 @@ const BasicModal = () => {
     const handleClose = () => setOpen(false);
     return (
         <div>
-            <button  onClick = {handleOpen}>
+            <StyledAddBtn  onClick = {handleOpen} title = "add">
                 <p>New</p>
                 <MdAdd size={25} />
-            </button>
+            </StyledAddBtn>
             <Modal
                 open = {open}
                 onClose = {handleClose}
@@ -24,11 +23,21 @@ const BasicModal = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box>
-                        <button onClick = {handleClose} title = "close-modal">
+                <StyledBox>
+                    <StyledModalHeader>
+                        <Typography id="modal-modal-title" variant="h6" component="h2">
+                            Text in a modal
+                        </Typography>
+                        <StyledCloseButton onClick = {handleClose} title = "close-modal">
                             <IoCloseCircleOutline size = {30} color= 'white' />
-                        </button>
-                </Box>
+                        </StyledCloseButton>
+                    </StyledModalHeader>
+                    <Typography id="modal-modal-description" sx={{ m: 2 }}>
+                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </Typography>
+
+                        
+                </StyledBox>
             </Modal>    
         </div>
 

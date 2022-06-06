@@ -3,19 +3,18 @@ interface Values {
     companyName: string;
     jobTitle: string;
 }
-const sleep = ms => new Promise(r => setTimeout(r, ms))
-const JobForm = ({onSubmit}) => {
-    const handleSubmit = async values= => {
-        await sleep(500)
-        onSubmit(values)
-      }
+
+const JobForm = () => {
     <div>
       <Formik
         initialValues={{
           companyName: '',
           jobTitle: '',
         }}
-        onSubmit={handleSubmit}
+        onSubmit={(values:Values, {setSubmitting}: FormikHelpers<Values>) => {
+            //dispatch action
+            setSubmitting(false)
+        }}
       >
         <Form>
           <label htmlFor="companyName">Company</label>
