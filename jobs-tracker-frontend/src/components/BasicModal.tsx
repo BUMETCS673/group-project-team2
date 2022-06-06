@@ -25,13 +25,8 @@ const BasicModal = () => {
                 aria-describedby="modal-modal-description"
             >
                 <Box>
-                        <button onClick = {handleClose} title = "close">
+                        <button onClick = {handleClose} title = "close-modal">
                             <IoCloseCircleOutline size = {30} color= 'white' />
-                        </button>
-                        <button>
-                            <p>
-                                Save
-                            </p>
                         </button>
                 </Box>
             </Modal>    
