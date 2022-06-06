@@ -1,18 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react'
 
-
-
 const User = () => {
   const { user, isAuthenticated } = useAuth0()
 
   if (isAuthenticated && user)
     return (
-      <div >
-            <h4>Info</h4>
-            <img src={user.picture}/>
-            <p>{`Hello, ${user.given_name}!`}</p>
-            <p>{user.email}</p>
-
+      <div>
+        <h4>Info</h4>
+        <img src={user.picture} />
+        <p>{`Hello, ${user.given_name}!`}</p>
+        <p>{user.email}</p>
       </div>
     )
 
