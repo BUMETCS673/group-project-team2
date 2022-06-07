@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { getDefaultNormalizer, render, RenderResult } from 'test-utils'
-import User from './User'
+import { render, RenderResult } from 'test-utils'
+import UserMenuItem from './UserMenuItem'
 
 let documentBody: RenderResult
 
@@ -9,20 +9,18 @@ jest.mock('@auth0/auth0-react', () => ({
 }))
 const mockUseAuth0 = useAuth0 as jest.Mock
 
-describe('Unit tests: <User />', () => {
+jest.mock('./Login', () => () => <div data-testid="login" />)
+
+describe('Unit tests: <UserMenuItem />', () => {
   it('renders when not authenticated', () => {
     mockUseAuth0.mockReturnValue({
       user: undefined,
       isAuthenticated: false,
     })
 
-    documentBody = render(<User />)
+    documentBody = render(<UserMenuItem />)
 
-    expect(
-      documentBody.getByText(' Not loggedIn ', {
-        normalizer: getDefaultNormalizer({ trim: false }),
-      })
-    ).toBeInTheDocument()
+    expect(documentBody.getByTestId('login')).toBeVisible()
   })
 
   it('renders when authenticated', () => {
@@ -35,11 +33,9 @@ describe('Unit tests: <User />', () => {
       isAuthenticated: true,
     })
 
-    documentBody = render(<User />)
+    documentBody = render(<UserMenuItem />)
 
-    expect(documentBody.getByText('Info')).toBeVisible()
     expect(documentBody.getByRole('img')).toBeVisible()
     expect(documentBody.getByText(`Hello, Jean!`)).toBeVisible()
-    expect(documentBody.getByText('jean@test.com')).toBeVisible()
   })
 })

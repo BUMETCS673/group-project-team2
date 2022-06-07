@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/User.tsx</title>
+    <title>Code coverage report for components/Logout.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> User.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> Logout.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>31/31</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -80,27 +80,11 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -113,49 +97,23 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useAuth0 } from '@auth0/auth0-react'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
+import { SimpleButtonLogout } from '../styles/styles'
 &nbsp;
-const User = () =&gt; {
-  const { user, isAuthenticated } = useAuth0()
+const Logout: React.FC = () =&gt; {
+  const { logout } = useAuth0()
 &nbsp;
-  if (isAuthenticated &amp;&amp; user)
-    return (
-      &lt;div&gt;
-        &lt;h4&gt;Info&lt;/h4&gt;
-        &lt;img src={user.picture} /&gt;
-        &lt;p&gt;{`Hello, ${user.given_name}!`}&lt;/p&gt;
-        &lt;p&gt;{user.email}&lt;/p&gt;
-      &lt;/div&gt;
-    )
-&nbsp;
-  return &lt;div&gt; Not loggedIn &lt;/div&gt;
+  return (
+    &lt;SimpleButtonLogout
+      onClick={<span class="fstat-no" title="function not covered" >() =&gt; logout(</span>{ returnTo: window.location.origin })}
+    &gt;
+      Logout
+    &lt;/SimpleButtonLogout&gt;
+  )
 }
 &nbsp;
-export default User
-&nbsp;
-// 1st test - check call if user authenticated
-// const {  isAuthenticated } = useAuth0()
-// if isAuthenticated {
-//   test1()
-// }
-// // 2nd test - req should fail is user unauthenticated
-// const {  isAuthenticated } = useAuth0()
-&nbsp;
-// if !isAuthenticated {
-//   test2()
-// }
+export default Logout
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -163,7 +121,7 @@ export default User
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 06 2022 22:50:59 GMT-0400 (Eastern Daylight Time)
+                at Mon Jun 06 2022 21:52:35 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

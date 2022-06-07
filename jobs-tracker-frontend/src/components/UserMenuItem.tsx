@@ -1,8 +1,8 @@
-import {UserContainer, FlexContainer} from '../styles/styles'
+import { UserContainer, FlexContainer } from '../styles/styles'
 import { useAuth0 } from '@auth0/auth0-react'
 import Login from './Login'
 import Logout from './Logout'
-
+import { LogoutRounded } from '@mui/icons-material'
 
 const UserMenuItem = () => {
   const { user, isAuthenticated } = useAuth0()
@@ -11,14 +11,14 @@ const UserMenuItem = () => {
     return (
       <FlexContainer menu>
         <UserContainer>
-            <img src={user.picture}/>
-            <p>{`Hello, ${user.given_name}!`}</p>
+          <img src={user.picture} />
+          <p>{`Hello, ${user.given_name}!`}</p>
         </UserContainer>
-        <Logout/>
+        <LogoutRounded />
       </FlexContainer>
     )
 
-  return <Login menu/>
+  return <Login menu />
 }
 
 export default UserMenuItem
