@@ -1,5 +1,7 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import {Provider} from 'react-redux' 
+import {store} from './app/store'
 
 import './index.css'
 
@@ -12,7 +14,10 @@ const root = createRoot(container) // createRoot(container!) if you use TypeScri
 root.render(
   <AuthProvider>
     <React.StrictMode>
-      <App />
+      <Provider store = {store}>
+        <App />
+      </Provider>
+      
     </React.StrictMode>
   </AuthProvider>
 )
