@@ -13,6 +13,33 @@ export const Container = styled.div`
   border: 2px solid blue;
   width: 100px;
 `
+export const Row = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+  }
+`;
+export const FormSubtitle = styled.h3`
+  color: ${props => props.theme.colors.text.main};
+  border-bottom: 1px solid ${props => props.theme.colors.text.main};
+  align-self: stretch;
+  margin: 20px;
+  padding-bottom: 10px;
+`
+export const Form = styled.form`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+export const Col = styled.div`
+margin: 10px;
+width: 50%;
+text-align: center;
+`;
+export
 interface MenuItemsProps {
   readonly menu?: boolean
 }

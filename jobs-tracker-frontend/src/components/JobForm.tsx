@@ -1,10 +1,11 @@
-import {Formik, Field, Form, FormikHelpers} from 'formik'
+import {Formik, Field,  FormikHelpers} from 'formik'
+import {Row, Col, Form, FormSubtitle } from '../styles/styles'
 interface Values {
     companyName: string;
     jobTitle: string;
 }
 
-const JobForm = () => {
+const JobForm = () => (
     <div>
       <Formik
         initialValues={{
@@ -17,16 +18,35 @@ const JobForm = () => {
         }}
       >
         <Form>
-          <label htmlFor="companyName">Company</label>
-          <Field id="companyName" name="companyName" />
+            
+                <FormSubtitle>
+                    Job info
+                </FormSubtitle>
+                
+            
+            <Row>
+                <Col>
+                <Field id="companyName" name="companyName" placeholder = "Company" />
+                </Col>
+                <Col>
+                    
+                    <Field id="jobTitle" name="jobTitle" placeholder = "Job Title" />
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    
+                    <Field as= "textarea" id="description" name="description" placeholder = "Job description..." />
+                </Col>
+            </Row>
+          
 
-          <label htmlFor="jobTitle">Last Name</label>
-          <Field id="jobTitle" name="jobTitle" />
+          
 
           
           <button type="submit">Save</button>
         </Form>
       </Formik>
     </div>
-}
+)
 export default JobForm

@@ -4,6 +4,7 @@ import {StyledBox,  StyledModalHeader, StyledAddBtn, StyledCloseButton} from '..
 import { MdAdd } from 'react-icons/md'
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Modal from '@mui/material/Modal';
+import JobForm from "./JobForm"
 
 
 const BasicModal = () => {
@@ -32,9 +33,8 @@ const BasicModal = () => {
                             <IoCloseCircleOutline size = {30} color= 'white' />
                         </StyledCloseButton>
                     </StyledModalHeader>
-                    <Typography id="modal-modal-description" sx={{ m: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
+                    
+                    <JobForm/>
 
                         
                 </StyledBox>
