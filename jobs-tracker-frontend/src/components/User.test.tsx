@@ -22,7 +22,7 @@ describe('Unit tests: <User />', () => {
       documentBody.getByText(' Not loggedIn ', {
         normalizer: getDefaultNormalizer({ trim: false }),
       })
-    ).toBeInTheDocument()
+    ).toBeVisible()
   })
 
   it('renders when authenticated', () => {
