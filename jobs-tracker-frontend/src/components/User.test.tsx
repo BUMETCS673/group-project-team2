@@ -3,8 +3,6 @@ import User from './User'
 
 let documentBody: RenderResult
 
-// cases defined two times because the useAuth0() hook is executed twice
-// tried using different implementations for each test case but haven't succeed as of now
 jest.mock('@auth0/auth0-react', () => ({
   useAuth0: jest
     .fn()
@@ -22,6 +20,8 @@ jest.mock('@auth0/auth0-react', () => ({
       },
       isAuthenticated: true,
     }),
+  // cases defined two times because the useAuth0() hook is executed twice
+  // tried using different implementations for each test case but haven't succeed as of now
 }))
 
 describe('Unit tests: <User />', () => {
@@ -29,7 +29,7 @@ describe('Unit tests: <User />', () => {
     documentBody = render(<User />)
   })
 
-  it('renders correctly when not authenticated', () => {
+  it('renders when not authenticated', () => {
     expect(
       documentBody.getByText(' Not loggedIn ', {
         normalizer: getDefaultNormalizer({ trim: false }),
@@ -37,7 +37,10 @@ describe('Unit tests: <User />', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders correctly when authenticated', () => {
-    expect(documentBody.getByText('Info')).toBeInTheDocument()
+  it('renders when authenticated', () => {
+    expect(documentBody.getByText('Info')).toBeVisible()
+    expect(documentBody.getByRole('img')).toBeVisible()
+    expect(documentBody.getByText(`Hello, Jean!`)).toBeVisible()
+    expect(documentBody.getByText('jean@test.com')).toBeVisible()
   })
 })
