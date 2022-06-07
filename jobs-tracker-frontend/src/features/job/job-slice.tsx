@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface JobState {
-    id: number,
-    userId: number,
+    id: string,
+    userId: string,
     companyName : string,
     jobTitle: string,
     description: string,
@@ -13,8 +13,8 @@ interface JobState {
 }
 
 const initialState: JobState = {
-    id: 0,
-    userId: 0,
+    id: "",
+    userId: "",
     companyName : "",
     jobTitle: "",
     description: "",
