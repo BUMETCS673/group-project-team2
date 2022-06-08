@@ -14,11 +14,16 @@ import NoJobs from '../components/Job_Components/NoJobs'
 // }
 
 export const Home = () => {
-  const { user, isAuthenticated } = useAuth0()
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   if (isAuthenticated && user) {
     const email = user?.email ?? 'none'
     const jobItems = jobData[email as keyof typeof jobData]
+    const getClaims = async () => {
+      const claims = await getAccessTokenSilently()
+      console.log(claims)
+    }
+    getClaims()
 
     if (jobItems)
       return (
