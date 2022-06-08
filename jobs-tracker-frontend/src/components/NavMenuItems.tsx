@@ -7,11 +7,11 @@ import { useAuth0 } from '@auth0/auth0-react'
 const NavMenuItems = () => {
   const { user, isAuthenticated } = useAuth0()
 
-  if (isAuthenticated)
+  if (isAuthenticated && user)
     // NavBar with All Routes for Authenticated users
     return (
       <MenuLinkGroup>
-        <div style={{ marginRight: '2rem' }}>{user?.name}</div>
+        <div style={{ marginRight: '2rem' }}>{user.name}</div>
 
         <StyledNavLink to="/home">Home</StyledNavLink>
         <StyledNavLink to="/about">About</StyledNavLink>

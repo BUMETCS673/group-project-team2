@@ -9,7 +9,7 @@ jest.mock('@auth0/auth0-react', () => ({
 }))
 const mockUseAuth0 = useAuth0 as jest.Mock
 
-jest.mock('./Login', () => () => <div data-testid="login" />)
+jest.mock('./Login', () => () => <div data-testid="Login" />)
 
 describe('Unit tests: <UserMenuItem />', () => {
   it('renders when not authenticated', () => {
@@ -20,7 +20,7 @@ describe('Unit tests: <UserMenuItem />', () => {
 
     documentBody = render(<UserMenuItem />)
 
-    expect(documentBody.getByTestId('login')).toBeVisible()
+    expect(documentBody.getByTestId('Login')).toBeVisible()
   })
 
   it('renders when authenticated', () => {
