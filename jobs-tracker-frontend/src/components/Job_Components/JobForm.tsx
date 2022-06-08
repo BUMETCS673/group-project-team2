@@ -1,5 +1,6 @@
 import {Formik, Field,  FormikHelpers} from 'formik'
-import {Row, Col, Form, FormSubtitle } from '../styles/styles'
+import {Row, Col, Form, FormSubtitle } from '../../styles/styles'
+
 interface Values {
     companyName: string;
     jobTitle: string;
@@ -38,6 +39,15 @@ const JobForm = () => (
                     
                     <Field as= "textarea" id="description" name="description" placeholder = "Job description..." />
                 </Col>
+            </Row>
+            <FormSubtitle>
+                Activities
+            </FormSubtitle>
+            <Row>
+            <Col>
+                
+                
+            </Col>
             </Row>
           
 

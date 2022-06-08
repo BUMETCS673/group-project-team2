@@ -1,37 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface UserState {
-    id: string,
-    username : string,
-    name: string,
-    email: string,
-    password: string,
-    createdAt: Date,
+    token: string
 }
 
 const initialState: UserState = {
-    id: "",
-    username : "",
-    name: "",
-    email: "",
-    password: "",
-    createdAt: new Date(),
+    token: "",
 }
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUser(state, action: PayloadAction<UserState>) {
-            state.id = action.payload.id
-            state.username = action.payload.username
-            state.name = action.payload.name
-            state.password = action.payload.password
-            state.email = action.payload.email
-            state.createdAt = action.payload.createdAt
-
+        setUserToken(state, action: PayloadAction<UserState>) {
+            state.token = action.payload.token
         }
     }
 })
-export const { setUser } = userSlice.actions
+export const { setUserToken } = userSlice.actions
 export default userSlice.reducer

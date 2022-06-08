@@ -4,7 +4,7 @@ import {StyledBox,  StyledModalHeader, StyledAddBtn, StyledCloseButton} from '..
 import { MdAdd } from 'react-icons/md'
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Modal from '@mui/material/Modal';
-import JobForm from "./JobForm"
+import JobForm from "./Job_Components/JobForm"
 
 
 const BasicModal = () => {

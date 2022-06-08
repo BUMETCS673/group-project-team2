@@ -8,8 +8,8 @@ interface JobState {
     description: string,
     status: string,
     link: string,
-    createdAt: Date,
-    updatedAt: Date, 
+    createdAt: string,
+    updatedAt: string, 
 }
 
 const initialState: JobState = {
@@ -20,8 +20,8 @@ const initialState: JobState = {
     description: "",
     status: "",
     link: "",
-    createdAt: new Date(),
-    updatedAt: new Date(), 
+    createdAt: "",
+    updatedAt: "", 
 }
 
 const jobSlice = createSlice({
