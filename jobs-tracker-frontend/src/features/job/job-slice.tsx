@@ -1,14 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface JobState {
-    ID: string,
+    ID?: string,
     companyName : string,
     jobTitle: string,
     description: string,
     status: string,
-    link: string,
-    createdAt: string,
-    updatedAt: string, 
+    createdAt?: string,
+    updatedAt?: string, 
 }
 
 const initialState: JobState = {
@@ -17,7 +16,6 @@ const initialState: JobState = {
     jobTitle: "",
     description: "",
     status: "",
-    link: "",
     createdAt: "",
     updatedAt: "", 
 }
@@ -30,7 +28,6 @@ const jobSlice = createSlice({
             state.ID = action.payload.ID
             state.companyName = action.payload.companyName
             state.jobTitle = action.payload.jobTitle
-            state.link = action.payload.link
             state.status = action.payload.status
             state.description = action.payload.description
             state.createdAt = action.payload.createdAt
