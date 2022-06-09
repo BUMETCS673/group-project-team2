@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface JobState {
     ID?: string,
-    companyName : string,
-    jobTitle: string,
+    companyname : string,
+    jobtitle: string,
     description: string,
     status: string,
     createdAt?: string,
@@ -12,8 +12,8 @@ interface JobState {
 
 const initialState: JobState = {
     ID: "",
-    companyName : "",
-    jobTitle: "",
+    companyname : "",
+    jobtitle: "",
     description: "",
     status: "",
     createdAt: "",
@@ -26,8 +26,8 @@ const jobSlice = createSlice({
     reducers: {
         setJob(state, action: PayloadAction<JobState>) {
             state.ID = action.payload.ID
-            state.companyName = action.payload.companyName
-            state.jobTitle = action.payload.jobTitle
+            state.companyname = action.payload.companyname
+            state.jobtitle = action.payload.jobtitle
             state.status = action.payload.status
             state.description = action.payload.description
             state.createdAt = action.payload.createdAt

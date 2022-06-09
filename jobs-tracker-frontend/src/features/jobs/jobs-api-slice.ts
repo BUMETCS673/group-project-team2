@@ -3,8 +3,8 @@ import type {RootState} from '../../app/store'
 
 interface Job {
     ID?: string,
-    companyName : string,
-    jobTitle: string,
+    companyname : string,
+    jobtitle: string,
     description: string,
     status: string,
     createdAt?: Date,

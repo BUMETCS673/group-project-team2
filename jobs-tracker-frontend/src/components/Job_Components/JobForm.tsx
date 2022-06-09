@@ -6,8 +6,8 @@ import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
 import {useHistory} from 'react-router-dom'
 
 interface Values {
-    companyName: string;
-    jobTitle: string;
+    companyname: string;
+    jobtitle: string;
     description: string;
     status: string;
 }
@@ -23,18 +23,18 @@ const JobForm = () =>{
     <div>
       <Formik
         initialValues={{
-          companyName: '',
-          jobTitle: '',
+          companyname: '',
+          jobtitle: '',
           description: '',
           status: '',
         }}
         validate = {(values:Values) => {
           let errors: FormikErrors<Values> = {}
-          if (!values.companyName) {
-            errors.companyName = "Required"
+          if (!values.companyname) {
+            errors.companyname = "Required"
           }
-          if (!values.jobTitle) {
-            errors.jobTitle = "Required"
+          if (!values.jobtitle) {
+            errors.jobtitle = "Required"
           }
           if (!values.status) {
             errors.status = "Required"
@@ -71,14 +71,14 @@ const JobForm = () =>{
                 <Field 
                   onChange = {handleChange}
                   onBlur = {handleBlur}
-                  value = {values.companyName}
-                  //border = {!(touched.companyName  && errors.companyName && "1px solid red" )}
-                  id="companyName" 
-                  name="companyName" 
+                  value = {values.companyname}
+                  //border = {!(touched.companyname  && errors.companyname && "1px solid red" )}
+                  id="companyname" 
+                  name="companyname" 
                   placeholder = "Company"
                  />
-                 {touched.companyName && errors.companyName && (
-                    <HelperText>{errors.companyName}</HelperText>
+                 {touched.companyname && errors.companyname && (
+                    <HelperText>{errors.companyname}</HelperText>
                   )}
                 </Col>
                 <Col>
@@ -86,14 +86,14 @@ const JobForm = () =>{
                     <Field
                       onChange = {handleChange}
                       onBlur = {handleBlur}
-                      value = {values.jobTitle}
-                      //border = {!(touched.jobTitle  && errors.jobTitle && "1px solid red")}
-                      id="jobTitle" 
-                      name="jobTitle" 
+                      value = {values.jobtitle}
+                      //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
+                      id="jobtitle" 
+                      name="jobtitle" 
                       placeholder = "Job Title" 
                     />
-                    {touched.jobTitle && errors.jobTitle && (
-                    <HelperText>{errors.jobTitle}</HelperText>
+                    {touched.jobtitle && errors.jobtitle && (
+                    <HelperText>{errors.jobtitle}</HelperText>
                   )}
                 </Col>
             </Row>

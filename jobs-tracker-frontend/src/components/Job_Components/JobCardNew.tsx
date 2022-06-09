@@ -7,9 +7,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 // import { jobData } from '../../data/mockdata'
 
 type CardProps = {
-  companyName: string
-  jobTitle: string
-  status: string
+  companyName: string;
+  jobTitle: string;
+  status: string;
 }
 const JobCardNew: React.FC<CardProps> = ({
   companyName,
@@ -26,7 +26,7 @@ const JobCardNew: React.FC<CardProps> = ({
         >
           <Typography fontSize = {16} mr= {2}>{`${companyName}`}</Typography>
           <Typography fontSize = {18}>{`|`}</Typography>
-          <Typography fontSize = {14} mr= {2} ml= {2}>{`${jobTitle} `} </Typography>
+          <Typography fontSize = {14} mr= {2} ml= {2}>{`${jobTitle}`} </Typography>
           <Typography fontSize = {18}>{`|`}</Typography>
           <Typography fontSize = {12} ml= {2}>{`${status}`}</Typography>
         </AccordionSummary>
