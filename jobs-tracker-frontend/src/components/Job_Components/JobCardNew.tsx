@@ -31,13 +31,13 @@ const JobCardNew: React.FC<CardProps> = ({
           <Typography fontSize = {12} ml= {2}>{`${status}`}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          
             <ul>
               <li>Activity 1</li>
               <li>Activity 2</li>
               <li>Activity 3</li>
             </ul>
-          </Typography>
+        
         </AccordionDetails>
       </Accordion>
     </div>

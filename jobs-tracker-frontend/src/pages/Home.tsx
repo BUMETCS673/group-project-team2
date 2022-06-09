@@ -35,7 +35,7 @@ export const Home = () => {
         {data.length !== 0 
           ? data.map((job) => (
             <JobCardNew
-              key = {job.id}
+              key = {job.ID}
               companyName={job.companyName}
               jobTitle={job.jobTitle}
               status={job.status}
