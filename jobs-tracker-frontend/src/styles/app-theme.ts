@@ -16,6 +16,7 @@ const appTheme: DefaultTheme = {
     text: {
       main: "#848080", //gray
       secondary: "#FFFFFF", //white
+      error: "#c70e1a" //red
     },
     button: {
       add: '#73D689', //green

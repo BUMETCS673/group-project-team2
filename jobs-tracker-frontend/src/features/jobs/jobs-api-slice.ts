@@ -34,14 +34,15 @@ export const apiSlice = createApi({
           return ``
         },
       }),
-      createJob: builder.mutation<Job, number | void>({
+      createJob: builder.mutation<Job, Job | void>({
           query: (job) =>({
+            headers: {
+                "Content-type" : "application/json"
+            },
               url: '',
-              method: 'post',
-              data: job,
-              headers: {
-                  "Content-type" : "application/json; charset=UTF-8"
-              }
+              method: 'POST',
+              body: job,
+              
           })
       })
     }

@@ -20,6 +20,7 @@ export const Row = styled.div`
   @media (min-width: 768px) {
       flex-direction: row;
       align-items: flex-start;
+      justify-content: space-between;
   }
 `;
 export const FormSubtitle = styled.h3`
@@ -38,6 +39,7 @@ export const Col = styled.div`
 margin: 10px;
 width: 50%;
 text-align: center;
+
 `;
 export
 interface MenuItemsProps {
@@ -423,4 +425,25 @@ export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
       : `
   margin: 10px;
   `};
+`
+
+
+//Forms
+// interface InputProps {
+//   readonly boder: string;
+// }
+// export const Field = styled.input<InputProps>`
+//   border: ${props => props.border || "none" };
+//   padding: 10px;
+//   text-align: center;
+//   height: 42px;
+//   font-size: 30px;
+//   flex-grow: 2;
+//   background-color: ${(props) => props.theme.input.backgroundColor.primary};
+
+
+// `
+export const HelperText = styled.p`
+margin: 3px 0;
+  color: ${(props) => props.theme.colors.text.error};
 `

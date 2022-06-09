@@ -1,7 +1,9 @@
-import {Formik, Field,  FormikHelpers, FormikErrors} from 'formik'
-import {Row, Col, Form, FormSubtitle } from '../../styles/styles'
+import {Formik, FormikHelpers, FormikErrors, Field} from 'formik'
+import {Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch} from '../../app/hooks'
 import { setJob }  from '../../features/job/job-slice'
+import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
+import {useHistory} from 'react-router-dom'
 
 interface Values {
     companyName: string;
@@ -11,7 +13,11 @@ interface Values {
 }
 
 const JobForm = () =>{
+  const {push} = useHistory()
   const dispatch = useAppDispatch()
+  const [createJob, data] = useCreateJobMutation()
+  console.log(data)
+  //const job = useAppSelector(state => state.job)
   
   return (
     <div>
@@ -35,9 +41,12 @@ const JobForm = () =>{
           }
           return errors
         }}
-        onSubmit={(values:Values, {setSubmitting}: FormikHelpers<Values>) => {
+        onSubmit={async (values:Values, {setSubmitting}: FormikHelpers<Values>) => {
+          console.log(values)
             dispatch(setJob(values))
+            await createJob(values)
             setSubmitting(false)
+            push('/home')
         }}
       >
         {({
@@ -63,11 +72,14 @@ const JobForm = () =>{
                   onChange = {handleChange}
                   onBlur = {handleBlur}
                   value = {values.companyName}
-                  border = {touched.companyName && errors.companyName && "1px solid red"}
+                  //border = {!(touched.companyName  && errors.companyName && "1px solid red" )}
                   id="companyName" 
                   name="companyName" 
                   placeholder = "Company"
                  />
+                 {touched.companyName && errors.companyName && (
+                    <HelperText>{errors.companyName}</HelperText>
+                  )}
                 </Col>
                 <Col>
                     
@@ -75,42 +87,51 @@ const JobForm = () =>{
                       onChange = {handleChange}
                       onBlur = {handleBlur}
                       value = {values.jobTitle}
-                      border = {touched.jobTitle && errors.jobTitle && "1px solid red"}
+                      //border = {!(touched.jobTitle  && errors.jobTitle && "1px solid red")}
                       id="jobTitle" 
                       name="jobTitle" 
                       placeholder = "Job Title" 
                     />
+                    {touched.jobTitle && errors.jobTitle && (
+                    <HelperText>{errors.jobTitle}</HelperText>
+                  )}
                 </Col>
             </Row>
             <Row>
                 <Col>
                     
                     <Field 
-                      as= "textarea" 
+                      as = "textarea"
                       onChange = {handleChange}
                       onBlur = {handleBlur}
                       value = {values.description}
-                      border = {touched.description && errors.description && "1px solid red"}
                       id="description" 
                       name="description" 
                       placeholder = "Job description..." 
                     />
+
                 </Col>
+
                 <Col>
-                    
-                    <Field 
-                      as= "select" 
+              
+                    <Field name  = "status" onChange = {handleChange} placeholder = "Status"></Field>
+                    {/* <Field 
+                      component = "select"
                       onChange = {handleChange}
-                      value = {values.status}
-                      border = {touched.status && errors.status && "1px solid red"}
-                      id="status" 
+                      
+                      //border = {!(touched.status  && errors.status && "1px solid red")}
+                       
                       name="status" 
-                      placeholder = "Select status..." 
+                      
+                      
                     >
                       <option value = "in progress">In progress</option>
-                      <option value = "completed process">Completed process</option>
+                      <option  value = "completed process">Completed process</option>
                       <option value = "received offer">Received Offer</option>
-                    </Field>
+                    </Field> */}
+                    {touched.status && errors.status && (
+                    <HelperText>{errors.status}</HelperText>
+                  )}
                 </Col>
             </Row>
             <FormSubtitle>
