@@ -12,7 +12,7 @@ import { ThemeProvider } from 'styled-components'
 
 describe("JobForm component", () => {
     it('renders without crashing', () => {
-        const component = renderer.create(
+        render(
             <Provider store = {store}>
                 <ThemeProvider theme = {appTheme}>
                     <JobForm/>
@@ -21,10 +21,9 @@ describe("JobForm component", () => {
             </Provider>
             
         )
-        let tree = component.toJSON()
-        expect(tree).toMatchSnapshot()
+        
     });
-    it("shows validation on blur", async () => {
+    it("shows company validation on blur", async () => {
         const {getByTestId} = render(
                 <Provider store = {store}>
                     <ThemeProvider theme = {appTheme}>
@@ -37,6 +36,21 @@ describe("JobForm component", () => {
         await waitFor( () => {
             expect(getByTestId("companynameError")).not.toBe(null)
             expect(getByTestId("companynameError")).toHaveTextContent("Required")
+        })
+    }) 
+    it("shows jobtitle validation on blur", async () => {
+        const {getByTestId} = render(
+                <Provider store = {store}>
+                    <ThemeProvider theme = {appTheme}>
+                        <JobForm  />
+                    </ThemeProvider>
+                    
+                </Provider>)
+        const input = getByTestId('jobtitle')
+        fireEvent.blur(input)
+        await waitFor( () => {
+            expect(getByTestId("jobtitleError")).not.toBe(null)
+            expect(getByTestId("jobtitleError")).toHaveTextContent("Required")
         })
     }) 
     
