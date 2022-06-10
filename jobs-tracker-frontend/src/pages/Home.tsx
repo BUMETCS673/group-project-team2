@@ -15,10 +15,12 @@ export const Home = () => {
     const getClaims = async () => {
       const claims = await getAccessTokenSilently()
       console.log('token', claims)
-      dispatch(setUserToken({token: claims}))
+      dispatch(setUserToken(claims))
+
     }
-    getClaims()}
-  }, [isAuthenticated])
+    getClaims()
+  }
+  }, [dispatch, isAuthenticated])
   const userToken = useAppSelector(state => state.user.token)
   console.log("userToken", userToken)
   console.log("userToken length", userToken.length)

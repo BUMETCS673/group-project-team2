@@ -34,7 +34,7 @@ const BasicModal = () => {
                         </StyledCloseButton>
                     </StyledModalHeader>
                     
-                    <JobForm/>
+                    <JobForm onHandleClose = {handleClose}/>
 
                         
                 </StyledBox>

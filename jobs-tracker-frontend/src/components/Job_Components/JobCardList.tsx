@@ -2,12 +2,15 @@ import {useEffect} from 'react'
 import { useFetchJobsQuery } from '../../features/api/api-slice'
 import JobCardNew from './JobCardNew'
 import NoJobs from './NoJobs'
+import {useAppDispatch} from '../../app/hooks'
+import { receiveJobs } from '../../features/user/user-slice'
 
 const JobCardList = () => {
     const {data = []} = useFetchJobsQuery()
+    const dispatch = useAppDispatch()
     useEffect(()=> {
-        
-      }, [data])
+        dispatch(receiveJobs(data))
+      }, [dispatch, data])
       console.log(data)
     return (
         <div>

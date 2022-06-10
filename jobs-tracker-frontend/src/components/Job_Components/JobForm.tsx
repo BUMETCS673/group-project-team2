@@ -11,8 +11,12 @@ interface Values {
     description: string;
     status: string;
 }
+interface Props {
+  onHandleClose: () => void,
+}
 
-const JobForm = () =>{
+
+const JobForm = (props:Props): JSX.Element =>{
   const dispatch = useAppDispatch()
   const [createJob, data] = useCreateJobMutation()
   console.log("data: ", data)
@@ -44,7 +48,10 @@ const JobForm = () =>{
           console.log(values)
             dispatch(setJob(values))
             await createJob(values)
+            
             setSubmitting(false)
+            props.onHandleClose()
+            
             
         }}
       >
