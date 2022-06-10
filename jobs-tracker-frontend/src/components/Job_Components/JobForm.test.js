@@ -24,31 +24,22 @@ describe("JobForm component", () => {
         let tree = component.toJSON()
         expect(tree).toMatchSnapshot()
     });
+    it("shows validation on blur", async () => {
+        const {getByTestId} = render(
+                <Provider store = {store}>
+                    <ThemeProvider theme = {appTheme}>
+                        <JobForm  />
+                    </ThemeProvider>
+                    
+                </Provider>)
+        const input = getByTestId('companyname')
+        fireEvent.blur(input)
+        await waitFor( () => {
+            expect(getByTestId("companynameError")).not.toBe(null)
+            expect(getByTestId("companynameError")).toHaveTextContent("Required")
+        })
+    }) 
     
-    it('renders and submits a formik form', async() => {
-        const handleSubmit = jest.fn()
-        render(
-        <Provider store = {store}>
-            <ThemeProvider theme = {appTheme}>
-                <JobForm onSubmit={handleSubmit} />
-            </ThemeProvider>
-            
-        </Provider>)
-        
-
-        await fireEvent.input(screen.getByTestId('companyname', 'Amazon'))
-        await fireEvent.input(screen.getByTestId('jobtitle', 'Software Engineer'))
-        await fireEvent.input(screen.getByTestId( 'status', 'in progress'))
-
-        await fireEvent.click(screen.getByRole('button', {name: /save/i}))
-
-        await waitFor(() =>
-            expect(handleSubmit).toHaveBeenCalledWith({
-            companyname: 'Amazon',
-            jobtitle: 'Software Engineer',
-            status: 'in progress',
-            }),
-        )
-      })
+    
     
 })

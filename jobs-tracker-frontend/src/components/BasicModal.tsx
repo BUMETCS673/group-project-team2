@@ -13,7 +13,7 @@ const BasicModal = () => {
     const handleClose = () => setOpen(false);
     return (
         <div>
-            <StyledAddBtn  onClick = {handleOpen} title = "add">
+            <StyledAddBtn  onClick = {handleOpen} data-testid = "add-job-btn">
                 <p>New</p>
                 <MdAdd size={25} />
             </StyledAddBtn>
@@ -29,7 +29,7 @@ const BasicModal = () => {
                         <Typography id="modal-modal-title" variant="h6" component="h2">
                             Text in a modal
                         </Typography>
-                        <StyledCloseButton onClick = {handleClose} title = "close-modal">
+                        <StyledCloseButton onClick = {handleClose} data-testid = "close-modal-btn">
                             <IoCloseCircleOutline size = {30} color= 'white' />
                         </StyledCloseButton>
                     </StyledModalHeader>

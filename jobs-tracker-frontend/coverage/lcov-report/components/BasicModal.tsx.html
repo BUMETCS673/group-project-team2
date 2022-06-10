@@ -32,14 +32,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -117,57 +117,58 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react'
 import Typography from '@mui/material/Typography';
 import {StyledBox,  StyledModalHeader, StyledAddBtn, StyledCloseButton} from '../styles/styles'
 import { MdAdd } from 'react-icons/md'
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Modal from '@mui/material/Modal';
+import JobForm from "./Job_Components/JobForm"
 &nbsp;
 &nbsp;
 const BasicModal = () =&gt; {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = <span class="fstat-no" title="function not covered" >() =&gt; setOpen(</span>true);
-    const handleClose = <span class="fstat-no" title="function not covered" >() =&gt; setOpen(</span>false);
+    const handleOpen = () =&gt; setOpen(true);
+    const handleClose = () =&gt; setOpen(false);
     return (
         &lt;div&gt;
-            &lt;StyledAddBtn  onClick = {handleOpen} title = "add"&gt;
+            &lt;StyledAddBtn  onClick = {handleOpen} data-testid = "add-job-btn"&gt;
                 &lt;p&gt;New&lt;/p&gt;
                 &lt;MdAdd size={25} /&gt;
             &lt;/StyledAddBtn&gt;
@@ -183,13 +184,12 @@ const BasicModal = () =&gt; {
                         &lt;Typography id="modal-modal-title" variant="h6" component="h2"&gt;
                             Text in a modal
                         &lt;/Typography&gt;
-                        &lt;StyledCloseButton onClick = {handleClose} title = "close-modal"&gt;
+                        &lt;StyledCloseButton onClick = {handleClose} data-testid = "close-modal-btn"&gt;
                             &lt;IoCloseCircleOutline size = {30} color= 'white' /&gt;
                         &lt;/StyledCloseButton&gt;
                     &lt;/StyledModalHeader&gt;
-                    &lt;Typography id="modal-modal-description" sx={{ m: 2 }}&gt;
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    &lt;/Typography&gt;
+                    
+                    &lt;JobForm/&gt;
 &nbsp;
                         
                 &lt;/StyledBox&gt;
@@ -205,7 +205,7 @@ export default BasicModal</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 06 2022 11:56:03 GMT-0400 (Eastern Daylight Time)
+                at Fri Jun 10 2022 16:52:41 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

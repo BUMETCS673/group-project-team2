@@ -77,7 +77,7 @@ const JobForm = () =>{
                   placeholder = "Company"
                  />
                  {touched.companyname && errors.companyname && (
-                    <HelperText>{errors.companyname}</HelperText>
+                    <HelperText data-testid="companynameError" >{errors.companyname}</HelperText>
                   )}
                 </Col>
                 <Col>
@@ -92,7 +92,7 @@ const JobForm = () =>{
                       placeholder = "Job Title" 
                     />
                     {touched.jobtitle && errors.jobtitle && (
-                    <HelperText>{errors.jobtitle}</HelperText>
+                    <HelperText data-testid="jobtitleError" >{errors.jobtitle}</HelperText>
                   )}
                     </Label>
                     
