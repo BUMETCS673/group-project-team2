@@ -10,10 +10,10 @@ export { useAuth }
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   return (
     <Auth0Provider
-      domain="dev-yrw0t0fy.us.auth0.com"
-      clientId="lqxtKBdDoUHJjdAKOTTQAFWdN5SnFkvc"
+      domain="dev-bhv3f-9t.us.auth0.com"
+      clientId="uPevbJui7fFgPR6Kr77GvgdoJasVG5nl"
       redirectUri="http://localhost:3000/home"
-      audience="https://cs673-api-auth0.com"
+      audience="https://dev-bhv3f-9t.us.auth0.com/api/v2/"
     >
     <AxiosInterceptorProvider>
     <CommonAuthProvider>
