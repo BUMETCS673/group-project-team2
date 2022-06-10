@@ -1,17 +1,25 @@
-const { authJwt } = require("../middleware");
-const controller = require("../controllers/user.controller");
+const users = require("../controllers/user.controller");
 
-module.exports = function(app,checkJwt) {
+module.exports = function(app) {
 
-  // app.use(function(req, res, next) {
-  //   res.header(
-  //     "Access-Control-Allow-Headers",
-  //     "x-access-token, Origin, Content-Type, Accept"
-  //   );
-  //   next();
-  // });
+  var router = require("express").Router();
+  // Create a new Job
+  router.post("/users", users.create);
 
-  app.get("/test", controller.allAccess);
+  // Retrieve all Jobs
+  router.get("/users", users.findAll);
 
-  app.get("/user", controller.findOne);
+  // Retrieve a single Job with id
+  router.get("/users/:id", users.findOne);
+
+  // Update a Job with id
+  router.put("/users/:id", users.update);
+
+  // Delete a Job with id
+  router.delete("/users/:id", users.delete);
+
+  // Delete all Jobs
+  router.delete("/users", users.deleteAll);
+
+  app.use('/users', router);
 };

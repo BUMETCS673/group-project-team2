@@ -1,6 +1,6 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import React, { useEffect, useState } from 'react';
-import axios, { AxiosRequestConfig } from 'axios';
+import { useAuth0 } from '@auth0/auth0-react'
+import React, { useEffect, useState } from 'react'
+import axios, { AxiosRequestConfig } from 'axios'
 
 const AxiosInterceptorContext = React.createContext<{ isTokenSet: boolean }>({ isTokenSet: false });
 
@@ -35,8 +35,8 @@ export const AxiosInterceptorProvider = ({ children }: AxiosInterceptorProviderP
 
   useEffect(() => {
     const getAccessToken = async () => {
-      const audience = "https://cs673-api-auth0.com"
-      const accessToken = await getAccessTokenSilently({ audience });
+      // const audience="https://dev-bhv3f-9t.us.auth0.com/api/v2/"
+      const accessToken = await getAccessTokenSilently();
       await setAxiosTokenInterceptor(accessToken);
       setIsTokenSet(true);
     };

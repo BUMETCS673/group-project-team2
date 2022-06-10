@@ -1,8 +1,9 @@
 const express = require("express");
+const { expressjwt: jwt } = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 const cors = require("cors");
-
+const _ = require('lodash');
 const app = express();
-const { auth } = require('express-oauth2-jwt-bearer');
 var corsOptions = {
   origin: "http://localhost:3000"
 };
@@ -17,10 +18,21 @@ app.use(express.urlencoded({ extended: true }));
 
 // database
 const db = require("./app/models");
-const checkJwt = auth({
-  audience: 'http://localhost:3000/',
-  issuerBaseURL: `dev-yrw0t0fy.us.auth0.com`,
-});
+
+const checkJwt = jwt({
+  // Dynamically provide a signing key based on the kid in the header and the signing keys provided by the JWKS endpoint
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://dev-bhv3f-9t.us.auth0.com/.well-known/jwks.json`
+  }),
+
+  // Validate the audience and the issuer
+  audience: 'https://dev-bhv3f-9t.us.auth0.com/api/v2/',
+  issuer: 'https://dev-bhv3f-9t.us.auth0.com/',
+  algorithms: [ 'RS256' ]
+});;
 app.use(checkJwt);
 db.sequelize.sync();
 // force: true will drop the table if it already exists
@@ -35,9 +47,9 @@ app.get("/", (req, res) => {
 });
 
 // routes
-require('./app/routes/auth.routes')(app,checkJwt);
-require('./app/routes/user.routes')(app,checkJwt);
-require('./app/routes/job.routes')(app,checkJwt);
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
+require('./app/routes/job.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
