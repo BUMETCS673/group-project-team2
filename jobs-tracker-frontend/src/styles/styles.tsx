@@ -447,3 +447,10 @@ export const HelperText = styled.p`
 margin: 3px 0;
   color: ${(props) => props.theme.colors.text.error};
 `
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  font-size: 0.8em;
+  position: relative;
+`

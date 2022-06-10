@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for styles/app-theme.ts</title>
+    <title>Code coverage report for features/jobs/jobs-api-slice.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">styles</a> app-theme.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">features/jobs</a> jobs-api-slice.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">86.53% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>45/45</span>
+                <span class='fraction'>45/52</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">86.53% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>45/45</span>
+                <span class='fraction'>45/52</span>
             </div>
         
             
@@ -108,7 +108,14 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -129,6 +136,19 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -147,57 +167,58 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { DefaultTheme } from "styled-components";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import type {RootState} from '../../app/store'
 &nbsp;
-const appTheme: DefaultTheme = {
-  colors: {
-      nav: {
-          backgroundColor:"rgba(0, 0, 0, 0.83)", //translucent black
-      },
-    primary: {
-      main: "#80D0C2", //aquagreen
-      translucent: "rgba(128, 208, 194, 0.1)", //translucent aquagreen
+interface Job {
+    ID?: string,
+    companyname : string,
+    jobtitle: string,
+    description: string,
+    status: string,
+    createdAt?: Date,
+    updatedAt?: Date, 
+}
+// const token =
+//   'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9aRXppaDlYaUdBR21WYW9NR2JqVCJ9.eyJodHRwczovL2NzNjczand0YmFja2VuZC5jb20vZW1haWwiOiJjaGlubWF5eUBidS5lZHUiLCJpc3MiOiJodHRwczovL2Rldi15cncwdDBmeS51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDU1NTQ5MTYxMzk0MzgzNjIxNDIiLCJhdWQiOlsiaHR0cHM6Ly9jczY3My1hcGktYXV0aDAuY29tIiwiaHR0cHM6Ly9kZXYteXJ3MHQwZnkudXMuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTY1NDY1NzU5NSwiZXhwIjoxNjU0NzQzOTk1LCJhenAiOiJscXh0S0JkRG9VSEpqZEFLT1RUUUFGV2RONVNuRmt2YyIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwifQ.Ur3x6XsPJsdm4pjKpkttPPPXJ0mJMtyxlM-re8qMa8P7dYxu7N2bHdNrNWFRsBMjQ0NKiamhww0GJ3Z-jqRsO6sXQhfQEF-5k7oVxjPwtouJtA-7Kb5kZOkc7i_-a5BRKnMVQcAPLYRUnTztBDMvtRwUv0ZTsQKFS-6HQthQrIptyoJh4RyrstZxuOqPs5S3jk2Jtk7tCGB99LzTOAtoFucjula1hssBAPP4uH76KDZl7dvVmkuUirwjsUO5WPxmu1eMkqGiUD6U7GNAyapF7NoVeEBb3rnzP0c8cxNSlBzbl2uOmBDB6aLRKoRXMfqM1puU3jqhpc14HNlUB7TrIw'
+&nbsp;
+export const apiSlice = createApi({
+  reducerPath: 'api',
+  baseQuery: fetchBaseQuery({
+    baseUrl:
+      'https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_job',
+    prepareHeaders: <span class="fstat-no" title="function not covered" >(headers, {getState}) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      const token = (getState() as RootState).user.token</span>
+<span class="cstat-no" title="statement not covered" >      console.log('token 2', token)</span>
+<span class="cstat-no" title="statement not covered" >      if (token) {</span>
+<span class="cstat-no" title="statement not covered" >        headers.set('Authorization', `Bearer ${token}`)</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
+<span class="cstat-no" title="statement not covered" >      return headers</span>
     },
-    secondary: {
-      main: "#EF9C4B",
-      dark: "#FD8030",
-    },
-    text: {
-      main: "#848080", //gray
-      secondary: "#FFFFFF", //white
-      error: "#c70e1a" //red
-    },
-    button: {
-      add: '#73D689', //green
-      save: "#3DA8E4", //blue
-    },
-    background: {
-      primary: "white",
-      secondary: {
-        light: "#F9F9F9", //light gray
-        dark: "#dbdbdb", // darker gray
-      },
+  }),
+  endpoints(builder) {
+    return {
+      fetchJobs: builder.query&lt;Job[], number | void&gt;({
+        query<span class="fstat-no" title="function not covered" >() {</span>
+<span class="cstat-no" title="statement not covered" >          return ``</span>
+        },
+      }),
+      createJob: builder.mutation&lt;Job, Job | void&gt;({
+          query: <span class="fstat-no" title="function not covered" >(job) =&gt;({</span>
+            headers: {
+                "Content-type" : "application/json"
+            },
+              url: '',
+              method: 'POST',
+              body: job,
+              
+          })
+      })
     }
   },
-  input: {
-    borderRadius: "10px",
-    backgroundColor: {
-      primary: "#F8F8F8", // little grayish white
-      secondary: 'rgba(239, 223, 75, .23)',
-      
-    },
-    opacity: 0.4,
-  },
+})
 &nbsp;
-};
-&nbsp;
-export { appTheme };
+export const { useFetchJobsQuery, useCreateJobMutation } = apiSlice
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -207,14 +228,14 @@ export { appTheme };
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at Thu Jun 09 2022 18:54:43 GMT-0400 (Eastern Daylight Time)
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

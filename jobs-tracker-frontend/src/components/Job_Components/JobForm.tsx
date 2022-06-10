@@ -1,9 +1,9 @@
 import {Formik, FormikHelpers, FormikErrors, Field} from 'formik'
-import {Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
+import {Row, Col, Form, FormSubtitle, HelperText, Label } from '../../styles/styles'
 import { useAppDispatch} from '../../app/hooks'
 import { setJob }  from '../../features/job/job-slice'
 import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
-import {useHistory} from 'react-router-dom'
+
 
 interface Values {
     companyname: string;
@@ -13,7 +13,6 @@ interface Values {
 }
 
 const JobForm = () =>{
-  const {push} = useHistory()
   const dispatch = useAppDispatch()
   const [createJob, data] = useCreateJobMutation()
   console.log(data)
@@ -46,7 +45,7 @@ const JobForm = () =>{
             dispatch(setJob(values))
             await createJob(values)
             setSubmitting(false)
-            push('/home')
+            
         }}
       >
         {({
@@ -73,7 +72,7 @@ const JobForm = () =>{
                   onBlur = {handleBlur}
                   value = {values.companyname}
                   //border = {!(touched.companyname  && errors.companyname && "1px solid red" )}
-                  id="companyname" 
+                  data-testid="companyname" 
                   name="companyname" 
                   placeholder = "Company"
                  />
@@ -82,39 +81,45 @@ const JobForm = () =>{
                   )}
                 </Col>
                 <Col>
-                    
+                    <Label>
                     <Field
                       onChange = {handleChange}
                       onBlur = {handleBlur}
                       value = {values.jobtitle}
                       //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
-                      id="jobtitle" 
+                      data-testid="jobtitle" 
                       name="jobtitle" 
                       placeholder = "Job Title" 
                     />
                     {touched.jobtitle && errors.jobtitle && (
                     <HelperText>{errors.jobtitle}</HelperText>
                   )}
+                    </Label>
+                    
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    
+                    <Label>
                     <Field 
                       as = "textarea"
                       onChange = {handleChange}
                       onBlur = {handleBlur}
                       value = {values.description}
-                      id="description" 
+                      data-testid="description" 
                       name="description" 
                       placeholder = "Job description..." 
                     />
+                    </Label>
+                    
 
                 </Col>
 
                 <Col>
-              
-                    <Field name  = "status" onChange = {handleChange} placeholder = "Status"></Field>
+                      <Label>
+                        <Field name  = "status" onChange = {handleChange} placeholder = "Status" data-testid = "status"></Field>
+                      </Label>
+                    
                     {/* <Field 
                       component = "select"
                       onChange = {handleChange}

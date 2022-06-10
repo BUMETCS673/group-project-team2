@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobForm component renders without crashing 1`] = `
+<div>
+  <form
+    className="sc-eCYdqJ eMRzOJ"
+    onSubmit={[Function]}
+  >
+    <h3
+      className="sc-hKMtZM HGvDf"
+    >
+      Job info
+    </h3>
+    <div
+      className="sc-dkzDqf djoXzZ"
+    >
+      <div
+        className="sc-jSMfEi ezyuOj"
+      >
+        <input
+          id="companyname"
+          name="companyname"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Company"
+          value=""
+        />
+      </div>
+      <div
+        className="sc-jSMfEi ezyuOj"
+      >
+        <label
+          className="sc-himrzO bBCmOf"
+        >
+          <input
+            id="jobtitle"
+            name="jobtitle"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Job Title"
+            value=""
+          />
+        </label>
+      </div>
+    </div>
+    <div
+      className="sc-dkzDqf djoXzZ"
+    >
+      <div
+        className="sc-jSMfEi ezyuOj"
+      >
+        <label
+          className="sc-himrzO bBCmOf"
+        >
+          <textarea
+            id="description"
+            name="description"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Job description..."
+            value=""
+          />
+        </label>
+      </div>
+      <div
+        className="sc-jSMfEi ezyuOj"
+      >
+        <label
+          className="sc-himrzO bBCmOf"
+        >
+          <input
+            name="status"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Status"
+            value=""
+          />
+        </label>
+      </div>
+    </div>
+    <h3
+      className="sc-hKMtZM HGvDf"
+    >
+      Activities
+    </h3>
+    <div
+      className="sc-dkzDqf djoXzZ"
+    >
+      <div
+        className="sc-jSMfEi ezyuOj"
+      />
+    </div>
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
