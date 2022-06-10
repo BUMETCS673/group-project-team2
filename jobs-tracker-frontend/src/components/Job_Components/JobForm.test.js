@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import {store} from '../../app/store'
 import { appTheme } from '../../styles/app-theme'
 import { ThemeProvider } from 'styled-components'
-import { useFetchJobsQuery} from '../../features/jobs/jobs-api-slice'
+
 
 
 describe("JobForm component", () => {

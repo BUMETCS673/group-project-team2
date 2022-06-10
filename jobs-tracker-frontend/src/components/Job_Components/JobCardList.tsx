@@ -1,5 +1,5 @@
 import {useEffect} from 'react'
-import { useFetchJobsQuery } from '../../features/jobs/jobs-api-slice'
+import { useFetchJobsQuery } from '../../features/api/api-slice'
 import JobCardNew from './JobCardNew'
 import NoJobs from './NoJobs'
 

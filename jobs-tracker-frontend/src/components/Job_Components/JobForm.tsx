@@ -2,7 +2,7 @@ import {Formik, FormikHelpers, FormikErrors, Field} from 'formik'
 import {Row, Col, Form, FormSubtitle, HelperText, Label } from '../../styles/styles'
 import { useAppDispatch} from '../../app/hooks'
 import { setJob }  from '../../features/job/job-slice'
-import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
+import { useCreateJobMutation } from '../../features/api/api-slice'
 
 
 interface Values {
@@ -15,7 +15,7 @@ interface Values {
 const JobForm = () =>{
   const dispatch = useAppDispatch()
   const [createJob, data] = useCreateJobMutation()
-  console.log(data)
+  console.log("data: ", data)
   //const job = useAppSelector(state => state.job)
   
   return (
