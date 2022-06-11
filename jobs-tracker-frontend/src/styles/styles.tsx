@@ -18,14 +18,14 @@ export const Row = styled.div`
   flex-direction: column;
   align-items: center;
   @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
   }
-`;
+`
 export const FormSubtitle = styled.h3`
-  color: ${props => props.theme.colors.text.main};
-  border-bottom: 1px solid ${props => props.theme.colors.text.main};
+  color: ${(props) => props.theme.colors.text.main};
+  border-bottom: 1px solid ${(props) => props.theme.colors.text.main};
   align-self: stretch;
   margin: 20px;
   padding-bottom: 10px;
@@ -34,15 +34,13 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-`;
+`
 export const Col = styled.div`
-margin: 10px;
-width: 50%;
-text-align: center;
-
-`;
-export
-interface MenuItemsProps {
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+`
+export interface MenuItemsProps {
   readonly menu?: boolean
 }
 export const FlexContainer = styled.div<MenuItemsProps>`
@@ -151,12 +149,11 @@ export const StyledSidebar = styled.div<SidebarProps>`
   }
 `
 
-// job cards 
+// job cards
 
 export const StyledCardsContainer = styled.div`
   margin: auto;
   background-color: ${(props) => props.theme.colors.background.secondary.light};
-  height: 100vh;
   padding: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
@@ -193,8 +190,7 @@ export const StyledCardFooter = styled.div`
   }
 `
 
-// Home page 
-
+// Home page
 
 export const StyledHomeHeaderContainer = styled.div`
   display: flex;
@@ -209,7 +205,6 @@ export const StyledHomeHeaderContainer = styled.div`
     color: ${(props) => props.theme.colors.text.main};
   }
 `
-
 
 // Landing Page CSS Components
 
@@ -263,22 +258,21 @@ export const StyledBox = styled(Box)`
   width: 80%;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: ${props => props.theme.colors.background.primary};
+  background-color: ${(props) => props.theme.colors.background.primary};
   @media (min-width: 768px) {
     width: 600px;
   }
 `
 export const StyledModalHeader = styled.div`
-  background-color : ${props => props.theme.colors.primary.main};
-  color: ${props => props.theme.colors.text.secondary};
+  background-color: ${(props) => props.theme.colors.primary.main};
+  color: ${(props) => props.theme.colors.text.secondary};
   border-radius: 5px 5px 0 0;
   padding: 10px;
 `
 export const StyledModalFooter = styled(StyledModalHeader)`
-  background-color : ${props => props.theme.colors.background.secondary.dark};
+  background-color: ${(props) => props.theme.colors.background.secondary.dark};
   border-radius: 0 0 5px 5px;
   text-align: right;
-  
 `
 
 // Buttons
@@ -310,7 +304,7 @@ export const StyledAddBtn = styled.button`
   background-color: ${(props) => props.theme.colors.button.add};
   color: ${(props) => props.theme.colors.text.secondary};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  &:hover  {
+  &:hover {
     background-color: ${(props) => props.theme.colors.button.add};
     opacity: 0.5;
   }
@@ -331,15 +325,14 @@ export const StyledSaveBtn = styled.button`
   border-radius: 30px;
   padding: 5px 25px;
   border: none;
-  background-color: ${props => props.theme.colors.button.save};
-  color: ${props => props.theme.colors.text.secondary};
+  background-color: ${(props) => props.theme.colors.button.save};
+  color: ${(props) => props.theme.colors.text.secondary};
   p {
     font-size: 20px;
     font-weight: bold;
     margin: 0 5px 0 0;
   }
   &:hover {
-    
     opacity: 0.5;
   }
 `
@@ -427,7 +420,6 @@ export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
   `};
 `
 
-
 //Forms
 // interface InputProps {
 //   readonly boder: string;
@@ -441,9 +433,8 @@ export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
 //   flex-grow: 2;
 //   background-color: ${(props) => props.theme.input.backgroundColor.primary};
 
-
 // `
 export const HelperText = styled.p`
-margin: 3px 0;
+  margin: 3px 0;
   color: ${(props) => props.theme.colors.text.error};
 `
