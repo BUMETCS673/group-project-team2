@@ -9,7 +9,7 @@ export const About: React.FC = () => {
     <Fragment>
       <AboutPageContent>
         <h1>About</h1>
-        <p>
+        <p data-testid="content">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
           possimus doloribus error cumque autem asperiores, ullam deserunt
           quidem omnis doloremque itaque eius eaque sint facilis unde tenetur

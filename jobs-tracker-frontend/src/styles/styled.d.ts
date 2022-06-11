@@ -9,6 +9,7 @@ declare module 'styled-components' {
     }
       primary: {
           main: string;
+          translucent: string,
     }
       secondary: {
           main: string;
@@ -18,10 +19,16 @@ declare module 'styled-components' {
           main: string;
           secondary: string;
       }
+      button: {
+        add: string,
+        save: string,
+      }
       background: {
         primary: string;
-        secondary: string;
-        addbtn: string;
+        secondary: {
+          light: string;
+          dark :string;
+        }
       }
     
     }

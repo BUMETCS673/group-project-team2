@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import Box from '@mui/material/Box'
 
 export const button = styled.button`
   border: 1px dotted yellow;
@@ -29,6 +30,9 @@ export const FlexContainer = styled.div<MenuItemsProps>`
 export const FlexRowContainer = styled.div`
   display: flex;
 `
+
+// Navbar
+
 export const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -37,63 +41,6 @@ export const StyledNav = styled.nav`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 1;
 `
-export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
-  border-radius: 20px;
-  font-size: 20px;
-  padding: 5px 30px;
-  font-weight: bold;
-  background-color: ${(props) => props.theme.colors.primary.main};
-  color: ${(props) => props.theme.colors.text.secondary};
-  border: none;
-  ${(props) =>
-    props.menu
-      ? `
-  margin: 0px;
-  @media (min-width: 768px) {
-    margin: 0 20px;
-  }
-  `
-      : `
-  margin: 10px;
-  `};
-`
-
-// Logout Button on header
-
-export const SimpleButtonLogout = styled.button`
-  background-color: transparent;
-  color: ${(props) => props.theme.colors.primary.main};
-  font-size: 20px;
-  text-align: left;
-  border: none;
-  &:hover {
-    /* font-size: 25px; */
-    background-color: transparent;
-    opacity: 0.5;
-  }
-  @media (min-width: 768px) {
-    margin-left: 10px;
-  }
-`
-
-// Login Button on header
-
-export const SimpleButtonLogin = styled.button`
-  background-color: transparent;
-  color: white;
-  font-size: 20px;
-  text-align: left;
-  border: none;
-  &:hover {
-    /* font-size: 25px; */
-    background-color: transparent;
-    opacity: 0.5;
-  }
-  @media (min-width: 768px) {
-    margin-left: 10px;
-  }
-`
-
 export const Logo = styled(NavLink)`
   text-align: center;
   margin-left: 20px;
@@ -108,25 +55,7 @@ export const Collapse = styled.div`
     display: flex;
   }
 `
-export const StyledMenuButton = styled.button`
-  background-color: transparent;
-  display: flex;
-  align-self: center;
-  border: 2px solid ${(props) => props.theme.colors.text.main};
-  color: ${(props) => props.theme.colors.text.main};
-  padding: 0px;
-  border-radius: 10px;
-  margin-right: 30px;
-  &:hover {
-    background-color: transparent;
-    color: ${(props) => props.theme.colors.text.secondary};
-    border-color: ${(props) => props.theme.colors.text.secondary};
-    opacity: 0.9;
-  }
-  @media (min-width: 768px) {
-    display: none;
-  }
-`
+
 export const MenuLinkGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -193,22 +122,11 @@ export const StyledSidebar = styled.div<SidebarProps>`
   }
 `
 
-export const StyledCloseButton = styled.button`
-  background-color: transparent;
-  border: none;
-  color: ${(props) => props.theme.colors.text.main};
-  align-self: flex-end;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  &:hover {
-    background-color: transparent;
-    color: ${(props) => props.theme.colors.text.secondary};
-  }
-`
+// job cards 
+
 export const StyledCardsContainer = styled.div`
   margin: auto;
-  background-color: ${(props) => props.theme.colors.background.secondary};
+  background-color: ${(props) => props.theme.colors.background.secondary.light};
   height: 100vh;
   padding: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -225,20 +143,7 @@ export const StyledCardWrapper = styled.div`
   justify-content: center;
   position: relative;
 `
-export const StyledDeleteBtn = styled.button`
-  background-color: transparent;
-  border: none;
-  border-radius: 10px;
-  color: ${(props) => props.theme.colors.text.main};
-  align-self: flex-end;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  &:hover {
-    background-color: ${(props) => props.theme.colors.primary.main};
-    color: ${(props) => props.theme.colors.text.secondary};
-  }
-`
+
 export const StyledCardHeader = styled.div`
   display: flex;
 `
@@ -258,6 +163,10 @@ export const StyledCardFooter = styled.div`
     margin: 0 10px;
   }
 `
+
+// Home page 
+
+
 export const StyledHomeHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -271,33 +180,7 @@ export const StyledHomeHeaderContainer = styled.div`
     color: ${(props) => props.theme.colors.text.main};
   }
 `
-export const StyledAddBtn = styled.button`
-  p {
-    display: none;
-  }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  border: none;
-  background-color: ${(props) => props.theme.colors.background.addbtn};
-  color: ${(props) => props.theme.colors.text.secondary};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  @media (min-width: 768px) {
-    border-radius: 30px;
-    padding: 5px 25px;
-    width: auto;
-    height: auto;
-    p {
-      display: inline;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 0 5px 0 0;
-    }
-  }
-`
+
 
 // Landing Page CSS Components
 
@@ -339,4 +222,178 @@ export const AboutPageContent = styled.div`
 export const NoJobsComponent = styled.div`
   margin-left: 5%;
   margin-top: 5%;
+`
+//  BasicModal
+
+export const StyledBox = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 350px;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: ${props => props.theme.colors.background.primary};
+  @media (min-width: 768px) {
+    width: 600px;
+  }
+`
+export const StyledModalHeader = styled.div`
+  background-color : ${props => props.theme.colors.primary.main};
+  color: ${props => props.theme.colors.text.secondary};
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+`
+export const StyledModalFooter = styled(StyledModalHeader)`
+  background-color : ${props => props.theme.colors.background.secondary.dark};
+  border-radius: 0 0 5px 5px;
+  text-align: right;
+  
+`
+
+// Buttons
+
+export const StyledCloseButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: ${(props) => props.theme.colors.text.main};
+  align-self: flex-end;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  &:hover {
+    background-color: transparent;
+    color: ${(props) => props.theme.colors.text.secondary};
+  }
+`
+export const StyledAddBtn = styled.button`
+  p {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color: ${(props) => props.theme.colors.button.add};
+  color: ${(props) => props.theme.colors.text.secondary};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  &:hover  {
+    background-color: ${(props) => props.theme.colors.button.add};
+    opacity: 0.5;
+  }
+  @media (min-width: 768px) {
+    border-radius: 30px;
+    padding: 5px 25px;
+    width: auto;
+    height: auto;
+    p {
+      display: inline;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 5px 0 0;
+    }
+  }
+`
+export const StyledSaveBtn = styled.button`
+  border-radius: 30px;
+  padding: 5px 25px;
+  border: none;
+  background-color: ${props => props.theme.colors.button.save};
+  color: ${props => props.theme.colors.text.secondary};
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 5px 0 0;
+  }
+  &:hover {
+    background-color: ${props => props.theme.colors.button.save};
+    opacity: 0.5;
+  }
+`
+export const StyledDeleteBtn = styled.button`
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  color: ${(props) => props.theme.colors.text.main};
+  align-self: flex-end;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.primary.main};
+    color: ${(props) => props.theme.colors.text.secondary};
+  }
+`
+export const StyledMenuButton = styled.button`
+  background-color: transparent;
+  display: flex;
+  align-self: center;
+  border: 2px solid ${(props) => props.theme.colors.text.main};
+  color: ${(props) => props.theme.colors.text.main};
+  padding: 0px;
+  border-radius: 10px;
+  margin-right: 30px;
+  &:hover {
+    background-color: transparent;
+    color: ${(props) => props.theme.colors.text.secondary};
+    border-color: ${(props) => props.theme.colors.text.secondary};
+    opacity: 0.9;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
+export const SimpleButtonLogin = styled.button`
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  text-align: left;
+  border: none;
+  &:hover {
+    /* font-size: 25px; */
+    background-color: transparent;
+    opacity: 0.5;
+  }
+  @media (min-width: 768px) {
+    margin-left: 10px;
+  }
+`
+export const SimpleButtonLogout = styled.button`
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.primary.main};
+  font-size: 20px;
+  text-align: left;
+  border: none;
+  &:hover {
+    /* font-size: 25px; */
+    background-color: transparent;
+    opacity: 0.5;
+  }
+  @media (min-width: 768px) {
+    margin-left: 10px;
+  }
+`
+export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
+  border-radius: 20px;
+  font-size: 20px;
+  padding: 5px 30px;
+  font-weight: bold;
+  background-color: ${(props) => props.theme.colors.primary.main};
+  color: ${(props) => props.theme.colors.text.secondary};
+  border: none;
+  ${(props) =>
+    props.menu
+      ? `
+  margin: 0px;
+  @media (min-width: 768px) {
+    margin: 0 20px;
+  }
+  `
+      : `
+  margin: 10px;
+  `};
 `

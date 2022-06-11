@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasicModal component renders without crashing 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    <p>
+      New
+    </p>
+  </button>
+</div>
+`;

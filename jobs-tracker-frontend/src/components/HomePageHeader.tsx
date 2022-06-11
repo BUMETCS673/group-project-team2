@@ -1,12 +1,14 @@
 import { StyledHomeHeaderContainer } from '../styles/styles'
-import AddBtn from './Job_Components/AddBtn'
+
 import SortBySelect from './SortBySelect'
+import BasicModal from './BasicModal'
 const HomePageHeader = () => (
   <StyledHomeHeaderContainer>
     <h1>Jobs</h1>
     <div>
       <SortBySelect />
-      <AddBtn />
+      <BasicModal/>
+      {/*<AddBtn />*/}
     </div>
   </StyledHomeHeaderContainer>
 )
