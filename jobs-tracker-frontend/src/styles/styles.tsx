@@ -40,6 +40,11 @@ export const Col = styled.div`
   width: 50%;
   text-align: center;
 `
+export const SingleCol = styled.div`
+  margin: 10px;
+  width: 80%;
+  text-align: center;
+`
 export interface MenuItemsProps {
   readonly menu?: boolean
 }

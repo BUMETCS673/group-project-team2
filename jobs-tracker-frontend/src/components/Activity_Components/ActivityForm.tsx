@@ -1,9 +1,18 @@
 import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
-import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
-import { useCreateActivityMutation } from '../../features/activities/activities-slice'
-import { useHistory } from 'react-router-dom'
+import {
+  Row,
+  SingleCol,
+  Form,
+  FormSubtitle,
+  HelperText,
+} from '../../styles/styles'
+import {
+  useCreateActivityMutation,
+  useUpdateActivityMutation,
+} from '../../features/activities/activities-slice'
 import { Activity } from '../../features/activities/activities-slice'
 import React from 'react'
+// import { IoFastFood } from 'react-icons/io5'
 
 // interface Values {
 //   jobId: string
@@ -16,24 +25,32 @@ import React from 'react'
 
 type FormProps = {
   job_id: string | undefined
+  currentActivity?: any
+  closePopup: () => void
 }
 
-const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
-  const history = useHistory()
+const ActivityForm: React.FC<FormProps> = ({
+  job_id,
+  currentActivity,
+  closePopup,
+}: FormProps) => {
   const [createActivity, data] = useCreateActivityMutation()
-  console.log(data)
+  const [updateActivity, editData] = useUpdateActivityMutation()
+
+  console.log(data, editData)
   //const job = useAppSelector(state => state.job)
 
   return (
     <div>
       <Formik
         initialValues={{
+          ID: currentActivity?.ID,
           job_id: String(job_id) ?? '',
-          category: '',
-          description: '',
-          start_date: '',
-          end_date: '',
-          status: '',
+          category: currentActivity?.category ?? '',
+          description: currentActivity?.description ?? '',
+          start_date: currentActivity?.start_date ?? '',
+          end_date: currentActivity?.end_date ?? '',
+          status: currentActivity?.status ?? '',
         }}
         validate={(values: Activity) => {
           let errors: FormikErrors<Activity> = {}
@@ -63,9 +80,15 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
         ) => {
           console.log(values)
 
-          await createActivity(values)
+          if (currentActivity) {
+            await updateActivity(values)
+          } else {
+            await createActivity(values)
+          }
+
           setSubmitting(false)
-          history.push('/home')
+          closePopup()
+          // history.push('/home')
         }}
       >
         {({
@@ -82,7 +105,7 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
             <FormSubtitle>Activity info</FormSubtitle>
 
             <Row>
-              <Col>
+              <SingleCol>
                 <Field
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -95,10 +118,10 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
                 {touched.category && errors.category && (
                   <HelperText>{errors.category}</HelperText>
                 )}
-              </Col>
+              </SingleCol>
             </Row>
             <Row>
-              <Col>
+              <SingleCol>
                 <Field
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -111,11 +134,11 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
                 {touched.description && errors.description && (
                   <HelperText>{errors.description}</HelperText>
                 )}
-              </Col>
+              </SingleCol>
             </Row>
 
             <Row>
-              <Col>
+              <SingleCol>
                 <Field
                   as="textarea"
                   onChange={handleChange}
@@ -129,11 +152,11 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
                 {touched.start_date && errors.start_date && (
                   <HelperText>{errors.start_date}</HelperText>
                 )}
-              </Col>
+              </SingleCol>
             </Row>
 
             <Row>
-              <Col>
+              <SingleCol>
                 <Field
                   name="end_date"
                   onChange={handleChange}
@@ -156,11 +179,11 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
                 {touched.end_date && errors.end_date && (
                   <HelperText>{errors.end_date}</HelperText>
                 )}
-              </Col>
+              </SingleCol>
             </Row>
 
             <Row>
-              <Col>
+              <SingleCol>
                 <Field
                   name="status"
                   onChange={handleChange}
@@ -170,7 +193,7 @@ const ActivityForm: React.FC<FormProps> = ({ job_id }: FormProps) => {
                 {touched.status && errors.status && (
                   <HelperText>{errors.status}</HelperText>
                 )}
-              </Col>
+              </SingleCol>
             </Row>
 
             <button type="submit" disabled={!isValid || !dirty}>

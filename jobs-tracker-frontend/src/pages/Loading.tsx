@@ -23,23 +23,24 @@ export const Loading = () => {
 
         <LandingPageSubContentRight>
           {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-          explicabo quia, unde facere aliquid quasi eum quod? Molestiae
-          architecto enim excepturi unde nobis totam, sit, harum possimus
-          debitis exercitationem ea{' '}
+          We provide a free application for users all throughout the world to
+          easily track and update jobs and associated activities through a
+          Simple interface! Accessibility and ease of use is very important for
+          us and we want to create a responsive app experience for all of our
+          users!{' '}
         </LandingPageSubContentRight>
 
         <LandingPageSubContentLeft>
-          The process of applying for jobs is as challenging as ever and our
-          mission is to drastically improve the entire process.{' '}
+          We are proud to offer free resources for users to enhance their
+          careers and our team is constantly looking for ways to add new
+          features! :){' '}
         </LandingPageSubContentLeft>
 
         <LandingPageSubContentRight>
           {' '}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-          explicabo quia, unde facere aliquid quasi eum quod? Molestiae
-          architecto enim excepturi unde nobis totam, sit, harum possimus
-          debitis exercitationem ea{' '}
+          The FollowUp Team is open to any suggestions to improve our product
+          and we are looking forward to helping our users through every step of
+          the job search process!{' '}
         </LandingPageSubContentRight>
 
         {/* /* <Container>

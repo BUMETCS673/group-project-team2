@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { RootState } from '../../app/store'
 
 export interface Activity {
+  ID: number | undefined
   job_id: string
   category: string
   description: string
@@ -18,6 +19,7 @@ export interface Activity {
 
 export const activitySlice = createApi({
   reducerPath: 'activityapi',
+  tagTypes: ['Activity', 'Job'],
   baseQuery: fetchBaseQuery({
     baseUrl:
       'https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_activity',
@@ -36,6 +38,7 @@ export const activitySlice = createApi({
         query: (jobId: string | undefined) => {
           return `?job_id=${jobId}`
         },
+        providesTags: ['Activity', 'Job'],
       }),
       createActivity: builder.mutation<Activity, Activity | void>({
         query: (activity) => ({
@@ -46,10 +49,25 @@ export const activitySlice = createApi({
           method: 'POST',
           body: activity,
         }),
+        invalidatesTags: ['Activity', 'Job'],
+      }),
+      updateActivity: builder.mutation<Activity, Activity | void>({
+        query: (activity) => ({
+          headers: {
+            'Content-type': 'application/json',
+          },
+          url: '',
+          method: 'PUT',
+          body: activity,
+        }),
+        invalidatesTags: ['Activity', 'Job'],
       }),
     }
   },
 })
 
-export const { useFetchActivitiesQuery, useCreateActivityMutation } =
-  activitySlice
+export const {
+  useFetchActivitiesQuery,
+  useCreateActivityMutation,
+  useUpdateActivityMutation,
+} = activitySlice
