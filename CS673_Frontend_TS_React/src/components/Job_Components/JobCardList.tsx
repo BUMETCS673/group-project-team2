@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useFetchJobsQuery } from '../../features/jobs/jobs-api-slice'
 import JobCardNew from './JobCardNew'
 import NoJobs from './NoJobs'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import Stack from '@mui/material/Stack'
 import LinearProgress from '@mui/material/LinearProgress'
 import { receiveJobs } from '../../features/user/user-slice'
@@ -10,6 +10,7 @@ import { receiveJobs } from '../../features/user/user-slice'
 const JobCardList = () => {
   // const [open, setOpen] = useState(false)
   const dispatch = useAppDispatch();
+  const jobsList = useAppSelector(state => state.user.jobs)
   const { data = [], isLoading } = useFetchJobsQuery()
   useEffect(() => {
     if (data.length > 0) {
@@ -28,8 +29,8 @@ const JobCardList = () => {
     )
   return (
     <div>
-      {data.length !== 0 ? (
-        data.map((job) => {
+      {jobsList.length !== 0 ? (
+        jobsList.map((job) => {
           console.log('job', job)
           return (
             <JobCardNew

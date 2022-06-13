@@ -1,10 +1,11 @@
 import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
 import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
+import { Job } from '../../types/types'
 // import { useHistory } from 'react-router-dom'
 
 interface Values {
@@ -25,6 +26,8 @@ const JobForm: React.FC<JobFormType> = ({
 }: JobFormType) => {
   // const { push } = useHistory()
   const dispatch = useAppDispatch()
+  const jobsList = useAppSelector(state => state.user.jobs)
+  const jobToEdit:Job | null = jobsList.filter( job => job.ID == job_id)[0]
   const [createJob, data] = useCreateJobMutation()
   console.log(data, job_id)
   //const job = useAppSelector(state => state.job)
@@ -33,10 +36,10 @@ const JobForm: React.FC<JobFormType> = ({
     <div>
       <Formik
         initialValues={{
-          companyname: '',
-          jobtitle: '',
-          description: '',
-          status: '',
+          companyname: jobToEdit ? jobToEdit.companyname : '',
+          jobtitle: jobToEdit ? jobToEdit.jobtitle : '',
+          description: jobToEdit ? jobToEdit.description : '',
+          status: jobToEdit ? jobToEdit.status : '',
         }}
         validate={(values: Values) => {
           let errors: FormikErrors<Values> = {}
