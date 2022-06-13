@@ -4,13 +4,13 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ActivityContainer from '../Activity_Components/ActivityContainer'
-import ActivityForm from '../Activity_Components/ActivityForm'
+
 import BasicModal from '../BasicModal'
 // import { useAuth0 } from '@auth0/auth0-react'
 // import { jobData } from '../../data/mockdata'
-import { useState } from 'react'
+
 import { useDeleteJobMutation } from '../../features/jobs/jobs-api-slice'
-import JobForm from './JobForm'
+
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 
@@ -29,13 +29,7 @@ const JobCardNew: React.FC<CardProps> = ({
 }: CardProps) => {
   const [deleteJob] = useDeleteJobMutation()
 
-  const [activityOpen, setActivityOpen] = useState(false)
-  const [jobOpen, setJobOpen] = useState(false)
-
-  const closePopup = () => {
-    setJobOpen(false)
-    setActivityOpen(false)
-  }
+  
 
   function deleteHandler() {
     deleteJob({ ID: id })
@@ -78,22 +72,22 @@ const JobCardNew: React.FC<CardProps> = ({
             <div style={{ flexGrow: '1' }}>
               {' '}
               <BasicModal
-                form={<ActivityForm job_id={id} closePopup={closePopup} />}
+                job_id={id}
+                type = 'activity'
                 title="Add Activity"
                 buttonTitle="Add Activity"
-                open={activityOpen}
-                setOpen={setActivityOpen}
+                
               />
             </div>
 
             <div style={{ display: 'flex', gap: '1rem' }}>
               {' '}
               <BasicModal
-                form={<JobForm job_id={id} closePopup={closePopup} />}
+                type = 'job'
+                job_id={id}
                 title="Edit Job"
                 buttonTitle="Edit Job"
-                open={jobOpen}
-                setOpen={setJobOpen}
+                
               />
               <Button variant="outlined" onClick={deleteHandler}>
                 <DeleteIcon />

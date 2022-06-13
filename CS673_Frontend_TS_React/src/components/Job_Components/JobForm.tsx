@@ -84,11 +84,12 @@ const JobForm: React.FC<JobFormType> = ({
                   value={values.companyname}
                   //border = {!(touched.companyname  && errors.companyname && "1px solid red" )}
                   id="companyname"
+                  data-testid="companyname"
                   name="companyname"
                   placeholder="Company"
                 />
                 {touched.companyname && errors.companyname && (
-                  <HelperText>{errors.companyname}</HelperText>
+                  <HelperText data-testid="companynameError">{errors.companyname}</HelperText>
                 )}
               </Col>
               <Col>
@@ -99,10 +100,11 @@ const JobForm: React.FC<JobFormType> = ({
                   //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
                   id="jobtitle"
                   name="jobtitle"
+                  data-testid="jobtitle" 
                   placeholder="Job Title"
                 />
                 {touched.jobtitle && errors.jobtitle && (
-                  <HelperText>{errors.jobtitle}</HelperText>
+                  <HelperText data-testid="jobtitleError">{errors.jobtitle}</HelperText>
                 )}
               </Col>
             </Row>
@@ -124,6 +126,7 @@ const JobForm: React.FC<JobFormType> = ({
                   name="status"
                   onChange={handleChange}
                   placeholder="Status"
+                  data-testid = "status"
                 ></Field>
                 {/* <Field 
                       component = "select"
