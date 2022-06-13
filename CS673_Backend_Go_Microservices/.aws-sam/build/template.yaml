@@ -1,0 +1,123 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'CS673_Backend_Go
+
+  Sample SAM Template for CS673_Backend_Go
+
+  '
+Globals:
+  Function:
+    Timeout: 5
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: HelloWorldFunction
+      Handler: hello-world
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: GET
+      Environment:
+        Variables:
+          PARAM1: VALUE
+    Metadata:
+      SamResourceId: HelloWorldFunction
+  CreateUserFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CreateUserFunction
+      Handler: main
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /user
+            Method: GET
+      Environment:
+        Variables:
+          db_user: postgres
+          db_pass: password
+          db_name: postgres
+          db_host: cs673-postgres.c0hlifolqtxg.us-east-1.rds.amazonaws.com
+    Metadata:
+      SamResourceId: CreateUserFunction
+  CreateJobFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CreateJobFunction
+      Handler: main
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /job
+            Method: POST
+      Environment:
+        Variables:
+          db_user: postgres
+          db_pass: password
+          db_name: postgres
+          db_host: cs673-postgres.c0hlifolqtxg.us-east-1.rds.amazonaws.com
+    Metadata:
+      SamResourceId: CreateJobFunction
+  CreateActivityFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CreateActivityFunction
+      Handler: main
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /activity
+            Method: POST
+      Environment:
+        Variables:
+          db_user: postgres
+          db_pass: password
+          db_name: postgres
+          db_host: cs673-postgres.c0hlifolqtxg.us-east-1.rds.amazonaws.com
+    Metadata:
+      SamResourceId: CreateActivityFunction
+Outputs:
+  HelloWorldAPI:
+    Description: API Gateway endpoint URL for Prod environment for First Function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  HelloWorldFunction:
+    Description: First Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunction
+      - Arn
+  CreateUserFunction:
+    Description: Create User Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - CreateUserFunction
+      - Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunctionRole
+      - Arn
