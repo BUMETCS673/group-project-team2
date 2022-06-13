@@ -2,15 +2,20 @@ import { useEffect } from 'react'
 import { useFetchJobsQuery } from '../../features/jobs/jobs-api-slice'
 import JobCardNew from './JobCardNew'
 import NoJobs from './NoJobs'
-
+import { useAppDispatch } from '../../app/hooks'
 import Stack from '@mui/material/Stack'
 import LinearProgress from '@mui/material/LinearProgress'
+import { receiveJobs } from '../../features/user/user-slice'
 
 const JobCardList = () => {
   // const [open, setOpen] = useState(false)
-
+  const dispatch = useAppDispatch();
   const { data = [], isLoading } = useFetchJobsQuery()
-  useEffect(() => {}, [data])
+  useEffect(() => {
+    if (data.length > 0) {
+      dispatch(receiveJobs(data))
+    }
+  }, [data])
   console.log(data)
 
   if (isLoading)

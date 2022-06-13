@@ -2,7 +2,7 @@
 //   [key:string]:
 // }
 
-export type Activities = {
+export type Activity = {
   category: string
   description: string
   startDate: string
@@ -11,11 +11,13 @@ export type Activities = {
   jobId: string
 }
 
-export type Jobs = {
-  jobTitle: string
-  companyName: string
-  description: string
-  status: string
-  jobId: string
-  activities: Activities[]
+export type Job = {
+  ID?: string,
+  companyname : string,
+  jobtitle: string,
+  description: string,
+  status: string,
+  createdAt?: Date,
+  updatedAt?: Date, 
+  //activities: Activity[]
 }

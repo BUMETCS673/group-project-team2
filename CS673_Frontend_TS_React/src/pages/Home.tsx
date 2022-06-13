@@ -15,7 +15,7 @@ export const Home = () => {
     const getClaims = async () => {
       const claims = await getAccessTokenSilently()
       console.log('token', claims)
-      dispatch(setUserToken({token: claims}))
+      dispatch(setUserToken(claims))
     }
     getClaims()}
   }, [isAuthenticated])
