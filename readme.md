@@ -15,14 +15,15 @@
 ## Technology Stack
 
 - ReactJS + Typescript for the client Side JS Code
-- NodeJS + Express for the backend Web Server
-- AWS EC2 Linux AL2 Server to host the Backend Web Server
+- Go Microservices hosted in the Cloud for the backend
+- AWS Lambda and API Gateway to route user requests
+- Managed PostgreSQL Database running in the Cloud for user and application data
 - Github as the VCS Repository Service
 - Github Pages for Hosting SPA
 
 ## Instructions for Running Application!
 
-- cd into **_jobs-tracker-frontend_** folder
+- cd into **_CS673_Frontend_TS_React_** folder
 - run <code>npm install</code> to install packages
 - run <code>npm start</code> to run application
 - Once app is running , can use Social Identity Federation through Auth0 to Login
