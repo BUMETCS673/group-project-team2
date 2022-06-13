@@ -19,7 +19,7 @@ interface DeleteJob {
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  tagTypes: ['Job'],
+  tagTypes: ['Job', 'Activity'],
   baseQuery: fetchBaseQuery({
     baseUrl:
       'https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_job',

@@ -1,9 +1,19 @@
 import { useEffect, useState } from 'react'
-import { useFetchActivitiesQuery } from '../../features/activities/activities-slice'
+import {
+  useFetchActivitiesQuery,
+  Activity,
+} from '../../features/activities/activities-slice'
 // import Activity from '../Activity_Components/Activity'
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid'
-import BasicModal from '../BasicModal'
 import ActivityForm from '../Activity_Components/ActivityForm'
+import EditIcon from '@mui/icons-material/Edit'
+import { Button, Modal, Typography } from '@mui/material'
+import {
+  StyledBox,
+  StyledCloseButton,
+  StyledModalHeader,
+} from '../../styles/styles'
+import { IoCloseCircleOutline } from 'react-icons/io5'
 
 type ActivitiesProps = {
   jobId: string | undefined
@@ -12,55 +22,55 @@ type ActivitiesProps = {
 const ActivityContainer: React.FC<ActivitiesProps> = ({
   jobId,
 }: ActivitiesProps) => {
-  const [open, setOpen] = useState(false)
-  const closePopup = () => setOpen(false)
-
   const { data = [], isLoading } = useFetchActivitiesQuery(jobId)
 
+  const [open, setOpen] = useState(false)
+  const [currentActivity, setCurrentActivity] = useState<Activity>()
+
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+  const closePopup = () => {
+    setOpen(false)
+  }
+
   useEffect(() => {}, [data])
+
+  const DoEdit = (activity: Activity): void => {
+    console.log(activity)
+    setCurrentActivity(activity)
+    setOpen(true)
+  }
+
   const columns: GridColDef[] = [
     // { field: 'JobID', headerName: 'JobID', width: 70 },
-    { field: 'Category', headerName: 'Category', width: 130 },
-    { field: 'Description', headerName: 'Description', width: 130 },
+    { field: 'Category', headerName: 'Category' },
+    { field: 'Description', headerName: 'Description' },
     {
       field: 'StartDate',
       headerName: 'StartDate',
       type: 'date',
-      width: 90,
     },
     {
       field: 'EndDate',
       headerName: 'End Date',
       description: 'This column has a value getter and is not sortable.',
       sortable: true,
-      width: 90,
     },
     {
       field: 'Status',
       headerName: 'Status',
       description: 'This column has a value getter and is not sortable.',
       sortable: false,
-      width: 90,
     },
     {
       field: 'EditActivity',
-      headerName: 'EditActivity',
-      width: 150,
+      headerName: 'Edit',
+
       renderCell(params: GridCellParams) {
         return (
-          <BasicModal
-            form={
-              <ActivityForm
-                job_id={jobId}
-                currentActivity={params}
-                closePopup={closePopup}
-              />
-            }
-            title="Edit Activity"
-            buttonTitle="Edit"
-            open={open}
-            setOpen={setOpen}
-          />
+          <Button variant="outlined" onClick={() => DoEdit(params.value)}>
+            <EditIcon />
+          </Button>
         )
       },
     },
@@ -83,37 +93,53 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
     }
   })
 
-  return (
-    <div style={{ height: '500px', width: '50vw' }}>
-      {data.length !== 0 ? (
-        // data.map((activity) => {
-        //   console.log('activity', activity)
-        //   return (
-        //     <>
-        //       <Activity
-        //         jobId={activity.job_id}
-        //         category={activity.category}
-        //         description={activity.description}
-        //         startDate={activity.start_date}
-        //         endDate={activity.end_date}
-        //         status={activity.status}
-        //         ID={activity.ID}
-        //       />
+  const renderModal = () => {
+    return (
+      <Modal
+        open={open}
+        onClose={handleOpen}
+        title="modal"
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <StyledBox>
+          <StyledModalHeader>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Edit Activity
+            </Typography>
+            <StyledCloseButton onClick={handleClose} title="close-modal">
+              <IoCloseCircleOutline size={30} color="white" />
+            </StyledCloseButton>
+          </StyledModalHeader>
+          <ActivityForm
+            job_id={jobId}
+            currentActivity={currentActivity}
+            closePopup={closePopup}
+          />
+        </StyledBox>
+      </Modal>
+    )
+  }
 
-        //     </>
-        //   )
-        // }
+  return (
+    <div>
+      {data.length !== 0 ? (
         <DataGrid
+          autoHeight
           rows={rows}
           columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection={true}
+          pageSize={10}
+          rowsPerPageOptions={[5, 10]}
+          checkboxSelection={false}
           getRowId={(row) => row.ID}
+          // style={{ height: '500px' }}
         />
       ) : (
-        <div>No activities</div>
+        <div style={{ marginBottom: '2rem' }}>
+          <em>No activities</em>
+        </div>
       )}
+      {renderModal()}
     </div>
   )
 }

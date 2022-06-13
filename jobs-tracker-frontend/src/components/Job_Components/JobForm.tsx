@@ -3,6 +3,8 @@ import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
 import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
+import { Button } from '@mui/material'
+import CheckIcon from '@mui/icons-material/Check'
 // import { useHistory } from 'react-router-dom'
 
 interface Values {
@@ -142,14 +144,10 @@ const JobForm: React.FC<JobFormType> = ({
                 )}
               </Col>
             </Row>
-            <FormSubtitle>Activities</FormSubtitle>
-            <Row>
-              <Col></Col>
-            </Row>
 
-            <button type="submit" disabled={!isValid || !dirty}>
-              Save
-            </button>
+            <Button type="submit" disabled={!isValid || !dirty}>
+              <CheckIcon fontSize="large" /> Save job
+            </Button>
           </Form>
         )}
       </Formik>

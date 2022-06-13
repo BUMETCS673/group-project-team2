@@ -443,3 +443,9 @@ export const HelperText = styled.p`
   margin: 3px 0;
   color: ${(props) => props.theme.colors.text.error};
 `
+
+export const GradientHeader = styled.h1`
+  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`

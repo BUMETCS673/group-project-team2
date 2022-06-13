@@ -16,7 +16,10 @@ export const store = configureStore({
     [activitySlice.reducerPath]: activitySlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(apiSlice.middleware)
+    return getDefaultMiddleware().concat(
+      apiSlice.middleware,
+      activitySlice.middleware
+    )
   },
 })
 export type AppDispatch = typeof store.dispatch

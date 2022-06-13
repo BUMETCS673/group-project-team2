@@ -3,12 +3,12 @@ import Typography from '@mui/material/Typography'
 import {
   StyledBox,
   StyledModalHeader,
-  StyledAddBtn,
   StyledCloseButton,
 } from '../styles/styles'
-import { MdAdd } from 'react-icons/md'
 import { IoCloseCircleOutline } from 'react-icons/io5'
 import Modal from '@mui/material/Modal'
+import { Button } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
 // import { useAppDispatch, useAppSelector } from '../app/hooks'
 // import { openBasicModal, closeBasicModal } from '../features/UI/ui_slice'
 //import { useState } from 'react'
@@ -34,10 +34,11 @@ const BasicModal: React.FC<JobCard> = ({
 
   return (
     <div>
-      <StyledAddBtn onClick={handleOpen} title="add">
-        <p>{buttonTitle}</p>
-        <MdAdd size={25} />
-      </StyledAddBtn>
+      <Button variant="outlined" onClick={handleOpen} title="add">
+        <AddIcon />
+        {buttonTitle}
+      </Button>
+
       <Modal
         open={open}
         onClose={handleOpen}

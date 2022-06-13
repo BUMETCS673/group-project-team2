@@ -11,6 +11,8 @@ import BasicModal from '../BasicModal'
 import { useState } from 'react'
 import { useDeleteJobMutation } from '../../features/jobs/jobs-api-slice'
 import JobForm from './JobForm'
+import { Button } from '@mui/material'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 type CardProps = {
   companyName: string
@@ -43,7 +45,7 @@ const JobCardNew: React.FC<CardProps> = ({
     <div
       style={{
         marginBottom: '4rem',
-        display: 'flex',
+        width: '100%',
         gap: '2rem',
       }}
     >
@@ -60,6 +62,7 @@ const JobCardNew: React.FC<CardProps> = ({
             {`${jobTitle}`}{' '}
           </Typography>
           <Typography fontSize={18}>{`|`}</Typography>
+
           <Typography fontSize={12} ml={2}>
             {`${status}`}
           </Typography>
@@ -71,36 +74,35 @@ const JobCardNew: React.FC<CardProps> = ({
             <li>Activity 3</li>
           </ul> */}
           <ActivityContainer jobId={id} />
-          <BasicModal
-            form={<ActivityForm job_id={id} closePopup={closePopup} />}
-            title="Add Activity"
-            buttonTitle="Add Activity"
-            open={activityOpen}
-            setOpen={setActivityOpen}
-          />
-          <BasicModal
-            form={<JobForm job_id={id} closePopup={closePopup} />}
-            title="Edit Job"
-            buttonTitle="Edit Job"
-            open={jobOpen}
-            setOpen={setJobOpen}
-          />
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <div style={{ flexGrow: '1' }}>
+              {' '}
+              <BasicModal
+                form={<ActivityForm job_id={id} closePopup={closePopup} />}
+                title="Add Activity"
+                buttonTitle="Add Activity"
+                open={activityOpen}
+                setOpen={setActivityOpen}
+              />
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              {' '}
+              <BasicModal
+                form={<JobForm job_id={id} closePopup={closePopup} />}
+                title="Edit Job"
+                buttonTitle="Edit Job"
+                open={jobOpen}
+                setOpen={setJobOpen}
+              />
+              <Button variant="outlined" onClick={deleteHandler}>
+                <DeleteIcon />
+                Delete Job
+              </Button>
+            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
-      <div style={{ justifySelf: 'flex-end' }}>
-        Delete Job
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="22"
-          viewBox="0 0 24 24"
-          width="22"
-          // style={{ position: 'absolute', top: 0, right: 100 }}
-          onClick={deleteHandler}
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-        </svg>
-      </div>
     </div>
   )
 }
