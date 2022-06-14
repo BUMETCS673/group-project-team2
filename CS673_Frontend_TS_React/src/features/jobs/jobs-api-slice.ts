@@ -1,16 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { RootState } from '../../app/store'
-
-interface Job {
-  ID?: string
-  companyname: string
-  jobtitle: string
-  description: string
-  status: string
-  createdAt?: Date
-  updatedAt?: Date
-}
-
+import { Job } from '../../types/types'
 interface DeleteJob {
   ID: string | undefined
 }
@@ -51,6 +41,17 @@ export const apiSlice = createApi({
         }),
         invalidatesTags: ['Job'],
       }),
+      updateJob: builder.mutation<Job, Job | void>({
+        query: (job) => ({
+          headers: {
+            'Content-type': 'application/json',
+          },
+          url: '',
+          method: 'PUT',
+          body: job,
+        }),
+        invalidatesTags: ['Job'],
+      }),
       deleteJob: builder.mutation<Job, DeleteJob | void>({
         query: (id) => ({
           headers: {
@@ -66,5 +67,5 @@ export const apiSlice = createApi({
   },
 })
 
-export const { useFetchJobsQuery, useCreateJobMutation, useDeleteJobMutation } =
+export const { useFetchJobsQuery, useCreateJobMutation, useDeleteJobMutation, useUpdateJobMutation } =
   apiSlice

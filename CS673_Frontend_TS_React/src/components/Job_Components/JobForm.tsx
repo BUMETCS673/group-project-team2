@@ -2,7 +2,7 @@ import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
-import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
+import { useCreateJobMutation, useUpdateJobMutation } from '../../features/jobs/jobs-api-slice'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { Job } from '../../types/types'
@@ -28,8 +28,10 @@ const JobForm: React.FC<JobFormType> = ({
   const dispatch = useAppDispatch()
   const jobsList = useAppSelector(state => state.user.jobs)
   const jobToEdit:Job | null = jobsList.filter( job => job.ID == job_id)[0]
-  const [createJob, data] = useCreateJobMutation()
-  console.log(data, job_id)
+  const [createJob, newJob] = useCreateJobMutation()
+  const [updateJob, editJob] = useUpdateJobMutation()
+  console.log(newJob, job_id)
+  console.log(editJob, job_id)
   //const job = useAppSelector(state => state.job)
 
   return (
@@ -59,8 +61,12 @@ const JobForm: React.FC<JobFormType> = ({
           { setSubmitting }: FormikHelpers<Values>
         ) => {
           console.log(values)
-          dispatch(setJob(values))
-          await createJob(values)
+          if (jobToEdit) {
+            await updateJob(values)
+          } else {
+            dispatch(setJob(values))
+            await createJob(values)
+          }
           setSubmitting(false)
           closePopup()
           // push('/home')
@@ -128,8 +134,10 @@ const JobForm: React.FC<JobFormType> = ({
                 <Field
                   name="status"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="Status"
                   data-testid = "status"
+                  value={values.status}
                 ></Field>
                 {/* <Field 
                       component = "select"
@@ -146,7 +154,7 @@ const JobForm: React.FC<JobFormType> = ({
                       <option value = "received offer">Received Offer</option>
                     </Field> */}
                 {touched.status && errors.status && (
-                  <HelperText>{errors.status}</HelperText>
+                  <HelperText data-testid="statusError">{errors.status}</HelperText>
                 )}
               </Col>
             </Row>
