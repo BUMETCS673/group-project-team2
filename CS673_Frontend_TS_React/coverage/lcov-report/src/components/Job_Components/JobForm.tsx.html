@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.25% </span>
+                <span class="strong">91.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>152/163</span>
+                <span class='fraction'>156/171</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.25% </span>
+                <span class="strong">91.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>152/163</span>
+                <span class='fraction'>156/171</span>
             </div>
         
             
@@ -226,7 +226,15 @@
 <a name='L161'></a><a href='#L161'>161</a>
 <a name='L162'></a><a href='#L162'>162</a>
 <a name='L163'></a><a href='#L163'>163</a>
-<a name='L164'></a><a href='#L164'>164</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -249,6 +257,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -283,6 +293,10 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -336,6 +350,8 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -393,7 +409,7 @@
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
-import { useCreateJobMutation } from '../../features/jobs/jobs-api-slice'
+import { useCreateJobMutation, useUpdateJobMutation } from '../../features/jobs/jobs-api-slice'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { Job } from '../../types/types'
@@ -419,8 +435,10 @@ const JobForm: React.FC&lt;JobFormType&gt; = ({
   const dispatch = useAppDispatch()
   const jobsList = useAppSelector(state =&gt; state.user.jobs)
   const jobToEdit:Job | null = jobsList.filter( job =&gt; job.ID == job_id)[0]
-  const [createJob, data] = useCreateJobMutation()
-  console.log(data, job_id)
+  const [createJob, newJob] = useCreateJobMutation()
+  const [updateJob, editJob] = useUpdateJobMutation()
+  console.log(newJob, job_id)
+  console.log(editJob, job_id)
   //const job = useAppSelector(state =&gt; state.job)
 &nbsp;
   return (
@@ -450,8 +468,12 @@ const JobForm: React.FC&lt;JobFormType&gt; = ({
 <span class="cstat-no" title="statement not covered" >          { setSubmitting }: FormikHelpers&lt;Values&gt;</span>
 <span class="cstat-no" title="statement not covered" >        ) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          console.log(values)</span>
-<span class="cstat-no" title="statement not covered" >          dispatch(setJob(values))</span>
-<span class="cstat-no" title="statement not covered" >          await createJob(values)</span>
+<span class="cstat-no" title="statement not covered" >          if (jobToEdit) {</span>
+<span class="cstat-no" title="statement not covered" >            await updateJob(values)</span>
+<span class="cstat-no" title="statement not covered" >          } else {</span>
+<span class="cstat-no" title="statement not covered" >            dispatch(setJob(values))</span>
+<span class="cstat-no" title="statement not covered" >            await createJob(values)</span>
+<span class="cstat-no" title="statement not covered" >          }</span>
 <span class="cstat-no" title="statement not covered" >          setSubmitting(false)</span>
 <span class="cstat-no" title="statement not covered" >          closePopup()</span>
 <span class="cstat-no" title="statement not covered" >          // push('/home')</span>
@@ -519,8 +541,10 @@ const JobForm: React.FC&lt;JobFormType&gt; = ({
                 &lt;Field
                   name="status"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   placeholder="Status"
                   data-testid = "status"
+                  value={values.status}
                 &gt;&lt;/Field&gt;
                 {/* &lt;Field 
                       component = "select"
@@ -537,7 +561,7 @@ const JobForm: React.FC&lt;JobFormType&gt; = ({
                       &lt;option value = "received offer"&gt;Received Offer&lt;/option&gt;
                     &lt;/Field&gt; */}
                 {touched.status<span class="branch-0 cbranch-no" title="branch not covered" > &amp;&amp; errors.status<span class="branch-0 cbranch-no" title="branch not covered" > </span>&amp;&amp; (</span>
-<span class="cstat-no" title="statement not covered" >                  &lt;HelperText&gt;{errors.status}&lt;/HelperText&gt;</span>
+<span class="cstat-no" title="statement not covered" >                  &lt;HelperText data-testid="statusError"&gt;{errors.status}&lt;/HelperText&gt;</span>
                 )}
               &lt;/Col&gt;
             &lt;/Row&gt;
@@ -559,7 +583,7 @@ export default JobForm
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 13 2022 23:26:44 GMT-0400 (Eastern Daylight Time)
+                at Tue Jun 14 2022 01:18:32 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

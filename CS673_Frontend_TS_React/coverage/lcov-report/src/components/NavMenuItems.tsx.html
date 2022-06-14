@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/38</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/38</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,82 +101,82 @@
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import { StyledNavLink, MenuLinkGroup } from '../styles/styles'</span></span></span>
-<span class="cstat-no" title="statement not covered" >import Logout from './Logout'</span>
-<span class="cstat-no" title="statement not covered" >import Login from './Login'</span>
-<span class="cstat-no" title="statement not covered" >// import UserMenuItem from './UserMenuItem'</span>
-<span class="cstat-no" title="statement not covered" >import { useAuth0 } from '@auth0/auth0-react'</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >const NavMenuItems = () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >  const { user, isAuthenticated } = useAuth0()</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  if (isAuthenticated)</span>
-<span class="cstat-no" title="statement not covered" >    // NavBar with All Routes for Authenticated users</span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;MenuLinkGroup&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;div style={{ marginRight: '2rem' }}&gt;{user?.name}&lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        &lt;StyledNavLink to="/home"&gt;Home&lt;/StyledNavLink&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;StyledNavLink to="/about"&gt;About&lt;/StyledNavLink&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;StyledNavLink to="/" exact&gt;</span>
-<span class="cstat-no" title="statement not covered" >          Our Mission</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/StyledNavLink&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;Logout /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        {/* &lt;UserMenuItem/&gt; */}</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/MenuLinkGroup&gt;</span>
-<span class="cstat-no" title="statement not covered" >    )</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    // NavBar with Only Landing Page Route for UnAuthenticated users</span>
-<span class="cstat-no" title="statement not covered" >    &lt;MenuLinkGroup&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;StyledNavLink to="/" exact&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;Login /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/StyledNavLink&gt;</span>
-<span class="cstat-no" title="statement not covered" >      {/* &lt;StyledNavLink to="/home"&gt;Home&lt;/StyledNavLink&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;StyledNavLink to="/about"&gt;About&lt;/StyledNavLink&gt; */}</span>
-<span class="cstat-no" title="statement not covered" >      {/* &lt;UserMenuItem/&gt; */}</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/MenuLinkGroup&gt;</span>
-<span class="cstat-no" title="statement not covered" >  )</span>
-<span class="cstat-no" title="statement not covered" >}</span>
-<span class="cstat-no" title="statement not covered" >export default NavMenuItems</span>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { StyledNavLink, MenuLinkGroup } from '../styles/styles'
+import Logout from './Logout'
+import Login from './Login'
+// import UserMenuItem from './UserMenuItem'
+import { useAuth0 } from '@auth0/auth0-react'
+&nbsp;
+const NavMenuItems = () =&gt; {
+  const { user, isAuthenticated } = useAuth0()
+&nbsp;
+  if (isAuthenticated &amp;&amp; user)
+    // NavBar with All Routes for Authenticated users
+    return (
+      &lt;MenuLinkGroup&gt;
+        &lt;div style={{ marginRight: '2rem' }}&gt;{user.name}&lt;/div&gt;
+&nbsp;
+        &lt;StyledNavLink to="/home"&gt;Home&lt;/StyledNavLink&gt;
+        &lt;StyledNavLink to="/about"&gt;About&lt;/StyledNavLink&gt;
+        &lt;StyledNavLink to="/" exact&gt;
+          Our Mission
+        &lt;/StyledNavLink&gt;
+        &lt;Logout /&gt;
+        {/* &lt;UserMenuItem/&gt; */}
+      &lt;/MenuLinkGroup&gt;
+    )
+&nbsp;
+  return (
+    // NavBar with Only Landing Page Route for UnAuthenticated users
+    &lt;MenuLinkGroup&gt;
+      &lt;StyledNavLink to="/" exact&gt;
+        &lt;Login /&gt;
+      &lt;/StyledNavLink&gt;
+      {/* &lt;StyledNavLink to="/home"&gt;Home&lt;/StyledNavLink&gt;
+      &lt;StyledNavLink to="/about"&gt;About&lt;/StyledNavLink&gt; */}
+      {/* &lt;UserMenuItem/&gt; */}
+    &lt;/MenuLinkGroup&gt;
+  )
+}
+export default NavMenuItems
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -184,7 +184,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 13 2022 23:26:44 GMT-0400 (Eastern Daylight Time)
+                at Tue Jun 14 2022 01:18:32 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
