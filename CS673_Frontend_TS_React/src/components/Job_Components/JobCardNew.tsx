@@ -4,7 +4,7 @@ import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ActivityContainer from '../Activity_Components/ActivityContainer'
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 import BasicModal from '../BasicModal'
 // import { useAuth0 } from '@auth0/auth0-react'
 // import { jobData } from '../../data/mockdata'
@@ -28,7 +28,7 @@ const JobCardNew: React.FC<CardProps> = ({
   id,
 }: CardProps) => {
   const [deleteJob] = useDeleteJobMutation()
-
+  const matches = useMediaQuery("(min-width:600px)")
   
 
   function deleteHandler() {
@@ -74,7 +74,7 @@ const JobCardNew: React.FC<CardProps> = ({
               <BasicModal
                 job_id={id}
                 type = 'activity'
-                title="Add Activity"
+                title="add"
                 buttonTitle="Add Activity"
                 
               />
@@ -85,13 +85,19 @@ const JobCardNew: React.FC<CardProps> = ({
               <BasicModal
                 type = 'job'
                 job_id={id}
-                title="Edit Job"
+                title="edit"
                 buttonTitle="Edit Job"
                 
               />
               <Button variant="outlined" onClick={deleteHandler}>
                 <DeleteIcon />
-                Delete Job
+                {matches && (
+                  <Typography>
+                    Delete Job
+                  </Typography>
+                  )}
+                
+                
               </Button>
             </div>
           </div>

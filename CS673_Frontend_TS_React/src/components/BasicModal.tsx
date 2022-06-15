@@ -14,6 +14,8 @@ import AddIcon from '@mui/icons-material/Add'
 //import { useState } from 'react'
  import JobForm from './Job_Components/JobForm'
  import ActivityForm from './Activity_Components/ActivityForm'
+ import EditIcon from '@mui/icons-material/Edit';
+ import useMediaQuery from '@mui/material/useMediaQuery';
 
 type ModalProps = {
   type: string 
@@ -31,12 +33,24 @@ const BasicModal: React.FC<ModalProps> = ({
   const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const matches = useMediaQuery("(min-width:600px)");
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleOpen} title="add" data-testid = "add-btn">
-        <AddIcon />
-        {buttonTitle}
+      <Button variant="outlined" onClick={handleOpen} data-testid = "modal-btn">
+        {title == "add" ? (<> 
+          <AddIcon />
+          <Typography>
+            {buttonTitle}
+          </Typography>
+        </>) : ( <>
+          <EditIcon/> 
+          {matches && (
+            <Typography>
+            {buttonTitle}
+          </Typography>
+          )}
+        </>) }
       </Button>
 
       <Modal

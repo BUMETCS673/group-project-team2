@@ -27,7 +27,7 @@ describe("BasicModal component", () => {
         render(<Provider store = {store}>
                 <ThemeProvider theme = {appTheme}> <BasicModal/> </ThemeProvider>
             </Provider>)
-        const button = screen.getByTestId("add-btn")
+        const button = screen.getByTestId("modal-btn")
         fireEvent.click(button)
         const closeBtn = screen.getByTestId("close-modal-btn")
         expect(closeBtn).toBeInTheDocument()

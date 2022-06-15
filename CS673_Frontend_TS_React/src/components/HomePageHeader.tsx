@@ -21,7 +21,7 @@ const HomePageHeader = () => {
         {/* <SortBySelect /> */}
         <BasicModal
           type = 'job'
-          title="Add New Job"
+          title="add"
           buttonTitle="Add Job"
         />
         {/*<AddBtn />*/}
