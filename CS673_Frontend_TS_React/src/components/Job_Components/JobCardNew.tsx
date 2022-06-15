@@ -27,7 +27,6 @@ type CardProps = {
   id: string | undefined
   priority: string | undefined
 }
-
 const JobCardNew: React.FC<CardProps> = ({
   companyName,
   jobTitle,
@@ -87,9 +86,18 @@ const JobCardNew: React.FC<CardProps> = ({
         gap: '2rem',
       }}
     >
-      <Accordion style = {priority == 'medium' ?  ({backgroundColor: 'yellow'}): {backgroundColor: 'green'}}>
+      <Accordion sx = {{
+        backgroundColor: 'rgb(70, 158, 84)',
+        color: 'white',
+        ...(priority == 'high' && {
+          backgroundColor: 'rgb(207, 55, 55)'
+        }),
+        ...(priority == 'medium' && {
+          backgroundColor: 'rgb(245, 190, 71)'
+        })
+      }}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon sx = { {color: 'white'}}/>}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
@@ -120,7 +128,8 @@ const JobCardNew: React.FC<CardProps> = ({
                 type = 'activity'
                 title="add"
                 buttonTitle="Add Activity"
-                
+                insideCard
+                priority = {priority}
               />
             </div>
 
@@ -131,9 +140,26 @@ const JobCardNew: React.FC<CardProps> = ({
                 job_id={id}
                 title="edit"
                 buttonTitle="Edit Job"
-                
+                insideCard
+                priority = {priority}
               />
-              <Button variant="outlined" onClick={deleteHandler}>
+              <Button variant="contained" onClick={deleteHandler} sx = {{
+                  backgroundColor: "rgb(23, 160, 160)",
+                  ...(priority == 'high' && {
+                    color: 'rgb(77, 77, 77)',
+                    backgroundColor: "rgb(230, 99, 99)",
+                  }),
+                  ...(priority == 'medium' && {
+                    color: 'rgb(77, 77, 77)',
+                    backgroundColor: "rgb(216, 186, 88)",
+                  }),
+                  ...(priority == '' && {
+                    color: 'rgb(77, 77, 77)',
+                    backgroundColor: "rgb(100, 190, 115)",
+                  }),
+                  
+                }}
+                >
                 <DeleteIcon />
                 {matches && (
                   <Typography>

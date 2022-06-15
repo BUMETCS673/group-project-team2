@@ -22,13 +22,17 @@ type ModalProps = {
   title: string
   buttonTitle: string
   job_id?: string | undefined
+  insideCard?: boolean
+  priority? : string
 }
 
 const BasicModal: React.FC<ModalProps> = ({
   type,
   title,
   buttonTitle,
-  job_id
+  job_id,
+  insideCard,
+  priority
 }: ModalProps) => {
   const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -37,7 +41,28 @@ const BasicModal: React.FC<ModalProps> = ({
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleOpen} data-testid = "modal-btn">
+      <Button 
+        variant="contained" 
+        onClick={handleOpen} 
+        data-testid = "modal-btn" 
+        
+        sx = {{
+          backgroundColor: "rgb(23, 160, 160)",
+          ...(insideCard && priority == 'high' && {
+            color: 'rgb(77, 77, 77)',
+            backgroundColor: "rgb(230, 99, 99)",
+          }),
+          ...(insideCard && priority == 'medium' && {
+            color: 'rgb(77, 77, 77)',
+            backgroundColor: "rgb(216, 186, 88)",
+          }),
+          ...(insideCard && priority == '' && {
+            color: 'rgb(77, 77, 77)',
+            backgroundColor: "rgb(100, 190, 115)",
+          }),
+          
+        }}
+        >
         {title == "add" ? (<> 
           <AddIcon />
           <Typography>
