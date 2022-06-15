@@ -10,7 +10,7 @@ import {
   useCreateActivityMutation,
   useUpdateActivityMutation,
 } from '../../features/activities/activities-slice'
-import { Activity } from '../../features/activities/activities-slice'
+import { Activity } from '../../types/types'
 import React from 'react'
 import { Button, TextField } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
@@ -32,7 +32,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers'
 
 type FormProps = {
   job_id: string | undefined
-  currentActivity?: any
+  currentActivity?: Activity
   closePopup: () => void
 }
 

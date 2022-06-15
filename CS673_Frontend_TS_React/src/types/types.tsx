@@ -2,13 +2,14 @@
 //   [key:string]:
 // }
 
-export type Activity = {
+export interface Activity {
+  ID: number | undefined
+  job_id: string
   category: string
   description: string
-  startDate: string
-  endDate: string
-  ActivityID: string
-  jobId: string
+  start_date: string
+  end_date: string
+  status: string
 }
 
 export type Job = {
@@ -20,5 +21,4 @@ export type Job = {
   createdAt?: Date,
   updatedAt?: Date, 
   priority?: string
-  //activities: Activity[]
 }

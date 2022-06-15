@@ -16,6 +16,7 @@ import AddIcon from '@mui/icons-material/Add'
  import ActivityForm from './Activity_Components/ActivityForm'
  import EditIcon from '@mui/icons-material/Edit';
  import useMediaQuery from '@mui/material/useMediaQuery';
+ import {Activity} from '../types/types'
 
 type ModalProps = {
   type: string 
@@ -24,6 +25,7 @@ type ModalProps = {
   job_id?: string | undefined
   insideCard?: boolean
   priority? : string
+  currentActivity? : Activity,
 }
 
 const BasicModal: React.FC<ModalProps> = ({
@@ -96,7 +98,7 @@ const BasicModal: React.FC<ModalProps> = ({
           </StyledModalHeader>
 
           {/* <JobForm /> */}
-          {type == 'job' ? <JobForm job_id = {job_id} closePopup = {handleClose} /> : <ActivityForm job_id = {job_id} closePopup = {handleClose} /> }
+          {type == 'job' ? <JobForm job_id = {job_id} closePopup = {handleClose} /> : <ActivityForm job_id = {job_id} closePopup = {handleClose} currentActivity = {currentActivity}/> }
         </StyledBox>
       </Modal>
     </div>

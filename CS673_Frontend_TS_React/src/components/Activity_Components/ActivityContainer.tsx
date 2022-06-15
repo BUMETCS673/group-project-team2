@@ -5,15 +5,9 @@ import {
 } from '../../features/activities/activities-slice'
 // import Activity from '../Activity_Components/Activity'
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid'
-import ActivityForm from '../Activity_Components/ActivityForm'
 import EditIcon from '@mui/icons-material/Edit'
-import { Button, Modal, Typography } from '@mui/material'
-import {
-  StyledBox,
-  StyledCloseButton,
-  StyledModalHeader,
-} from '../../styles/styles'
-import { IoCloseCircleOutline } from 'react-icons/io5'
+import { Button } from '@mui/material'
+import BasicModal from '../BasicModal'
 // import {useAppDispatch}  from '../../app/hooks'
 // import { setPriority } from '../../features/user/user-slice'
 
@@ -24,57 +18,13 @@ type ActivitiesProps = {
 const ActivityContainer: React.FC<ActivitiesProps> = ({
   jobId,
 }: ActivitiesProps) => {
-  // const HIGH_PRIORITY = 3
-  // const MED_PRIORITY = 7
   const { data = [], isLoading } = useFetchActivitiesQuery(jobId)
-  //const jobsList = useAppSelector(state => state.user.jobs)
-  //const job = jobsList.filter( job => job.ID = jobId)[0]
-  const [open, setOpen] = useState(false)
+
   const [currentActivity, setCurrentActivity] = useState<Activity>()
-  //const dispatch = useAppDispatch()
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
-  const closePopup = () => {
-    setOpen(false)
-  }
-  // const toTimestamp = (strDate:string) => {
-  //   var datum = Date.parse(strDate);
-  //   return datum;
-  // }
-  // const totalDays = (timestamp:number) => {
-  //   const daysDiff = Math.ceil(timestamp / (1000 * 3600 * 24))
-  //   return daysDiff
-  // }
-
-
-  // useEffect(() => {
-  //   if (data.length > 0 ) {
-  //     let priority = ''
-  //     console.log('activity data', data)
-  //     const todayTimestamp = + new Date()
-  //     console.log('today timestamp', todayTimestamp)
-  //     for (let i = 0; i < data.length; i++ ) {
-  //         const startTimestamp = toTimestamp(data[i].start_date)
-  //         console.log('start timestamp', startTimestamp)
-  //         const timeDiff =  startTimestamp - todayTimestamp
-  //         const daysDiff = totalDays(timeDiff)
-  //         console.log('timestamp', daysDiff)
-  //         if (daysDiff <= HIGH_PRIORITY)  {
-  //           priority = 'high'
-  //         } else if (daysDiff > HIGH_PRIORITY && daysDiff <= MED_PRIORITY) {
-  //           priority = 'medium'
-  //         }
-  //     }
-  //     console.log('priority', priority)
-  //     dispatch(setPriority({jobId, priority}))
-  //   }
-  
-  // }, [data])
 
   const DoEdit = (activity: Activity): void => {
     console.log(activity)
     setCurrentActivity(activity)
-    setOpen(true)
   }
 
   const columns: GridColDef[] = [
@@ -132,29 +82,7 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
 
   const renderModal = () => {
     return (
-      <Modal
-        open={open}
-        onClose={handleOpen}
-        title="modal"
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <StyledBox>
-          <StyledModalHeader>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Edit Activity
-            </Typography>
-            <StyledCloseButton onClick={handleClose} title="close-modal">
-              <IoCloseCircleOutline size={30} color="white" />
-            </StyledCloseButton>
-          </StyledModalHeader>
-          <ActivityForm
-            job_id={jobId}
-            currentActivity={currentActivity}
-            closePopup={closePopup}
-          />
-        </StyledBox>
-      </Modal>
+      <BasicModal job_id = {jobId} type = 'activity' title = 'edit' buttonTitle = 'Edit' currentActivity = {currentActivity}/>
     )
   }
 
