@@ -11,12 +11,12 @@ import {Job} from '../../types/types'
 const JobCardList = () => {
   //const [open, setOpen] = useState(false)
   const dispatch = useAppDispatch();
-  
-  const { data = [], isLoading } = useFetchJobsQuery()
+  const { data: jobsData = [], isLoading } = useFetchJobsQuery()
   useEffect(() => {
-    if (data.length > 0) {
+    if (jobsData.length > 0) {
+      
       const jobsWithPriority:Job[] = []
-      data.map((job) => {
+      jobsData.map((job) => {
         const newJob = {
           ...job,
           priority: '',
@@ -26,8 +26,11 @@ const JobCardList = () => {
       })
       dispatch(receiveJobs(jobsWithPriority))
     }
-  }, [data, dispatch])
-  console.log(data)
+  }, [jobsData, dispatch])
+
+  
+
+  console.log(jobsData)
   const jobsList = useAppSelector(state => state.user.jobs)
 
   if (isLoading)

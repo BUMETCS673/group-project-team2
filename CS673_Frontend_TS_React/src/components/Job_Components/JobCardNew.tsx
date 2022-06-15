@@ -1,3 +1,4 @@
+import { useEffect } from 'react' 
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
@@ -6,10 +7,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ActivityContainer from '../Activity_Components/ActivityContainer'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import BasicModal from '../BasicModal'
+import CircularProgress from '@mui/material/CircularProgress'
 // import { useAuth0 } from '@auth0/auth0-react'
 // import { jobData } from '../../data/mockdata'
-
+import {
+  useFetchActivitiesQuery
+} from '../../features/activities/activities-slice'
 import { useDeleteJobMutation } from '../../features/jobs/jobs-api-slice'
+import {useAppDispatch}  from '../../app/hooks'
+import { setPriority } from '../../features/user/user-slice'
 
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -29,15 +35,51 @@ const JobCardNew: React.FC<CardProps> = ({
   id,
   priority
 }: CardProps) => {
+  const HIGH_PRIORITY = 3
+  const MED_PRIORITY = 7
+  const dispatch = useAppDispatch()
   const [deleteJob] = useDeleteJobMutation()
   const matches = useMediaQuery("(min-width:600px)")
+  const { data = [], isLoading } = useFetchActivitiesQuery(id)
+  const toTimestamp = (strDate:string) => {
+    var datum = Date.parse(strDate);
+    return datum;
+  }
+  const totalDays = (timestamp:number) => {
+    const daysDiff = Math.ceil(timestamp / (1000 * 3600 * 24))
+    return daysDiff
+  }
+  useEffect(() => {
+    if (data.length > 0 ) {
+      let newPriority = ''
+      console.log('activity data', data)
+      const todayTimestamp = + new Date()
+      console.log('today timestamp', todayTimestamp)
+      for (let i = 0; i < data.length; i++ ) {
+          const startTimestamp = toTimestamp(data[i].start_date)
+          console.log('start timestamp', startTimestamp)
+          const timeDiff =  startTimestamp - todayTimestamp
+          const daysDiff = totalDays(timeDiff)
+          console.log('timestamp', daysDiff)
+          if (daysDiff <= HIGH_PRIORITY)  {
+            newPriority = 'high'
+          } else if (daysDiff > HIGH_PRIORITY && daysDiff <= MED_PRIORITY) {
+            newPriority = 'medium'
+          }
+      }
+      console.log('newPriority', newPriority)
+      dispatch(setPriority({jobId: id, priority: newPriority}))
+    }
   
+  }, [data, dispatch])
 
   function deleteHandler() {
     deleteJob({ ID: id })
   }
-
-  return (
+  if (isLoading) {
+    return <div style = {{textAlign: 'center'}}><CircularProgress/> </div>
+  } else{
+    return  (
     <div
       style={{
         marginBottom: '4rem',
@@ -107,6 +149,7 @@ const JobCardNew: React.FC<CardProps> = ({
       </Accordion>
     </div>
   )
+                }
 }
 
 export default JobCardNew
