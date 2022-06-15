@@ -6,18 +6,29 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import Stack from '@mui/material/Stack'
 import LinearProgress from '@mui/material/LinearProgress'
 import { receiveJobs } from '../../features/user/user-slice'
+import {Job} from '../../types/types'
 
 const JobCardList = () => {
-  // const [open, setOpen] = useState(false)
+  //const [open, setOpen] = useState(false)
   const dispatch = useAppDispatch();
-  const jobsList = useAppSelector(state => state.user.jobs)
+  
   const { data = [], isLoading } = useFetchJobsQuery()
   useEffect(() => {
     if (data.length > 0) {
-      dispatch(receiveJobs(data))
+      const jobsWithPriority:Job[] = []
+      data.map((job) => {
+        const newJob = {
+          ...job,
+          priority: '',
+        }
+        console.log('aqui', newJob)
+        jobsWithPriority.push(newJob)
+      })
+      dispatch(receiveJobs(jobsWithPriority))
     }
-  }, [data])
+  }, [data, dispatch])
   console.log(data)
+  const jobsList = useAppSelector(state => state.user.jobs)
 
   if (isLoading)
     return (
@@ -39,6 +50,7 @@ const JobCardList = () => {
               companyName={job.companyname}
               jobTitle={job.jobtitle}
               status={job.status}
+              priority = {job.priority}
             />
           )
         })

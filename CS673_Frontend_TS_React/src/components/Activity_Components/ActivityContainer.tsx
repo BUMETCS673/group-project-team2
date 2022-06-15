@@ -14,6 +14,8 @@ import {
   StyledModalHeader,
 } from '../../styles/styles'
 import { IoCloseCircleOutline } from 'react-icons/io5'
+import {useAppDispatch}  from '../../app/hooks'
+import { setPriority } from '../../features/user/user-slice'
 
 type ActivitiesProps = {
   jobId: string | undefined
@@ -22,18 +24,52 @@ type ActivitiesProps = {
 const ActivityContainer: React.FC<ActivitiesProps> = ({
   jobId,
 }: ActivitiesProps) => {
+  const HIGH_PRIORITY = 3
+  const MED_PRIORITY = 7
   const { data = [], isLoading } = useFetchActivitiesQuery(jobId)
-
+  //const jobsList = useAppSelector(state => state.user.jobs)
+  //const job = jobsList.filter( job => job.ID = jobId)[0]
   const [open, setOpen] = useState(false)
   const [currentActivity, setCurrentActivity] = useState<Activity>()
-
+  const dispatch = useAppDispatch()
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
   const closePopup = () => {
     setOpen(false)
   }
+  const toTimestamp = (strDate:string) => {
+    var datum = Date.parse(strDate);
+    return datum;
+  }
+  const totalDays = (timestamp:number) => {
+    const daysDiff = Math.ceil(timestamp / (1000 * 3600 * 24))
+    return daysDiff
+  }
 
-  useEffect(() => {}, [data])
+
+  useEffect(() => {
+    if (data.length > 0 ) {
+      let priority = ''
+      console.log('activity data', data)
+      const todayTimestamp = + new Date()
+      console.log('today timestamp', todayTimestamp)
+      for (let i = 0; i < data.length; i++ ) {
+          const startTimestamp = toTimestamp(data[i].start_date)
+          console.log('start timestamp', startTimestamp)
+          const timeDiff =  startTimestamp - todayTimestamp
+          const daysDiff = totalDays(timeDiff)
+          console.log('timestamp', daysDiff)
+          if (daysDiff <= HIGH_PRIORITY)  {
+            priority = 'high'
+          } else if (daysDiff > HIGH_PRIORITY && daysDiff <= MED_PRIORITY) {
+            priority = 'medium'
+          }
+      }
+      console.log('priority', priority)
+      dispatch(setPriority({jobId, priority}))
+    }
+  
+  }, [data])
 
   const DoEdit = (activity: Activity): void => {
     console.log(activity)
@@ -81,6 +117,7 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   if (data) console.log(data)
 
   const rows = data.map((activity) => {
+
     return {
       ID: activity.ID,
       // JobID: activity.job_id,

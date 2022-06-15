@@ -19,6 +19,7 @@ type CardProps = {
   jobTitle: string
   status: string
   id: string | undefined
+  priority: string | undefined
 }
 
 const JobCardNew: React.FC<CardProps> = ({
@@ -26,6 +27,7 @@ const JobCardNew: React.FC<CardProps> = ({
   jobTitle,
   status,
   id,
+  priority
 }: CardProps) => {
   const [deleteJob] = useDeleteJobMutation()
   const matches = useMediaQuery("(min-width:600px)")
@@ -43,7 +45,7 @@ const JobCardNew: React.FC<CardProps> = ({
         gap: '2rem',
       }}
     >
-      <Accordion>
+      <Accordion style = {priority == 'medium' ?  ({backgroundColor: 'yellow'}): {backgroundColor: 'green'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

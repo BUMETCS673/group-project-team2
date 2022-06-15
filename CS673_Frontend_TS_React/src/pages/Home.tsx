@@ -7,11 +7,16 @@ import { setUserToken } from '../features/user/user-slice'
 import JobCardList from '../components/Job_Components/JobCardList'
 //import CircularProgress from '@mui/material/CircularProgress';
 
+//import {Job} from '../types/types'
+// import Stack from '@mui/material/Stack'
+// import LinearProgress from '@mui/material/LinearProgress'
 
 
 export const Home = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
   const dispatch = useAppDispatch()
+  const userToken = useAppSelector(state => state.user.token)
+  console.log("userToken", userToken)
   useEffect(()=> {
     if (isAuthenticated && user) {
     const getClaims = async () => {
@@ -20,10 +25,11 @@ export const Home = () => {
       dispatch(setUserToken(claims))
     }
     getClaims()}
-  }, [isAuthenticated])
-  const userToken = useAppSelector(state => state.user.token)
-  console.log("userToken", userToken)
+  }, [isAuthenticated, dispatch])
+  
+  
   console.log("userToken length", userToken.length)
+   
   return (
     <StyledCardsContainer>
       {userToken.length != 0  && (
