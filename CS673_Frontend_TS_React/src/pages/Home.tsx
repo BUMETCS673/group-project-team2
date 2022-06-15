@@ -5,6 +5,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 import {useAppDispatch, useAppSelector} from '../app/hooks'
 import { setUserToken } from '../features/user/user-slice'
 import JobCardList from '../components/Job_Components/JobCardList'
+//import CircularProgress from '@mui/material/CircularProgress';
+
 
 
 export const Home = () => {
@@ -22,17 +24,18 @@ export const Home = () => {
   const userToken = useAppSelector(state => state.user.token)
   console.log("userToken", userToken)
   console.log("userToken length", userToken.length)
-  
-  if (userToken.length != 0) {
-    return (
-      <StyledCardsContainer>
-        <HomePageHeader />
-        <br />
-        <br />
-        <br />
-        <JobCardList/>
-      </StyledCardsContainer>
-        )
-      }
-    return (<div>not authenticated</div>)
-    }
+  return (
+    <StyledCardsContainer>
+      {userToken.length != 0  && (
+        <>
+          <HomePageHeader />
+          <br />
+          <br />
+          <br />
+          <JobCardList/>
+        </>
+      )}
+    </StyledCardsContainer>
+  )
+
+}
