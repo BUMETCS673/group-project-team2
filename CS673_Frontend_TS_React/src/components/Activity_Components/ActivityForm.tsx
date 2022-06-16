@@ -46,7 +46,10 @@ const ActivityForm: React.FC<FormProps> = ({
 
   console.log(data, editData)
   //const job = useAppSelector(state => state.job)
-
+  const toTimestamp = (strDate:string) => {
+    var datum = Date.parse(strDate);
+    return datum;
+  }
   return (
     <div>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -65,21 +68,27 @@ const ActivityForm: React.FC<FormProps> = ({
             // if (!values.job_id) {
             //   errors.job_id = 'Required'
             // }
+            const nowTime = + new Date()
+            const startTime = toTimestamp(values.start_date)
+            console.log('startTime', startTime)
+            const endTime = toTimestamp(values.end_date)
+            console.log('END TIME', endTime)
             if (!values.category) {
               errors.category = 'Required'
             }
-            if (!values.description) {
-              errors.description = 'Required'
-            }
+            
             if (!values.start_date) {
               errors.start_date = 'Required'
+            } else if (nowTime> startTime) {
+              errors.start_date = 'Invalid date. Please, choose a future date. '
             }
-            if (!values.end_date) {
-              errors.end_date = 'Required'
+             if (startTime > endTime ) {
+              errors.end_date = 'Invalid date. The end date must be after the start date'
             }
             if (!values.status) {
               errors.status = 'Required'
             }
+            console.log('erro', errors.end_date)
             return errors
           }}
           onSubmit={async (
@@ -169,12 +178,10 @@ const ActivityForm: React.FC<FormProps> = ({
                       console.log(value)
                       setFieldValue('start_date', value)
                     }}
-                    renderInput={(params) => <TextField {...params} />}
+                    renderInput={(params) => <TextField {...params} error = {Boolean(errors.start_date)} helperText = {errors?.start_date} />}
                   />
 
-                  {touched.start_date && errors.start_date && (
-                    <HelperText>{errors.start_date}</HelperText>
-                  )}
+            
                 </SingleCol>
               </Row>
 
@@ -193,11 +200,9 @@ const ActivityForm: React.FC<FormProps> = ({
                       console.log(value)
                       setFieldValue('end_date', value)
                     }}
-                    renderInput={(params) => <TextField {...params} />}
+                    renderInput={(params) => <TextField {...params} error = {Boolean(errors.end_date)} helperText = {errors?.end_date}/>}
                   />
-                  {touched.end_date && errors.end_date && (
-                    <HelperText>{errors.end_date}</HelperText>
-                  )}
+                  
                 </SingleCol>
               </Row>
 
