@@ -19,7 +19,7 @@ const JobCardList = () => {
       jobsData.map((job) => {
         const newJob = {
           ...job,
-          priority: '',
+          priority: 3,
         }
         console.log('aqui', newJob)
         jobsWithPriority.push(newJob)

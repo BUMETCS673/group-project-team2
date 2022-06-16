@@ -24,8 +24,9 @@ type ModalProps = {
   buttonTitle: string
   job_id?: string | undefined
   insideCard?: boolean
-  priority? : string
+  priority? : number
   currentActivity? : Activity,
+ 
 }
 
 const BasicModal: React.FC<ModalProps> = ({
@@ -34,7 +35,9 @@ const BasicModal: React.FC<ModalProps> = ({
   buttonTitle,
   job_id,
   insideCard,
-  priority
+  priority,
+  currentActivity,
+  
 }: ModalProps) => {
   const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -50,15 +53,15 @@ const BasicModal: React.FC<ModalProps> = ({
         
         sx = {{
           backgroundColor: "rgb(23, 160, 160)",
-          ...(insideCard && priority == 'high' && {
+          ...(insideCard && priority == 1 && {
             color: 'rgb(77, 77, 77)',
             backgroundColor: "rgb(230, 99, 99)",
           }),
-          ...(insideCard && priority == 'medium' && {
+          ...(insideCard && priority == 2 && {
             color: 'rgb(77, 77, 77)',
             backgroundColor: "rgb(216, 186, 88)",
           }),
-          ...(insideCard && priority == '' && {
+          ...(insideCard && priority == 3 && {
             color: 'rgb(77, 77, 77)',
             backgroundColor: "rgb(100, 190, 115)",
           }),

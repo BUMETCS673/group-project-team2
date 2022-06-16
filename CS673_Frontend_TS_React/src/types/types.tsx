@@ -20,5 +20,5 @@ export type Job = {
   status: string,
   createdAt?: Date,
   updatedAt?: Date, 
-  priority?: string
+  priority?: number
 }

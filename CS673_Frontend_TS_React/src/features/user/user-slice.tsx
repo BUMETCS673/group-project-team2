@@ -11,7 +11,7 @@ const initialState: UserState = {
 }
 interface Priority {
     jobId: string | undefined,
-    priority: string,
+    priority: number,
 
 }
 
@@ -28,8 +28,11 @@ const userSlice = createSlice({
         setPriority(state, action:PayloadAction<Priority>) {
 
             state.jobs.filter(job => job.ID == action.payload.jobId)[0].priority = action.payload.priority 
+        },
+        deleteUserJob(state, action:PayloadAction<string>) {
+            state.jobs = state.jobs.filter(job => job.ID != action.payload)
         }
     }
 })
-export const { setUserToken, receiveJobs, setPriority } = userSlice.actions
+export const { setUserToken, receiveJobs, setPriority, deleteUserJob } = userSlice.actions
 export default userSlice.reducer
