@@ -157,6 +157,7 @@ export const StyledSidebar = styled.div<SidebarProps>`
 // job cards
 
 export const StyledCardsContainer = styled.div`
+  height: 100vh;
   margin: auto;
   background-color: ${(props) => props.theme.colors.background.secondary.light};
   padding: 20px;
