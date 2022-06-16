@@ -15,7 +15,7 @@ import {
 } from '../../features/activities/activities-slice'
 import { useDeleteJobMutation } from '../../features/jobs/jobs-api-slice'
 import {useAppDispatch}  from '../../app/hooks'
-import { setPriority, deleteUserJob } from '../../features/user/user-slice'
+import { setPriority } from '../../features/user/user-slice'
 
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -24,8 +24,8 @@ type CardProps = {
   companyName: string
   jobTitle: string
   status: string
-  id: string | number | undefined
-  priority: number | undefined
+  id: string | undefined
+  priority: string | undefined
 }
 const JobCardNew: React.FC<CardProps> = ({
   companyName,
@@ -50,7 +50,7 @@ const JobCardNew: React.FC<CardProps> = ({
   }
   useEffect(() => {
     if (data.length > 0 ) {
-      let newPriority = 3
+      let newPriority = ''
       console.log('activity data', data)
       const todayTimestamp = + new Date()
       console.log('today timestamp', todayTimestamp)
@@ -61,9 +61,9 @@ const JobCardNew: React.FC<CardProps> = ({
           const daysDiff = totalDays(timeDiff)
           console.log('timestamp', daysDiff)
           if (daysDiff <= HIGH_PRIORITY)  {
-            newPriority = 1
+            newPriority = 'high'
           } else if (daysDiff > HIGH_PRIORITY && daysDiff <= MED_PRIORITY) {
-            newPriority = 2
+            newPriority = 'medium'
           }
       }
       console.log('newPriority', newPriority)
@@ -73,15 +73,7 @@ const JobCardNew: React.FC<CardProps> = ({
   }, [data, dispatch])
 
   function deleteHandler() {
-    if (typeof id === "number") {
-      
-      console.log('DELETE AQUI', id)
-      dispatch(deleteUserJob(id))
-    }
-    console.log('DELETE AQUI', typeof id)
     deleteJob({ ID: id })
-    
-    
   }
   if (isLoading) {
     return <div style = {{textAlign: 'center'}}><CircularProgress/> </div>
@@ -97,10 +89,10 @@ const JobCardNew: React.FC<CardProps> = ({
       <Accordion sx = {{
         backgroundColor: 'rgb(70, 158, 84)',
         color: 'white',
-        ...(priority == 1 && {
+        ...(priority == 'high' && {
           backgroundColor: 'rgb(207, 55, 55)'
         }),
-        ...(priority == 2 && {
+        ...(priority == 'medium' && {
           backgroundColor: 'rgb(245, 190, 71)'
         })
       }}>
@@ -127,9 +119,9 @@ const JobCardNew: React.FC<CardProps> = ({
             <li>Activity 2</li>
             <li>Activity 3</li>
           </ul> */}
-          <ActivityContainer jobId={id}/>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '15px'}}>
-            <div style={{ flexGrow: '1'}}>
+          <ActivityContainer jobId={id} />
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <div style={{ flexGrow: '1' }}>
               {' '}
               <BasicModal
                 job_id={id}
@@ -141,7 +133,7 @@ const JobCardNew: React.FC<CardProps> = ({
               />
             </div>
 
-            <div style={{ display: 'flex', gap: '1rem'}}>
+            <div style={{ display: 'flex', gap: '1rem' }}>
               {' '}
               <BasicModal
                 type = 'job'
@@ -153,15 +145,15 @@ const JobCardNew: React.FC<CardProps> = ({
               />
               <Button variant="contained" onClick={deleteHandler} sx = {{
                   backgroundColor: "rgb(23, 160, 160)",
-                  ...(priority == 1 && {
+                  ...(priority == 'high' && {
                     color: 'rgb(77, 77, 77)',
                     backgroundColor: "rgb(230, 99, 99)",
                   }),
-                  ...(priority == 2 && {
+                  ...(priority == 'medium' && {
                     color: 'rgb(77, 77, 77)',
                     backgroundColor: "rgb(216, 186, 88)",
                   }),
-                  ...(priority == 3 && {
+                  ...(priority == '' && {
                     color: 'rgb(77, 77, 77)',
                     backgroundColor: "rgb(100, 190, 115)",
                   }),

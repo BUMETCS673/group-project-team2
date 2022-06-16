@@ -4,7 +4,7 @@
 
 export interface Activity {
   ID: number | undefined
-  job_id: string | number
+  job_id: string
   category: string
   description: string
   start_date: string
@@ -13,12 +13,12 @@ export interface Activity {
 }
 
 export type Job = {
-  ID?: string | number,
+  ID?: string,
   companyname : string,
   jobtitle: string,
   description: string,
   status: string,
   createdAt?: Date,
   updatedAt?: Date, 
-  priority?: number | undefined
+  priority?: string
 }

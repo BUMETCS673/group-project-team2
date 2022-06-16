@@ -31,7 +31,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers'
 // }
 
 type FormProps = {
-  job_id: string | number | undefined
+  job_id: string | undefined
   currentActivity?: Activity
   closePopup: () => void
 }
@@ -53,7 +53,7 @@ const ActivityForm: React.FC<FormProps> = ({
         <Formik
           initialValues={{
             ID: currentActivity?.ID,
-            job_id: job_id ?? -1,
+            job_id: String(job_id) ?? '',
             category: currentActivity?.category ?? '',
             description: currentActivity?.description ?? '',
             start_date: currentActivity?.start_date ?? '',

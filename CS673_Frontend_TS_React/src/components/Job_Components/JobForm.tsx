@@ -16,7 +16,7 @@ interface Values {
 }
 
 interface JobFormType {
-  job_id?: string | number| undefined
+  job_id?: string | undefined
   closePopup: () => void
 }
 

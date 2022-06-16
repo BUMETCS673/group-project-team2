@@ -12,26 +12,21 @@ const JobCardList = () => {
   //const [open, setOpen] = useState(false)
   const dispatch = useAppDispatch();
   const { data: jobsData = [], isLoading } = useFetchJobsQuery()
-  
   useEffect(() => {
-    console.log("jobs data length", jobsData.length)
-     if (jobsData.length > 0) {
-      let jobsWithPriority:Job[] = []
-      jobsData.map((job: Job) => {
-        console.log ("job aqui", job)
+    if (jobsData.length > 0) {
+      
+      const jobsWithPriority:Job[] = []
+      jobsData.map((job) => {
         const newJob = {
           ...job,
-          priority: 3,
+          priority: '',
         }
         console.log('aqui', newJob)
         jobsWithPriority.push(newJob)
       })
       dispatch(receiveJobs(jobsWithPriority))
     }
-      //if (typeof jobsWithPriority[0].priority != undefined) {jobsWithPriority.sort((a, b) => a.priority - b.priority)}
-    
-     
-  }, [jobsData])
+  }, [jobsData, dispatch])
 
   
 
@@ -48,7 +43,6 @@ const JobCardList = () => {
     )
   return (
     <div>
-      
       {jobsList.length !== 0 ? (
         jobsList.map((job) => {
           console.log('job', job)
