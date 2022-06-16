@@ -2,6 +2,7 @@ import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
+
 import { useCreateJobMutation, useUpdateJobMutation } from '../../features/jobs/jobs-api-slice'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
@@ -66,6 +67,8 @@ const JobForm: React.FC<JobFormType> = ({
           } else {
             dispatch(setJob(values))
             await createJob(values)
+            //if is successful
+            
           }
           setSubmitting(false)
           closePopup()

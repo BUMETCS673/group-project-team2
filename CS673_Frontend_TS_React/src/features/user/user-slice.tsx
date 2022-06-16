@@ -31,8 +31,11 @@ const userSlice = createSlice({
         },
         deleteUserJob(state, action:PayloadAction<string>) {
             state.jobs = state.jobs.filter(job => job.ID != action.payload)
+        },
+        addJob(state, action:PayloadAction<Job>){
+            state.jobs.push(action.payload)
         }
     }
 })
-export const { setUserToken, receiveJobs, setPriority, deleteUserJob } = userSlice.actions
+export const { setUserToken, receiveJobs, setPriority, deleteUserJob, addJob } = userSlice.actions
 export default userSlice.reducer
