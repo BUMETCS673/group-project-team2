@@ -70,9 +70,8 @@ const ActivityForm: React.FC<FormProps> = ({
             // }
             const nowTime = + new Date()
             const startTime = toTimestamp(values.start_date)
-            console.log('startTime', startTime)
+            
             const endTime = toTimestamp(values.end_date)
-            console.log('END TIME', endTime)
             if (!values.category) {
               errors.category = 'Required'
             }
@@ -88,14 +87,12 @@ const ActivityForm: React.FC<FormProps> = ({
             if (!values.status) {
               errors.status = 'Required'
             }
-            console.log('erro', errors.end_date)
             return errors
           }}
           onSubmit={async (
             values: Activity,
             { setSubmitting }: FormikHelpers<Activity>
           ) => {
-            console.log(values)
 
             if (currentActivity) {
               await updateActivity(values)
@@ -175,7 +172,6 @@ const ActivityForm: React.FC<FormProps> = ({
                     inputFormat="MM/dd/yyyy"
                     value={values.start_date}
                     onChange={(value) => {
-                      console.log(value)
                       setFieldValue('start_date', value)
                     }}
                     renderInput={(params) => <TextField {...params} error = {Boolean(errors.start_date)} helperText = {errors?.start_date} />}
@@ -197,7 +193,6 @@ const ActivityForm: React.FC<FormProps> = ({
                     inputFormat="MM/dd/yyyy"
                     value={values.end_date}
                     onChange={(value) => {
-                      console.log(value)
                       setFieldValue('end_date', value)
                     }}
                     renderInput={(params) => <TextField {...params} error = {Boolean(errors.end_date)} helperText = {errors?.end_date}/>}
