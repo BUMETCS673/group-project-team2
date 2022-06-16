@@ -1,7 +1,4 @@
-import BasicModal from '../BasicModal'
-import ActivityForm from './ActivityForm'
 
-import { Activity as ActivityType } from '../../features/activities/activities-slice'
 import { useState } from 'react'
 
 type ActivityProps = {

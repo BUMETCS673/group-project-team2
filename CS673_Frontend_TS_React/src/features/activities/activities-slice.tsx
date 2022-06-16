@@ -1,15 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { RootState } from '../../app/store'
+import type { Activity } from "../../types/types"
 
-export interface Activity {
-  ID: number | undefined
-  job_id: string
-  category: string
-  description: string
-  start_date: string
-  end_date: string
-  status: string
-}
+
 
 // getActivity API https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_activity?job_id=2
 // createActivity API https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_activity
@@ -34,8 +27,8 @@ export const activitySlice = createApi({
   }),
   endpoints(builder) {
     return {
-      fetchActivities: builder.query<Activity[], string | undefined>({
-        query: (jobId: string | undefined) => {
+      fetchActivities: builder.query<Activity[], string | undefined| number>({
+        query: (jobId: string | undefined | number) => {
           return `?job_id=${jobId}`
         },
         providesTags: ['Activity', 'Job'],
