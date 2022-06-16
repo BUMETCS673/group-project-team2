@@ -79,11 +79,11 @@ const ActivityForm: React.FC<FormProps> = ({
             
             if (!values.start_date) {
               errors.start_date = 'Required'
-            } else if (nowTime> startTime) {
-              errors.start_date = 'Invalid date. Please, choose a future date. '
+            } else if (nowTime > startTime) {
+              errors.start_date = 'Invalid date. Please, pick a future date. '
             }
              if (startTime > endTime ) {
-              errors.end_date = 'Invalid date. The end date must be after the start date'
+              errors.end_date = 'Invalid date. Please, pick a date after the start date.'
             }
             if (!values.status) {
               errors.status = 'Required'
