@@ -13,6 +13,17 @@ const JobCardList = () => {
   const dispatch = useAppDispatch();
   const { data: jobsData = [], isLoading } = useFetchJobsQuery()
   const jobsList = useAppSelector(state => state.user.jobs) 
+  const compareFn = (a:Job, b:Job) => {
+    if (typeof a.priority === 'number' && typeof b.priority === 'number' ) {
+      if (a.priority > b.priority) {
+          return 1
+      }
+      if (a.priority < b.priority) {
+          return -1
+      }
+    }
+    return 0 
+  }
   
   useEffect(() => {
     if (jobsData.length > 0) {
@@ -30,7 +41,10 @@ const JobCardList = () => {
     }
   }, [jobsData, dispatch])
 
-
+  //Sort jobsList to show the cards according to priority
+  const sortedjobsList = [...jobsList]
+  sortedjobsList.sort(compareFn)
+ 
   if (isLoading)
     return (
       <Stack sx={{ width: '100%', color: 'grey.500' }} spacing={2}>
@@ -42,7 +56,7 @@ const JobCardList = () => {
   return (
     <div>
       {jobsList.length !== 0 ? (
-        jobsList.map((job) => {
+        sortedjobsList.map((job) => {
           // console.log('job', job)
           return (
             <JobCardNew
