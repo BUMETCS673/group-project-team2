@@ -16,19 +16,19 @@ export const Home = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0()
   const dispatch = useAppDispatch()
   const userToken = useAppSelector(state => state.user.token)
-  console.log("userToken", userToken)
+  
   useEffect(()=> {
     if (isAuthenticated && user) {
     const getClaims = async () => {
       const claims = await getAccessTokenSilently()
-      console.log('token', claims)
+      
       dispatch(setUserToken(claims))
     }
     getClaims()}
   }, [isAuthenticated, dispatch])
   
   
-  console.log("userToken length", userToken.length)
+  
    
   return (
     <StyledCardsContainer>

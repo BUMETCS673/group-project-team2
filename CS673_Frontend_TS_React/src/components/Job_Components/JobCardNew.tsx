@@ -51,22 +51,22 @@ const JobCardNew: React.FC<CardProps> = ({
   useEffect(() => {
     if (data.length > 0 ) {
       let newPriority = 3
-      console.log('activity data', data)
+      //console.log('activity data', data)
       const todayTimestamp = + new Date()
-      console.log('today timestamp', todayTimestamp)
+      //console.log('today timestamp', todayTimestamp)
       for (let i = 0; i < data.length; i++ ) {
           const startTimestamp = toTimestamp(data[i].start_date)
-          console.log('start timestamp', startTimestamp)
+          //console.log('start timestamp', startTimestamp)
           const timeDiff =  startTimestamp - todayTimestamp
           const daysDiff = totalDays(timeDiff)
-          console.log('timestamp', daysDiff)
+          //console.log('timestamp', daysDiff)
           if (daysDiff <= HIGH_PRIORITY)  {
             newPriority = 1
           } else if (daysDiff > HIGH_PRIORITY && daysDiff <= MED_PRIORITY) {
             newPriority = 2
           }
       }
-      console.log('newPriority', newPriority)
+      //console.log('newPriority', newPriority)
       dispatch(setPriority({jobId: id, priority: newPriority}))
     }
   
@@ -126,7 +126,7 @@ const JobCardNew: React.FC<CardProps> = ({
             <li>Activity 3</li>
           </ul> */}
           <ActivityContainer jobId={id} />
-          <div style={{ display: 'flex', gap: '1rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '20px' }}>
             <div style={{ flexGrow: '1' }}>
               {' '}
               <BasicModal

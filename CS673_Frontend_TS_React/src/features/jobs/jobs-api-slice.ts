@@ -15,7 +15,7 @@ export const apiSlice = createApi({
       'https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_job',
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).user.token
-      console.log('token 2', token)
+      // console.log('token 2', token)
       if (token) {
         headers.set('Authorization', `Bearer ${token}`)
       }

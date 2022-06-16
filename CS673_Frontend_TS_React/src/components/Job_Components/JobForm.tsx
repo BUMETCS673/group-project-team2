@@ -28,10 +28,10 @@ const JobForm: React.FC<JobFormType> = ({
   const dispatch = useAppDispatch()
   const jobsList = useAppSelector(state => state.user.jobs)
   const jobToEdit:Job | null = jobsList.filter( job => job.ID == job_id)[0]
-  const [createJob, newJob] = useCreateJobMutation()
-  const [updateJob, editJob] = useUpdateJobMutation()
-  console.log(newJob, job_id)
-  console.log(editJob, job_id)
+  const [createJob] = useCreateJobMutation()
+  const [updateJob] = useUpdateJobMutation()
+  // console.log(newJob, job_id)
+  // console.log(editJob, job_id)
   //const job = useAppSelector(state => state.job)
 
   return (

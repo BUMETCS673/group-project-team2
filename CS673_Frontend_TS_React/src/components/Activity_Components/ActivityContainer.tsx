@@ -37,7 +37,7 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   
 
   const DoEdit = (activity: Activity): void => {
-    console.log(activity)
+    // console.log(activity)
     setCurrentActivity(activity)
     setOpen(true)
   }
@@ -77,9 +77,9 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
     },
   ]
 
-  console.log(data)
+  // console.log(data)
   if (isLoading) return <div>Is loading</div>
-  if (data) console.log(data)
+  // if (data) console.log(data)
 
   const rows = data.map((activity) => {
 
