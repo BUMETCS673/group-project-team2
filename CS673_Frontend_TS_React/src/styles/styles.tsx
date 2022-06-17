@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import Box from '@mui/material/Box'
+import FormHelperText from '@mui/material/FormHelperText';
 
 export const button = styled.button`
   border: 1px dotted yellow;
@@ -157,7 +158,8 @@ export const StyledSidebar = styled.div<SidebarProps>`
 // job cards
 
 export const StyledCardsContainer = styled.div`
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   margin: auto;
   background-color: ${(props) => props.theme.colors.background.secondary.light};
   padding: 20px;
@@ -440,8 +442,7 @@ export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
 //   background-color: ${(props) => props.theme.input.backgroundColor.primary};
 
 // `
-export const HelperText = styled.p`
-  margin: 3px 0;
+export const HelperText = styled(FormHelperText)`
   color: ${(props) => props.theme.colors.text.error};
 `
 

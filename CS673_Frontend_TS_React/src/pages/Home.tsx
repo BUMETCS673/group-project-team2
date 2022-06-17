@@ -31,7 +31,7 @@ export const Home = () => {
   
    
   return (
-    <StyledCardsContainer>
+    <StyledCardsContainer >
       {userToken.length != 0  && (
         <>
           <HomePageHeader />

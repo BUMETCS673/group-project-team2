@@ -54,7 +54,7 @@ const JobCardList = () => {
       </Stack>
     )
   return (
-    <div>
+    <div >
       {jobsList.length !== 0 ? (
         sortedjobsList.map((job) => {
           // console.log('job', job)

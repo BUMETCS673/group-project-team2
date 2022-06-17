@@ -2,7 +2,10 @@ import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { useCreateJobMutation, useUpdateJobMutation } from '../../features/jobs/jobs-api-slice'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
@@ -90,6 +93,9 @@ const JobForm: React.FC<JobFormType> = ({
 
             <Row>
               <Col>
+              
+
+              
                 <Field
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -99,29 +105,37 @@ const JobForm: React.FC<JobFormType> = ({
                   data-testid="companyname"
                   name="companyname"
                   placeholder="Company"
+                  style = {{minWidth: 180}}
                 />
                 {touched.companyname && errors.companyname && (
-                  <HelperText data-testid="companynameError">{errors.companyname}</HelperText>
+                  <HelperText sx = {{color: "#c70e1a"}} data-testid="companynameError">{errors.companyname}</HelperText>
                 )}
+                
               </Col>
               <Col>
-                <Field
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.jobtitle}
-                  //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
-                  id="jobtitle"
-                  name="jobtitle"
-                  data-testid="jobtitle" 
-                  placeholder="Job Title"
-                />
-                {touched.jobtitle && errors.jobtitle && (
-                  <HelperText data-testid="jobtitleError">{errors.jobtitle}</HelperText>
-                )}
+                
+
+                
+                  <Field
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.jobtitle}
+                    //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
+                    id="jobtitle"
+                    name="jobtitle"
+                    data-testid="jobtitle" 
+                    placeholder="Job Title"
+                    style = {{minWidth: 180}}
+                  />
+                  {touched.jobtitle && errors.jobtitle && (
+                    <HelperText sx = {{color: "#c70e1a"}} data-testid="jobtitleError">{errors.jobtitle}</HelperText>
+                  )}
+                 
               </Col>
             </Row>
             <Row>
               <Col>
+              
                 <Field
                   as="textarea"
                   onChange={handleChange}
@@ -130,35 +144,32 @@ const JobForm: React.FC<JobFormType> = ({
                   id="description"
                   name="description"
                   placeholder="Job description..."
+                  style = {{minWidth: 180}}
                 />
+               
               </Col>
 
               <Col>
-                <Field
-                  name="status"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="Status"
-                  data-testid = "status"
-                  value={values.status}
-                ></Field>
-                {/* <Field 
-                      component = "select"
-                      onChange = {handleChange}
-                      
-                      //border = {!(touched.status  && errors.status && "1px solid red")}
-                       
-                      name="status" 
-                      
-                      
-                    >
-                      <option value = "in progress">In progress</option>
-                      <option  value = "completed process">Completed process</option>
-                      <option value = "received offer">Received Offer</option>
-                    </Field> */}
-                {touched.status && errors.status && (
-                  <HelperText data-testid="statusError">{errors.status}</HelperText>
-                )}
+                <FormControl sx={{  minWidth: 120 }}>
+                  <InputLabel id="select-helper-label">Status</InputLabel>
+                  <Select
+                    labelId="select-helper-label"
+                    name="status"
+                    value={values.status}
+                    label="status"
+                    onChange={handleChange}
+                  >
+                    <MenuItem value="In Progress">In Progress</MenuItem>
+                    <MenuItem value="Completed">Completed</MenuItem>
+                    <MenuItem value="Received offer">Received offer</MenuItem>
+                    <MenuItem value="Declined offer">Declined offer</MenuItem>
+                    <MenuItem value="Not aligned">Not aligned</MenuItem>
+                  </Select>
+                  {touched.jobtitle && errors.jobtitle && (
+                    <HelperText sx = {{color: "#c70e1a"}} data-testid="statusError">{errors.status}</HelperText>
+                  )}
+                  
+                </FormControl>  
               </Col>
             </Row>
 
