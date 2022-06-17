@@ -124,12 +124,12 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   }
 
   return (
-    <div>
-      {data.length !== 0 ? (
-        <>
-        <Typography variant = "overline" component = "h2" sx = {{color: 'gray' }}>
+    <div style = {{marginTop: 15}}>
+      <Typography variant = "overline" component = "h2" sx = {{color: 'gray' }}>
           Activities
         </Typography>
+      {data.length !== 0 ? (
+        
         <DataGrid
           autoHeight
           rows={rows}
@@ -145,7 +145,7 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
           }}
           
         />
-        </>
+       
       ) : (
         <div style={{ marginBottom: '2rem', color: 'gray' }}>
           <em>No activities</em>
