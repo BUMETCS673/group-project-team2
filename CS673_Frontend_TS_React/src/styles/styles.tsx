@@ -1,7 +1,25 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import FormHelperText from '@mui/material/FormHelperText';
+
+//text animation
+const animation = keyframes`
+  0% { opacity: 0;  }
+  20% { opacity: 0.5; }
+  30% { opacity: 1; }
+  50% { opacity: 1; }
+  70% { opacity: 1; }
+  80% { opacity: 0.5; }
+  100% { opacity: 0;  }
+`
+
+export const TextAnimation = styled.span`
+ animation-name: ${animation};
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+`
 
 export const button = styled.button`
   border: 1px dotted yellow;

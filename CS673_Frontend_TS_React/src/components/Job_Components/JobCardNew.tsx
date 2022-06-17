@@ -19,6 +19,8 @@ import { setPriority, deleteUserJob } from '../../features/user/user-slice'
 
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
+import { TextAnimation } from 'styles/styles'
+//import { Activity } from 'types/types'
 
 
 type CardProps = {
@@ -43,6 +45,7 @@ const JobCardNew: React.FC<CardProps> = ({
   const [deleteJob] = useDeleteJobMutation()
   const [daysToActivity, setDaysToActivity] = useState(-1)
   const [expired, setExpired] = useState(false)
+  const [numExpired, setNumExpired] = useState(0)
   //const [started, setStarted] = useState(false)
   const matches = useMediaQuery("(min-width:600px)")
   const { data = [], isLoading } = useFetchActivitiesQuery(id)
@@ -61,6 +64,7 @@ const JobCardNew: React.FC<CardProps> = ({
     return totalDays(timestampDiffToNow)
 
   }
+
   
   useEffect(() => {
     
@@ -69,23 +73,25 @@ const JobCardNew: React.FC<CardProps> = ({
       //first assume the first activity in the data array will be the closest and we set the daysToActivity equal to the days 
       //difference from now to the activity start date
       let daysTo = getDaysDiff(data[0].start_date)
-      
+      let countExpired = 0;
       //now we loop through the array comparing the values
       for (let i = 1; i < data.length; i++ ) {
         const daysDiff = getDaysDiff(data[i].start_date)
         // we want to find the closest day, that is, the smallest days difference
-        // if the daysDiff is less than 0, it means the date is passed and the activity is expired => find another one that is coming next
+        // if the daysDiff is less than 0, it means the date is passed and the activity is expired => find another one that is coming next 
+        // and count the expired activities
         if (daysDiff < 0 ) {
-          setExpired(true)
+          setExpired(true) 
+          countExpired ++
           continue
         } else if (daysDiff < daysTo) {
           daysTo = daysDiff
           //setDaysToActivity(daysDiff)
         }
       }
+      // after the loop, set the daysToActivity state variable to contain the closest day difference and the number of expired activities
       setDaysToActivity(daysTo)
-      // after the loop, the daysToActivity state variable contains the closest day difference 
-      
+      setNumExpired(countExpired)
       // now, based on the closest day difference, we can set the card's priority 
       let newPriority = 3
       if ( daysTo <= HIGH_PRIORITY)  {
@@ -96,7 +102,7 @@ const JobCardNew: React.FC<CardProps> = ({
       dispatch(setPriority({jobId: id, priority: newPriority}))
     }
     
-  
+    
   }, [data, dispatch])
 
   function deleteHandler() {
@@ -131,11 +137,12 @@ const JobCardNew: React.FC<CardProps> = ({
               backgroundColor: 'rgb(207, 55, 55)'
             }),
             ...(priority == 2 && {
-              backgroundColor: 'rgb(245, 190, 71)'
+              backgroundColor: 'rgb(202, 160, 23)'
             })
           }}
         >
-          <Typography fontSize={16} mr={2}>{`${id}`}</Typography>
+          {/* <div style = {{color: 'gray', textAlign: 'right', display: 'flex'}}> */}
+            {/* <Typography fontSize={16} mr={2}>{`${id}`}</Typography> */}
           <Typography fontSize={16} mr={2}>{`${companyName}`}</Typography>
           <Typography fontSize={18}>{`|`}</Typography>
           <Typography fontSize={14} mr={2} ml={2}>
@@ -146,16 +153,33 @@ const JobCardNew: React.FC<CardProps> = ({
           <Typography fontSize={12} ml={2}>
             {`${status}`}
           </Typography>
-          {daysToActivity >= 0 && expired == false && (
-            <Typography fontSize={12} ml={2}>
-              {daysToActivity == 0 ? `Next activity today`: `Next activity in ${daysToActivity} ${daysToActivity == 1 ? "day": "days"}`}
-            </Typography>
-          )}
-          { expired == true && (
-            <Typography fontSize={12} ml={2}>
-              {daysToActivity == 0 ? `Next activity today`: `Next activity in ${daysToActivity} ${daysToActivity == 1 ? "day": "days"}`}
-            </Typography>
-          )}
+
+          {/* </div> */}
+          
+          <div style = {{ textAlign: 'right', display: 'flex', flexDirection: 'column', marginLeft: 'auto', marginRight: 15}}>
+            {daysToActivity >= 0  && (   
+                <Typography fontSize={12} ml={2} sx ={{fontWeight: 900, fontSize: '0.9rem', color: 'rgb(218, 216, 212)'}}>
+                  {daysToActivity <= HIGH_PRIORITY ? (
+                    <TextAnimation>
+                    {daysToActivity == 0 ? `Next activity today`: `Next activity in ${daysToActivity} ${daysToActivity == 1 ? "day": "days"}`}
+                    </TextAnimation>
+                    ) : (                   
+                    <span>
+                      {`Next activity in ${daysToActivity} days`}
+                    </span>
+                    )
+                  } 
+                </Typography>
+              
+              
+            )}
+            { expired && (
+              <Typography fontSize={12} ml={2} sx ={{fontStyle: 'italic'}}>
+                {`Expired activities: ${numExpired}`}
+              </Typography>
+            )}
+          </div>
+          
           
         </AccordionSummary>
         <AccordionDetails 

@@ -68,12 +68,8 @@ const ActivityForm: React.FC<FormProps> = ({
           }}
           validate={(values: Activity) => {
             let errors: FormikErrors<Activity> = {}
-            // if (!values.job_id) {
-            //   errors.job_id = 'Required'
-            // }
-            const nowTime = + new Date()
+            //const nowTime = + new Date()
             const startTime = toTimestamp(values.start_date)
-            
             const endTime = toTimestamp(values.end_date)
             if (!values.category) {
               errors.category = 'Required'
@@ -83,9 +79,10 @@ const ActivityForm: React.FC<FormProps> = ({
             }
             if (!values.start_date) {
               errors.start_date = 'Required'
-            } else if (nowTime > startTime) {
-              errors.start_date = 'Invalid date. Please, pick a future date. '
             }
+            // } else if (nowTime > startTime) {
+            //   errors.start_date = 'Invalid date. Please, pick a future date. '
+            // }
              if (startTime > endTime ) {
               errors.end_date = 'Invalid date. Please, pick a date after the start date.'
             }
