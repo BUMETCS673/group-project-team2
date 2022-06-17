@@ -16,7 +16,10 @@ import { Button, TextField } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { LocalizationProvider } from '@mui/x-date-pickers'
 
 // import { IoFastFood } from 'react-icons/io5'
@@ -75,7 +78,9 @@ const ActivityForm: React.FC<FormProps> = ({
             if (!values.category) {
               errors.category = 'Required'
             }
-            
+            if (!values.status) {
+              errors.status = 'Required'
+            }
             if (!values.start_date) {
               errors.start_date = 'Required'
             } else if (nowTime > startTime) {
@@ -83,9 +88,6 @@ const ActivityForm: React.FC<FormProps> = ({
             }
              if (startTime > endTime ) {
               errors.end_date = 'Invalid date. Please, pick a date after the start date.'
-            }
-            if (!values.status) {
-              errors.status = 'Required'
             }
             return errors
           }}
@@ -131,7 +133,7 @@ const ActivityForm: React.FC<FormProps> = ({
                     placeholder="category"
                   />
                   {touched.category && errors.category && (
-                    <HelperText>{errors.category}</HelperText>
+                    <HelperText sx = {{color: "#c70e1a"}}>{errors.category}</HelperText>
                   )}
                 </SingleCol>
               </Row>
@@ -146,9 +148,7 @@ const ActivityForm: React.FC<FormProps> = ({
                     name="description"
                     placeholder="Activity Description"
                   />
-                  {touched.description && errors.description && (
-                    <HelperText>{errors.description}</HelperText>
-                  )}
+                  
                 </SingleCol>
               </Row>
 
@@ -203,15 +203,27 @@ const ActivityForm: React.FC<FormProps> = ({
 
               <Row>
                 <SingleCol>
-                  <Field
+                <FormControl sx={{  minWidth: 180 }}>
+                  <InputLabel id="select-helper-label">Status</InputLabel>
+                  <Select
+                    labelId="select-helper-label"
                     name="status"
+                    value={values.status}
+                    label="status"
                     onChange={handleChange}
-                    placeholder="status"
-                  ></Field>
-
+                    onBlur={handleBlur}
+                  >
+                    <MenuItem value="In Progress">In Progress</MenuItem>
+                    <MenuItem value="Completed">Completed</MenuItem>
+                    <MenuItem value="Received offer">Received offer</MenuItem>
+                    <MenuItem value="Declined offer">Declined offer</MenuItem>
+                    <MenuItem value="Not aligned">Not aligned</MenuItem>
+                  </Select>
                   {touched.status && errors.status && (
-                    <HelperText>{errors.status}</HelperText>
+                    <HelperText sx = {{color: "#c70e1a"}} data-testid="statusError">{errors.status}</HelperText>
                   )}
+                  
+                </FormControl>  
                 </SingleCol>
               </Row>
 

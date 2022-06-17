@@ -158,6 +158,7 @@ const JobForm: React.FC<JobFormType> = ({
                     value={values.status}
                     label="status"
                     onChange={handleChange}
+                    onBlur={handleBlur}
                   >
                     <MenuItem value="In Progress">In Progress</MenuItem>
                     <MenuItem value="Completed">Completed</MenuItem>
@@ -165,7 +166,7 @@ const JobForm: React.FC<JobFormType> = ({
                     <MenuItem value="Declined offer">Declined offer</MenuItem>
                     <MenuItem value="Not aligned">Not aligned</MenuItem>
                   </Select>
-                  {touched.jobtitle && errors.jobtitle && (
+                  {touched.status && errors.status && (
                     <HelperText sx = {{color: "#c70e1a"}} data-testid="statusError">{errors.status}</HelperText>
                   )}
                   
