@@ -126,6 +126,10 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   return (
     <div>
       {data.length !== 0 ? (
+        <>
+        <Typography variant = "overline" component = "h2" sx = {{color: 'gray' }}>
+          Activities
+        </Typography>
         <DataGrid
           autoHeight
           rows={rows}
@@ -134,10 +138,19 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
           rowsPerPageOptions={[5, 10]}
           checkboxSelection={false}
           getRowId={(row) => row.ID}
-          // style={{ height: '500px' }}
+          sx={{
+            boxShadow: 1, 
+            marginBottom: 3, 
+            backgroundColor: '#f2f2f2',
+            '& .MuiDataGrid-cell:hover': {
+              color: 'primary.main',
+            },
+          }}
+          
         />
+        </>
       ) : (
-        <div style={{ marginBottom: '2rem' }}>
+        <div style={{ marginBottom: '2rem', color: 'gray' }}>
           <em>No activities</em>
         </div>
       )}

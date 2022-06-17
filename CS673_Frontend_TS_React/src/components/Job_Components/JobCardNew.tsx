@@ -92,20 +92,21 @@ const JobCardNew: React.FC<CardProps> = ({
         gap: '2rem',
       }}
     >
-      <Accordion sx = {{
-        backgroundColor: 'rgb(70, 158, 84)',
-        color: 'white',
-        ...(priority == 1 && {
-          backgroundColor: 'rgb(207, 55, 55)'
-        }),
-        ...(priority == 2 && {
-          backgroundColor: 'rgb(245, 190, 71)'
-        })
-      }}>
+      <Accordion >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx = { {color: 'white'}}/>}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          sx = {{
+            backgroundColor: 'rgb(70, 158, 84)',
+            color: 'white',
+            ...(priority == 1 && {
+              backgroundColor: 'rgb(207, 55, 55)'
+            }),
+            ...(priority == 2 && {
+              backgroundColor: 'rgb(245, 190, 71)'
+            })
+          }}
         >
           <Typography fontSize={16} mr={2}>{`${id}`}</Typography>
           <Typography fontSize={16} mr={2}>{`${companyName}`}</Typography>
@@ -119,7 +120,18 @@ const JobCardNew: React.FC<CardProps> = ({
             {`${status}`}
           </Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails 
+          sx = {{
+            backgroundColor: 'rgba(70, 158, 85, 0.274)',
+            color: 'white',
+            ...(priority == 1 && {
+              backgroundColor: 'rgba(207, 55, 55, 0.267)',
+            }),
+            ...(priority == 2 && {
+              backgroundColor: 'rgba(245, 190, 71, 0.226)'
+            })
+          }}
+        >
           {/* <ul>
             <li>Activity 1</li>
             <li>Activity 2</li>
