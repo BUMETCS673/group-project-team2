@@ -68,7 +68,7 @@ const ActivityForm: React.FC<FormProps> = ({
           }}
           validate={(values: Activity) => {
             let errors: FormikErrors<Activity> = {}
-            //const nowTime = + new Date()
+            const nowTime = + new Date()
             const startTime = toTimestamp(values.start_date)
             const endTime = toTimestamp(values.end_date)
             if (!values.category) {
@@ -79,10 +79,9 @@ const ActivityForm: React.FC<FormProps> = ({
             }
             if (!values.start_date) {
               errors.start_date = 'Required'
+            } else if (nowTime > startTime) {
+              errors.start_date = 'Invalid date. Please, pick a future date. '
             }
-            // } else if (nowTime > startTime) {
-            //   errors.start_date = 'Invalid date. Please, pick a future date. '
-            // }
              if (startTime > endTime ) {
               errors.end_date = 'Invalid date. Please, pick a date after the start date.'
             }
@@ -210,11 +209,10 @@ const ActivityForm: React.FC<FormProps> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
+                    <MenuItem value="Not started">Not started</MenuItem>
                     <MenuItem value="In Progress">In Progress</MenuItem>
                     <MenuItem value="Completed">Completed</MenuItem>
-                    <MenuItem value="Received offer">Received offer</MenuItem>
-                    <MenuItem value="Declined offer">Declined offer</MenuItem>
-                    <MenuItem value="Not aligned">Not aligned</MenuItem>
+                    
                   </Select>
                   {touched.status && errors.status && (
                     <HelperText sx = {{color: "#c70e1a"}} data-testid="statusError">{errors.status}</HelperText>
