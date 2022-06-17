@@ -75,8 +75,9 @@ const JobCardNew: React.FC<CardProps> = ({
       let daysTo = getDaysDiff(data[0].start_date)
       let countExpired = 0;
       //now we loop through the array comparing the values
-      for (let i = 1; i < data.length; i++ ) {
-        const daysDiff = getDaysDiff(data[i].start_date)
+      for (let i = 0; i < data.length; i++ ) {
+        const startDate = data[i].start_date
+        const daysDiff = getDaysDiff(startDate)
         // we want to find the closest day, that is, the smallest days difference
         // if the daysDiff is less than 0, it means the date is passed and the activity is expired => find another one that is coming next 
         // and count the expired activities
@@ -84,7 +85,7 @@ const JobCardNew: React.FC<CardProps> = ({
           setExpired(true) 
           countExpired ++
           continue
-        } else if (daysDiff < daysTo) {
+        } else if (daysTo < 0 || daysDiff < daysTo) {
           daysTo = daysDiff
           //setDaysToActivity(daysDiff)
         }
