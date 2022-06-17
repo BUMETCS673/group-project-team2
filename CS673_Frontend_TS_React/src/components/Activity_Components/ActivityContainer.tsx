@@ -142,9 +142,6 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
             boxShadow: 1, 
             marginBottom: 3, 
             backgroundColor: '#f2f2f2',
-            '& .MuiDataGrid-cell:hover': {
-              color: 'primary.main',
-            },
           }}
           
         />

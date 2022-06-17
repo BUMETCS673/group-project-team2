@@ -65,6 +65,7 @@ const JobCardList = () => {
               companyName={job.companyname}
               jobTitle={job.jobtitle}
               status={job.status}
+              description = {job.description}
               priority = {job.priority}
             />
           )

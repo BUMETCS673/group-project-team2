@@ -1,4 +1,4 @@
-import { useEffect } from 'react' 
+import { useEffect, useState } from 'react' 
 import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
@@ -20,10 +20,12 @@ import { setPriority, deleteUserJob } from '../../features/user/user-slice'
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 
+
 type CardProps = {
   companyName: string
   jobTitle: string
   status: string
+  description: string
   id: string | undefined
   priority: number | undefined
 }
@@ -32,12 +34,16 @@ const JobCardNew: React.FC<CardProps> = ({
   jobTitle,
   status,
   id,
+  description,
   priority
 }: CardProps) => {
   const HIGH_PRIORITY = 3
   const MED_PRIORITY = 7
   const dispatch = useAppDispatch()
   const [deleteJob] = useDeleteJobMutation()
+  const [daysToActivity, setDaysToActivity] = useState(-1)
+  const [expired, setExpired] = useState(false)
+  //const [started, setStarted] = useState(false)
   const matches = useMediaQuery("(min-width:600px)")
   const { data = [], isLoading } = useFetchActivitiesQuery(id)
   const toTimestamp = (strDate:string) => {
@@ -48,27 +54,48 @@ const JobCardNew: React.FC<CardProps> = ({
     const daysDiff = Math.ceil(timestamp / (1000 * 3600 * 24))
     return daysDiff
   }
+  const getDaysDiff = (dateStr:string) => {
+    const todayTimestamp = + new Date()
+    const timestamp = toTimestamp(dateStr)
+    const timestampDiffToNow = timestamp - todayTimestamp
+    return totalDays(timestampDiffToNow)
+
+  }
+  
   useEffect(() => {
+    
     if (data.length > 0 ) {
-      let newPriority = 3
-      //console.log('activity data', data)
-      const todayTimestamp = + new Date()
-      //console.log('today timestamp', todayTimestamp)
-      for (let i = 0; i < data.length; i++ ) {
-          const startTimestamp = toTimestamp(data[i].start_date)
-          //console.log('start timestamp', startTimestamp)
-          const timeDiff =  startTimestamp - todayTimestamp
-          const daysDiff = totalDays(timeDiff)
-          //console.log('timestamp', daysDiff)
-          if (daysDiff <= HIGH_PRIORITY)  {
-            newPriority = 1
-          } else if (daysDiff > HIGH_PRIORITY && daysDiff <= MED_PRIORITY) {
-            newPriority = 2
-          }
+      // we want to find the activity with the closest start_date to now
+      //first assume the first activity in the data array will be the closest and we set the daysToActivity equal to the days 
+      //difference from now to the activity start date
+      let daysTo = getDaysDiff(data[0].start_date)
+      
+      //now we loop through the array comparing the values
+      for (let i = 1; i < data.length; i++ ) {
+        const daysDiff = getDaysDiff(data[i].start_date)
+        // we want to find the closest day, that is, the smallest days difference
+        // if the daysDiff is less than 0, it means the date is passed and the activity is expired => find another one that is coming next
+        if (daysDiff < 0 ) {
+          setExpired(true)
+          continue
+        } else if (daysDiff < daysTo) {
+          daysTo = daysDiff
+          //setDaysToActivity(daysDiff)
+        }
       }
-      //console.log('newPriority', newPriority)
+      setDaysToActivity(daysTo)
+      // after the loop, the daysToActivity state variable contains the closest day difference 
+      
+      // now, based on the closest day difference, we can set the card's priority 
+      let newPriority = 3
+      if ( daysTo <= HIGH_PRIORITY)  {
+        newPriority = 1
+      } else if (daysTo <= MED_PRIORITY) {
+        newPriority = 2
+      }
       dispatch(setPriority({jobId: id, priority: newPriority}))
     }
+    
   
   }, [data, dispatch])
 
@@ -119,6 +146,17 @@ const JobCardNew: React.FC<CardProps> = ({
           <Typography fontSize={12} ml={2}>
             {`${status}`}
           </Typography>
+          {daysToActivity >= 0 && expired == false && (
+            <Typography fontSize={12} ml={2}>
+              {daysToActivity == 0 ? `Next activity today`: `Next activity in ${daysToActivity} ${daysToActivity == 1 ? "day": "days"}`}
+            </Typography>
+          )}
+          { expired == true && (
+            <Typography fontSize={12} ml={2}>
+              {daysToActivity == 0 ? `Next activity today`: `Next activity in ${daysToActivity} ${daysToActivity == 1 ? "day": "days"}`}
+            </Typography>
+          )}
+          
         </AccordionSummary>
         <AccordionDetails 
           sx = {{
@@ -132,11 +170,17 @@ const JobCardNew: React.FC<CardProps> = ({
             })
           }}
         >
-          {/* <ul>
-            <li>Activity 1</li>
-            <li>Activity 2</li>
-            <li>Activity 3</li>
-          </ul> */}
+          {description && (
+            <>
+            <Typography variant = "overline" component = "h2" sx = {{color: 'gray' }}>
+              Description
+            </Typography>
+            <Typography variant = "body1" display = "block" sx = {{color: 'gray' }}>
+              {description}
+            </Typography>
+            </>
+          )}
+          
           <ActivityContainer jobId={id} />
           <div style={{ display: 'flex', gap: '1rem', marginTop: '20px' }}>
             <div style={{ flexGrow: '1' }}>
