@@ -2,11 +2,14 @@ import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { setJob } from '../../features/job/job-slice'
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { useCreateJobMutation, useUpdateJobMutation } from '../../features/jobs/jobs-api-slice'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+import {
+  useCreateJobMutation,
+  useUpdateJobMutation,
+} from '../../features/jobs/jobs-api-slice'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { Job } from '../../types/types'
@@ -30,8 +33,8 @@ const JobForm: React.FC<JobFormType> = ({
 }: JobFormType) => {
   // const { push } = useHistory()
   const dispatch = useAppDispatch()
-  const jobsList = useAppSelector(state => state.user.jobs)
-  const jobToEdit:Job | null = jobsList.filter( job => job.ID == job_id)[0]
+  const jobsList = useAppSelector((state) => state.user.jobs)
+  const jobToEdit: Job | null = jobsList.filter((job) => job.ID == job_id)[0]
   const [createJob] = useCreateJobMutation()
   const [updateJob] = useUpdateJobMutation()
   // console.log(newJob, job_id)
@@ -66,12 +69,11 @@ const JobForm: React.FC<JobFormType> = ({
         ) => {
           console.log(values)
           if (jobToEdit) {
-            await updateJob(values)
+            await updateJob({ ...values, ID: job_id })
           } else {
             dispatch(setJob(values))
             await createJob(values)
             //if is successful
-            
           }
           setSubmitting(false)
           closePopup()
@@ -93,9 +95,12 @@ const JobForm: React.FC<JobFormType> = ({
 
             <Row>
               <Col>
-              
-
-              
+                <label
+                  htmlFor="companyname"
+                  style={{ fontSize: '1rem', display: 'flex' }}
+                >
+                  Company Name
+                </label>
                 <Field
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -104,38 +109,59 @@ const JobForm: React.FC<JobFormType> = ({
                   id="companyname"
                   data-testid="companyname"
                   name="companyname"
-                  placeholder="Company"
-                  style = {{minWidth: 180}}
+                  placeholder="Google"
+                  style={{ minWidth: 180 }}
+                  label="Company Name"
                 />
                 {touched.companyname && errors.companyname && (
-                  <HelperText sx = {{color: "#c70e1a"}} data-testid="companynameError">{errors.companyname}</HelperText>
+                  <HelperText
+                    sx={{ color: '#c70e1a' }}
+                    data-testid="companynameError"
+                  >
+                    {errors.companyname}
+                  </HelperText>
                 )}
-                
               </Col>
               <Col>
-                
-
-                
-                  <Field
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.jobtitle}
-                    //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
-                    id="jobtitle"
-                    name="jobtitle"
-                    data-testid="jobtitle" 
-                    placeholder="Job Title"
-                    style = {{minWidth: 180}}
-                  />
-                  {touched.jobtitle && errors.jobtitle && (
-                    <HelperText sx = {{color: "#c70e1a"}} data-testid="jobtitleError">{errors.jobtitle}</HelperText>
-                  )}
-                 
+                <label
+                  htmlFor="jobtitle"
+                  style={{ fontSize: '1rem', display: 'flex' }}
+                >
+                  Job Title
+                </label>
+                <Field
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.jobtitle}
+                  //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
+                  id="jobtitle"
+                  name="jobtitle"
+                  data-testid="jobtitle"
+                  placeholder="Software Engineer"
+                  style={{ minWidth: 180 }}
+                />
+                {touched.jobtitle && errors.jobtitle && (
+                  <HelperText
+                    sx={{ color: '#c70e1a' }}
+                    data-testid="jobtitleError"
+                  >
+                    {errors.jobtitle}
+                  </HelperText>
+                )}
               </Col>
             </Row>
             <Row>
               <Col>
-              
+                <label
+                  htmlFor="description"
+                  style={{
+                    fontSize: '1rem',
+                    display: 'flex',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  Job description
+                </label>
                 <Field
                   as="textarea"
                   onChange={handleChange}
@@ -143,14 +169,13 @@ const JobForm: React.FC<JobFormType> = ({
                   value={values.description}
                   id="description"
                   name="description"
-                  placeholder="Job description..."
-                  style = {{minWidth: 180}}
+                  placeholder="Software Development Engineer on the Ads Analytics Team"
+                  style={{ minWidth: 180 }}
                 />
-               
               </Col>
 
               <Col>
-                <FormControl sx={{  minWidth: 120 }}>
+                <FormControl sx={{ minWidth: 120 }}>
                   <InputLabel id="select-helper-label">Status</InputLabel>
                   <Select
                     labelId="select-helper-label"
@@ -167,10 +192,14 @@ const JobForm: React.FC<JobFormType> = ({
                     <MenuItem value="Not aligned">Not aligned</MenuItem>
                   </Select>
                   {touched.status && errors.status && (
-                    <HelperText sx = {{color: "#c70e1a"}} data-testid="statusError">{errors.status}</HelperText>
+                    <HelperText
+                      sx={{ color: '#c70e1a' }}
+                      data-testid="statusError"
+                    >
+                      {errors.status}
+                    </HelperText>
                   )}
-                  
-                </FormControl>  
+                </FormControl>
               </Col>
             </Row>
 
