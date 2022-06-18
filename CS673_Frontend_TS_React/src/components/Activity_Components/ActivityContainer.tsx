@@ -8,6 +8,7 @@ import { Activity } from '../../types/types'
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid'
 import ActivityForm from '../Activity_Components/ActivityForm'
 import EditIcon from '@mui/icons-material/Edit'
+import DeleteIcon from '@mui/icons-material/Delete'
 import { Button, Modal, Typography } from '@mui/material'
 import {
   StyledBox,
@@ -60,18 +61,25 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
     {
       field: 'StartDate',
       headerName: 'StartDate',
+      description: 'Start Date of Activity',
+
       type: 'date',
+      flex: 1,
+      minWidth: 150,
     },
     {
       field: 'EndDate',
       headerName: 'End Date',
-      description: 'This column has a value getter and is not sortable.',
+      description: 'Start Date of Activity',
+
       sortable: true,
+      flex: 1,
+      minWidth: 150,
     },
     {
       field: 'Status',
       headerName: 'Status',
-      description: 'This column has a value getter and is not sortable.',
+      description: 'Status of Activity',
       sortable: false,
     },
     {
@@ -96,7 +104,7 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
             variant="outlined"
             onClick={() => deleteHandler(params.value)}
           >
-            <EditIcon />
+            <DeleteIcon />
           </Button>
         )
       },
