@@ -1,4 +1,8 @@
-# Group 2 Project : FollowUp - a Job Tracker Web Application
+# FollowUp - a Job Tracker Web Application
+
+## Frontend : React + Typescript & Backend : Go & NodeJS Microservices on the Cloud
+
+![Application Architecture](./images/software_arch_overview.png)
 
 ## Project Overview
 
@@ -23,8 +27,22 @@
 
 ## Instructions for Running Application!
 
+- Followup is extremely simple to use - the application is being hosted on Vercel and the entire backend is live on the Cloud with disaster recovery and scalability mechanisms in place
+
+- A user simply needs to visit the URL where application is hosted
+
+- Or have npm installed on their local machine and follow below steps
+
 - cd into **_CS673_Frontend_TS_React_** folder
 - run <code>npm install</code> to install packages
 - run <code>npm start</code> to run application
 - Once app is running , can use Social Identity Federation through Auth0 to Login
 - Only Logged In Users will be able to access App
+
+## Database
+
+- Using a managed PostgreSQL Database running in the Cloud - with automatic scaling enabled in case user load increases significantly
+
+## Security
+
+- Followup uses Auth0 for Social Identity Federation and a RSA 256 Encryption Algorithm on the backend to ensure security
