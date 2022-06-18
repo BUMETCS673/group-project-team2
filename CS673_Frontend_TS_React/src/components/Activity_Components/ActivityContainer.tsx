@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import {
   useFetchActivitiesQuery,
+  useDeleteActivityMutation,
 } from '../../features/activities/activities-slice'
-import {Activity} from "../../types/types"
+import { Activity } from '../../types/types'
 // import Activity from '../Activity_Components/Activity'
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid'
 import ActivityForm from '../Activity_Components/ActivityForm'
@@ -22,6 +23,10 @@ type ActivitiesProps = {
   jobId: string | undefined
 }
 
+// type ActivityDeleteProps = {
+//   id: number
+// }
+
 const ActivityContainer: React.FC<ActivitiesProps> = ({
   jobId,
 }: ActivitiesProps) => {
@@ -34,7 +39,13 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   const closePopup = () => {
     setOpen(false)
   }
-  
+
+  const [deleteActivity] = useDeleteActivityMutation()
+
+  const deleteHandler = (activity: Activity) => {
+    console.log(activity)
+    deleteActivity({ ID: activity.ID })
+  }
 
   const DoEdit = (activity: Activity): void => {
     // console.log(activity)
@@ -75,6 +86,21 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
         )
       },
     },
+    {
+      field: 'DeleteActivity',
+      headerName: 'Delete',
+
+      renderCell(params: GridCellParams) {
+        return (
+          <Button
+            variant="outlined"
+            onClick={() => deleteHandler(params.value)}
+          >
+            <EditIcon />
+          </Button>
+        )
+      },
+    },
   ]
 
   // console.log(data)
@@ -82,7 +108,6 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   // if (data) console.log(data)
 
   const rows = data.map((activity) => {
-
     return {
       ID: activity.ID,
       // JobID: activity.job_id,
@@ -92,6 +117,7 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
       EndDate: activity.end_date,
       Status: activity.status,
       EditActivity: activity,
+      DeleteActivity: activity,
     }
   })
 
@@ -124,12 +150,11 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   }
 
   return (
-    <div style = {{marginTop: 15}}>
-      <Typography variant = "overline" component = "h2" sx = {{color: 'gray' }}>
-          Activities
-        </Typography>
+    <div style={{ marginTop: 15 }}>
+      <Typography variant="overline" component="h2" sx={{ color: 'gray' }}>
+        Activities
+      </Typography>
       {data.length !== 0 ? (
-        
         <DataGrid
           autoHeight
           rows={rows}
@@ -139,13 +164,11 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
           checkboxSelection={false}
           getRowId={(row) => row.ID}
           sx={{
-            boxShadow: 1, 
-            marginBottom: 3, 
+            boxShadow: 1,
+            marginBottom: 3,
             backgroundColor: '#f2f2f2',
           }}
-          
         />
-       
       ) : (
         <div style={{ marginBottom: '2rem', color: 'gray' }}>
           <em>No activities</em>
