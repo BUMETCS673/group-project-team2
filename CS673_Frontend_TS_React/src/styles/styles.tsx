@@ -1,7 +1,7 @@
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import Box from '@mui/material/Box'
-import FormHelperText from '@mui/material/FormHelperText';
+import FormHelperText from '@mui/material/FormHelperText'
 
 //text animation
 const animation = keyframes`
@@ -15,7 +15,7 @@ const animation = keyframes`
 `
 
 export const TextAnimation = styled.span`
- animation-name: ${animation};
+  animation-name: ${animation};
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
@@ -222,12 +222,14 @@ export const StyledHomeHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
   div {
     display: flex;
     justify-content: space-between;
   }
   h1 {
-    border-bottom: 1px solid ${(props) => props.theme.colors.text.main};
+    /* border-bottom: 1px solid ${(props) => props.theme.colors.text.main}; */
     color: ${(props) => props.theme.colors.text.main};
   }
 `
@@ -465,7 +467,9 @@ export const HelperText = styled(FormHelperText)`
 `
 
 export const GradientHeader = styled.h1`
-  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  background: linear-gradient(to right, #30cfd0 20%, #12b886 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* padding-bottom: 1rem; */
+  text-decoration: none;
 `

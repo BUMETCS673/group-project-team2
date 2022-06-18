@@ -7,9 +7,8 @@ import (
 	"fmt"
 	"github.com/aws/aws-lambda-go/lambda"
 	"gorm.io/driver/postgres"
-	"os"
-
 	"gorm.io/gorm"
+	"os"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/valyala/fastjson"
@@ -25,6 +24,10 @@ type CreateActivityRequest struct {
 	EndDate     string `json:"end_date"`
 	Status      string `json:"status"`
 	JobId       string `json:"job_id"`
+}
+
+type DeleteActivityRequest struct {
+	ID int `json:"ID"`
 }
 
 type Activity struct {
@@ -115,6 +118,41 @@ func GetAllActivities(jobId string) ([]Activity, error) {
 	return activities, err
 }
 
+func DeleteActivity(id int) error {
+
+	db, err := OpenDatabase()
+
+	if err != nil {
+		return err
+	}
+
+	// db.AutoMigrate(&Job{})
+	activity := &Activity{}
+
+	//job.ID = request.ID
+	//job.UserEmail = request.UserEmail
+	//job.JobTitle = request.JobTitle
+	//job.CompanyName = request.CompanyName
+	//job.Description = request.Description
+	//job.Status = request.Status
+
+	fmt.Println("deleting Activity")
+
+	err2 := db.Unscoped().Delete(&activity, id)
+
+	if err2.Error != nil {
+		fmt.Println(err2)
+
+		return err2.Error
+	} else if err2.RowsAffected < 1 {
+
+		return fmt.Errorf("activity with id=%d cannot be deleted because it doesn't exist", id)
+	}
+
+	return nil
+
+}
+
 func main() {
 	lambda.Start(HandleRequest)
 }
@@ -200,6 +238,40 @@ func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 				"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
 			}, Body: string(resp), StatusCode: 200}
 		}
+
+		// Response
+		return ApiResponse, nil
+
+	case "DELETE":
+
+		jsonBody := DeleteActivityRequest{}
+		err := json.Unmarshal([]byte(request.Body), &jsonBody)
+		if err != nil {
+			body := "Error: Invalid JSON payload ||| " + fmt.Sprint(err) + " Body Obtained" + "||||" + request.Body
+			ApiResponse = events.APIGatewayProxyResponse{Body: body, StatusCode: 500}
+			return ApiResponse, nil
+		}
+
+		fmt.Println(jsonBody)
+
+		err2 := DeleteActivity(jsonBody.ID)
+
+		if err2 != nil {
+			ApiResponse = events.APIGatewayProxyResponse{Headers: map[string]string{
+				"Access-Control-Allow-Origin":  "*",
+				"Access-Control-Allow-Methods": "POST,OPTIONS",
+				"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
+			}, Body: fmt.Sprintf("row with id=%d cannot be deleted because it doesn't exist", jsonBody.ID), StatusCode: 400}
+
+			// Response
+			return ApiResponse, nil
+		}
+
+		ApiResponse = events.APIGatewayProxyResponse{Headers: map[string]string{
+			"Access-Control-Allow-Origin":  "*",
+			"Access-Control-Allow-Methods": "POST,OPTIONS",
+			"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
+		}, Body: "Successfully Deleted Activity", StatusCode: 200}
 
 		// Response
 		return ApiResponse, nil

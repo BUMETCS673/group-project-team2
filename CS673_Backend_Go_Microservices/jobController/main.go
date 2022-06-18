@@ -116,6 +116,34 @@ func CreateJob(request *CreateJobRequest) (Job, error) {
 	return *job, result.Error
 }
 
+func UpdateJob(request *Job) (Job, error) {
+
+	db, err := OpenDatabase()
+
+	if err != nil {
+		return Job{}, err
+	}
+
+	//db.AutoMigrate(&Activity{})
+	job := &Job{}
+
+	db.First(&job, request.ID)
+
+	job.UserEmail = request.UserEmail
+	job.JobTitle = request.JobTitle
+	job.CompanyName = request.CompanyName
+	job.Description = request.Description
+	job.Status = request.Status
+
+	fmt.Println(job)
+
+	result := db.Save(&job)
+
+	fmt.Println("after update", result.Error)
+
+	return *job, result.Error
+}
+
 func DeleteJob(request *Job) error {
 
 	db, err := OpenDatabase()
@@ -306,7 +334,57 @@ func HandleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 				"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
 			}, Body: string(resp), StatusCode: 200}
 		}
+
+		// Response
+		return ApiResponse, nil
+
+	case "PUT":
+		//validates json and returns error if not working
+		//err := fastjson.Validate(request.Body)
+		//
+		//if err != nil {
+		//	body := "Error: Invalid JSON payload ||| " + fmt.Sprint(err) + " Body Obtained" + "||||" + request.Body
+		//	ApiResponse = events.APIGatewayProxyResponse{Body: body, StatusCode: 500}
+		//	return ApiResponse, nil
+		//}
+
+		jsonBody := Job{}
+
+		jsonBody.UserEmail = email
+
+		err := json.Unmarshal([]byte(request.Body), &jsonBody)
+		if err != nil {
+			body := "Error: Invalid JSON payload ||| " + fmt.Sprint(err) + " Body Obtained" + "||||" + request.Body
+			ApiResponse = events.APIGatewayProxyResponse{Body: body, StatusCode: 500}
+			return ApiResponse, nil
+		}
+
+		//jsonBody.UserEmail = email
+
+		fmt.Println(jsonBody)
+		job, msg := UpdateJob(&jsonBody)
+
+		if msg != nil {
+			fmt.Println("error updating record", msg)
+			ApiResponse = events.APIGatewayProxyResponse{Body: "Can not update job", StatusCode: 400}
+			return ApiResponse, nil
+		}
+
+		resp, err2 := json.Marshal(job)
+
+		if err2 != nil {
+			ApiResponse = events.APIGatewayProxyResponse{Body: fmt.Sprint(err), StatusCode: 400}
+		} else {
+			ApiResponse = events.APIGatewayProxyResponse{Headers: map[string]string{
+				"Access-Control-Allow-Origin":  "*",
+				"Access-Control-Allow-Methods": "POST,OPTIONS,GET",
+				"Access-Control-Allow-Headers": "X-Amz-Date,X-Api-Key,X-Amz-Security-Token,X-Requested-With,X-Auth-Token,Referer,User-Agent,Origin,Content-Type,Authorization,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
+			}, Body: string(resp), StatusCode: 200}
+		}
+
+		// Response
+		return ApiResponse, nil
+
 	}
-	// Response
 	return ApiResponse, nil
 }

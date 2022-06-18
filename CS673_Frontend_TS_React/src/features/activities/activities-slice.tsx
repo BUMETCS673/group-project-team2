@@ -11,6 +11,10 @@ export interface Activity {
   status: string
 }
 
+export type DeleteActivity = {
+  ID: number | undefined
+}
+
 // getActivity API https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_activity?job_id=2
 // createActivity API https://x3pmfzyrll.execute-api.us-east-1.amazonaws.com/default/cs673_activity
 
@@ -62,6 +66,17 @@ export const activitySlice = createApi({
         }),
         invalidatesTags: ['Activity', 'Job'],
       }),
+      deleteActivity: builder.mutation<Activity, DeleteActivity | void>({
+        query: (id) => ({
+          headers: {
+            'Content-type': 'application/json',
+          },
+          url: '',
+          method: 'DELETE',
+          body: id,
+        }),
+        invalidatesTags: ['Activity'],
+      }),
     }
   },
 })
@@ -70,4 +85,5 @@ export const {
   useFetchActivitiesQuery,
   useCreateActivityMutation,
   useUpdateActivityMutation,
+  useDeleteActivityMutation,
 } = activitySlice
