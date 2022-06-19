@@ -1,6 +1,12 @@
 # FollowUp - a Job Tracker Web Application
 
-## Frontend : React + Typescript & Backend : Go & NodeJS Microservices on the Cloud
+<p align="center"><a  href="https://job-tracker-react-ts-go.vercel.app/">Visit Live Application</a></p>
+
+## Frontend : React + Typescript
+
+## Backend : Go & NodeJS Microservices on the Cloud (AWS)
+
+</br>
 
 ![Application Architecture](./images/software_arch_overview.png)
 
