@@ -12,8 +12,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     <Auth0Provider
       domain="dev-yrw0t0fy.us.auth0.com"
       clientId="lqxtKBdDoUHJjdAKOTTQAFWdN5SnFkvc"
-      // redirectUri="http://localhost:3000/home"
-      redirectUri="https://job-tracker-react-ts-go.vercel.app/home"
+      redirectUri="http://localhost:3000/home"
       audience="https://cs673-api-auth0.com"
     >
       <AxiosInterceptorProvider>
