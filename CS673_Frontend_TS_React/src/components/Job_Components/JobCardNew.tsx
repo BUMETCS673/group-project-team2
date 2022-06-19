@@ -131,11 +131,6 @@ const JobCardNew: React.FC<CardProps> = ({
             aria-controls="panel1a-content"
             id="panel1a-header"
             sx={{
-              display: 'flex',
-              flexDirection: {
-                sm: 'column',
-              },
-
               backgroundColor: 'rgb(70, 158, 84)',
               color: 'white',
               ...(priority == 1 && {
