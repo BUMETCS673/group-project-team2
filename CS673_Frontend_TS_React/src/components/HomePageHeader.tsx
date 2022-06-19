@@ -36,7 +36,7 @@ const HomePageHeader = () => {
         }}
       >
         <GradientHeader>Jobs</GradientHeader>
-        <Button onClick={handleOpen}>Card Legend</Button>
+        <Button sx= {{":focus": {backgroundColor: "transparent"}}} onClick={handleOpen}>Card Legend</Button>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
@@ -58,7 +58,16 @@ const HomePageHeader = () => {
               >
                 Job Card Color Schema
               </Typography>
-
+              <Paper
+                elevation={3}
+                sx={{
+                  marginBottom: '1rem',
+                  padding: '1rem',
+                  bgcolor: '#ffe3e3',
+                }}
+              >
+                Activity coming up within 3 days
+              </Paper>
               <Paper
                 elevation={3}
                 sx={{
@@ -82,16 +91,7 @@ const HomePageHeader = () => {
                 No Upcoming Activities within 7 days
               </Paper>
 
-              <Paper
-                elevation={3}
-                sx={{
-                  marginBottom: '1rem',
-                  padding: '1rem',
-                  bgcolor: '#ffe3e3',
-                }}
-              >
-                Activity is past the due date
-              </Paper>
+              
 
               {/* <table style={{ marginTop: '1rem', padding: '1rem' }}>
                 <tr style={{ backgroundColor: '#ffe8cc' }}>
