@@ -65,6 +65,9 @@ const JobCardNew: React.FC<CardProps> = ({
     const timestampDiffToNow = timestamp - todayTimestamp
     return totalDays(timestampDiffToNow)
   }
+  const capitalizeStr = (word:string) => {
+    return word.slice(0,1).toUpperCase() + word.slice(1)
+  }
 
   useEffect(() => {
     if (data.length > 0) {
@@ -148,7 +151,7 @@ const JobCardNew: React.FC<CardProps> = ({
                 <div style={{ marginRight: '1rem' }}>
                   <BusinessIcon />
                 </div>
-                {`${companyName}`}
+                {`${capitalizeStr(companyName)}`}
               </Typography>
             </Tooltip>
 
@@ -157,7 +160,7 @@ const JobCardNew: React.FC<CardProps> = ({
                 <div style={{ marginRight: '1rem' }}>
                   <WorkOutlineIcon />
                 </div>
-                {`${jobTitle}`}{' '}
+                {`${capitalizeStr(jobTitle)}`}{' '}
               </Typography>
             </Tooltip>
 
