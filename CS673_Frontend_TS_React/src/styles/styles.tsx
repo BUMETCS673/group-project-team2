@@ -183,6 +183,9 @@ export const StyledCardsContainer = styled.div`
   padding: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
+    width: 80%;
+  }
+  @media (min-width: 956px) {
     width: 70%;
   }
 `
@@ -447,23 +450,19 @@ export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
   margin: 10px;
   `};
 `
-
-//Forms
-// interface InputProps {
-//   readonly boder: string;
-// }
-// export const Field = styled.input<InputProps>`
-//   border: ${props => props.border || "none" };
-//   padding: 10px;
-//   text-align: center;
-//   height: 42px;
-//   font-size: 30px;
-//   flex-grow: 2;
-//   background-color: ${(props) => props.theme.input.backgroundColor.primary};
-
-// `
+// Form
 export const HelperText = styled(FormHelperText)`
   color: ${(props) => props.theme.colors.text.error};
+`
+
+//Card accordionSummary
+
+export const StyledCardSummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `
 
 export const GradientHeader = styled.h1`

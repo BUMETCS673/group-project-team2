@@ -11,19 +11,15 @@ import BusinessIcon from '@mui/icons-material/Business'
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline'
 import SyncAltIcon from '@mui/icons-material/SyncAlt'
 import CircularProgress from '@mui/material/CircularProgress'
-// import { useAuth0 } from '@auth0/auth0-react'
-// import { jobData } from '../../data/mockdata'
 import { useFetchActivitiesQuery } from '../../features/activities/activities-slice'
 import { useDeleteJobMutation } from '../../features/jobs/jobs-api-slice'
 import { useAppDispatch } from '../../app/hooks'
 import { setPriority, deleteUserJob } from '../../features/user/user-slice'
-
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
-import { TextAnimation } from 'styles/styles'
+import { TextAnimation, StyledCardSummary} from 'styles/styles'
 import Tooltip from '@mui/material/Tooltip'
 
-//import { Activity } from 'types/types'
 
 type CardProps = {
   companyName: string
@@ -144,36 +140,35 @@ const JobCardNew: React.FC<CardProps> = ({
               }),
             }}
           >
-            {/* <div style = {{color: 'gray', textAlign: 'right', display: 'flex'}}> */}
-            {/* <Typography fontSize={16} mr={2}>{`${id}`}</Typography> */}
-            <Tooltip title="Company">
-              <Typography fontSize={16} mr={10}>
-                <div style={{ marginRight: '1rem' }}>
-                  <BusinessIcon />
-                </div>
-                {`${capitalizeStr(companyName)}`}
-              </Typography>
-            </Tooltip>
+           
+            <StyledCardSummary>
+              <Tooltip title="Company">
+                <Typography fontSize={16} mr={10}>
+                  <div style={{ marginRight: '1rem' }}>
+                    <BusinessIcon />
+                  </div>
+                  {`${capitalizeStr(companyName)}`}
+                </Typography>
+              </Tooltip>
 
-            <Tooltip title="Position">
-              <Typography fontSize={16} mr={10} ml={2}>
-                <div style={{ marginRight: '1rem' }}>
-                  <WorkOutlineIcon />
-                </div>
-                {`${capitalizeStr(jobTitle)}`}{' '}
-              </Typography>
-            </Tooltip>
+              <Tooltip title="Position">
+                <Typography fontSize={16} mr={10} ml={2}>
+                  <div style={{ marginRight: '1rem' }}>
+                    <WorkOutlineIcon />
+                  </div>
+                  {`${capitalizeStr(jobTitle)}`}{' '}
+                </Typography>
+              </Tooltip>
 
-            <Tooltip title="Application Status">
-              <Typography fontSize={16} ml={2} mr={4}>
-                <div style={{ marginRight: '1rem' }}>
-                  <SyncAltIcon />
-                </div>
-                {`${status}`}
-              </Typography>
-            </Tooltip>
-
-            {/* </div> */}
+              <Tooltip title="Application Status">
+                <Typography fontSize={16} ml={2} mr={4}>
+                  <div style={{ marginRight: '1rem' }}>
+                    <SyncAltIcon />
+                  </div>
+                  {`${status}`}
+                </Typography>
+              </Tooltip>
+            </StyledCardSummary>
 
             <div
               style={{
