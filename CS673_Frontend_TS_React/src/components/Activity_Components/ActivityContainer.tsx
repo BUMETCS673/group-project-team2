@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {
   useFetchActivitiesQuery,
   useDeleteActivityMutation,
-} from '../../features/activities/activities-slice'
+} from '../../redux/features/activities/activities-slice'
 import { Activity } from '../../types/types'
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid'
 import ActivityForm from '../Activity_Components/ActivityForm'

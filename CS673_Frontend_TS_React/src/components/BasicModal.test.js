@@ -6,7 +6,7 @@ import BasicModal from './BasicModal';
 import { appTheme } from '../styles/app-theme'
 import { ThemeProvider } from 'styled-components'
 import {Provider} from 'react-redux' 
-import {store} from '../app/store'
+import {store} from '../redux/app/store'
 
 
 describe("BasicModal component", () => {

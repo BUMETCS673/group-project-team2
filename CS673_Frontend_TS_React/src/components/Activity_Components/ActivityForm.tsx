@@ -9,7 +9,7 @@ import {
 import {
   useCreateActivityMutation,
   useUpdateActivityMutation,
-} from '../../features/activities/activities-slice'
+} from '../../redux/features/activities/activities-slice'
 import { Activity } from '../../types/types'
 import React from 'react'
 import { Button, TextField } from '@mui/material'
@@ -22,16 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { LocalizationProvider } from '@mui/x-date-pickers'
 
-// import { IoFastFood } from 'react-icons/io5'
 
-// interface Values {
-//   jobId: string
-//   category: string
-//   description: string
-//   start_date: string
-//   endDate: string
-//   status: string
-// }
 
 type FormProps = {
   job_id: string | undefined
@@ -48,7 +39,6 @@ const ActivityForm: React.FC<FormProps> = ({
   const [updateActivity, editData] = useUpdateActivityMutation()
 
   console.log(data, editData)
-  //const job = useAppSelector(state => state.job)
   const toTimestamp = (strDate:string) => {
     var datum = Date.parse(strDate);
     return datum;
@@ -100,7 +90,6 @@ const ActivityForm: React.FC<FormProps> = ({
 
             setSubmitting(false)
             closePopup()
-            // history.push('/home')
           }}
         >
           {({
@@ -123,7 +112,6 @@ const ActivityForm: React.FC<FormProps> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.category}
-                    //border = {!(touched.companyname  && errors.companyname && "1px solid red" )}
                     id="category"
                     name="category"
                     placeholder="category"
@@ -139,7 +127,6 @@ const ActivityForm: React.FC<FormProps> = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.description}
-                    //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
                     id="description"
                     name="description"
                     placeholder="Activity Description"
@@ -150,19 +137,7 @@ const ActivityForm: React.FC<FormProps> = ({
 
               <Row>
                 <SingleCol>
-                  {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <KeyboardDatePicker
-                  id="date-picker-dialog"
-                  label="Date picker dialog"
-                  inputVariant="outlined"
-                  format="MM/dd/yyyy"
-                  value={props.values.date}
-                  onChange={value => props.setFieldValue("date", value)}
-                  KeyboardButtonProps={{
-                    "aria-label": "change date"
-                  }}
-                />
-              </MuiPickersUtilsProvider> */}
+          
                   <DatePicker
                     label="Start Date"
                     inputFormat="MM/dd/yyyy"
@@ -179,11 +154,7 @@ const ActivityForm: React.FC<FormProps> = ({
 
               <Row>
                 <SingleCol>
-                  {/* <Field
-                    name="end_date"
-                    onChange={handleChange}
-                    placeholder="end_date"
-                  ></Field> */}
+             
                   <DatePicker
                     label="End Date"
                     inputFormat="MM/dd/yyyy"

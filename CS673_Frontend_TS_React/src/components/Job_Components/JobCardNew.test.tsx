@@ -1,8 +1,8 @@
 import { fireEvent, render, RenderResult } from 'test-utils'
 import JobCardNew from './JobCardNew'
-import { useFetchActivitiesQuery } from '../../features/activities/activities-slice'
-import { useAppDispatch } from '../../app/hooks'
-import { useDeleteJobMutation } from '../../features/jobs/jobs-api-slice'
+import { useFetchActivitiesQuery } from '../../redux/features/activities/activities-slice'
+import { useAppDispatch } from '../../redux/app/hooks'
+import { useDeleteJobMutation } from '../../redux/features/jobs/jobs-api-slice'
 
 let documentBody: RenderResult
 

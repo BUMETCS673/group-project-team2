@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom'
 import JobForm from './JobForm';
 import {Provider} from 'react-redux' 
-import {store} from '../../app/store'
+import {store} from '../../redux/app/store'
 import { appTheme } from '../../styles/app-theme'
 import { ThemeProvider } from 'styled-components'
 
