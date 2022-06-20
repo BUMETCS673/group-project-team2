@@ -1,9 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import { fireEvent, render, RenderResult } from 'test-utils'
+import { ReactNode } from 'react'
+import { render, RenderResult } from 'test-utils'
 import NavMenuItems from './NavMenuItems'
-import { ReactNode, ComponentProps } from 'react'
-import { StyledNavLink } from 'styles/styles'
-import { NavLinkProps } from 'react-router-dom'
 
 let documentBody: RenderResult
 

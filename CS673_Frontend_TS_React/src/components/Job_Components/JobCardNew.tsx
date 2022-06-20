@@ -20,7 +20,7 @@ import { setPriority, deleteUserJob } from '../../features/user/user-slice'
 
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
-import { TextAnimation } from 'styles/styles'
+import { TextAnimation } from '../../styles/styles'
 import Tooltip from '@mui/material/Tooltip'
 
 //import { Activity } from 'types/types'
