@@ -183,6 +183,9 @@ export const StyledCardsContainer = styled.div`
   padding: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @media (min-width: 768px) {
+    width: 80%;
+  }
+  @media (min-width: 956px) {
     width: 70%;
   }
 `
@@ -245,7 +248,7 @@ export const LandingPageContent = styled.div`
 `
 
 export const LandingPageSubContentLeft = styled.div`
-  width: 25%;
+  width: 80%;
   align-self: 'flex-start';
   justify-self: 'flex-start';
   margin-bottom: 5%;
@@ -253,22 +256,49 @@ export const LandingPageSubContentLeft = styled.div`
   margin-right: auto;
   margin-left: 10%;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: start;
+  align-items: center; 
 `
 export const LandingPageSubContentRight = styled.div`
-  width: 25%;
+  width: 80%;
   align-self: 'flex-end';
   justify-self: 'flex-end';
   margin-left: auto;
   margin-right: 10%;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: start;
+  align-items: center; 
+  margin-top: 5%;
 `
+
 
 // About Page CSS Components
-
-export const AboutPageContent = styled.div`
-  margin-left: 5%;
+export const AboutPageSubContentLeft = styled.div`
+  align-self: center;
+  justify-self: center;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: start; 
 `
-
+export const AboutPageContent = styled.div`
+  font-family: 'Raleway', sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+`
+export const ImageBox = styled.div`
+  border-radius: 8px;
+  border: 1px solid rgba(25,4,69,0.1);
+  box-shadow: 0px 4px 10px rgb(25 4 69 / 10%);
+  margin-bottom: 40px;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+`
 // if User has no Jobs they are tracking
 
 export const NoJobsComponent = styled.div`
@@ -447,23 +477,19 @@ export const StyledPrimaryBtn = styled.button<MenuItemsProps>`
   margin: 10px;
   `};
 `
-
-//Forms
-// interface InputProps {
-//   readonly boder: string;
-// }
-// export const Field = styled.input<InputProps>`
-//   border: ${props => props.border || "none" };
-//   padding: 10px;
-//   text-align: center;
-//   height: 42px;
-//   font-size: 30px;
-//   flex-grow: 2;
-//   background-color: ${(props) => props.theme.input.backgroundColor.primary};
-
-// `
+// Form
 export const HelperText = styled(FormHelperText)`
   color: ${(props) => props.theme.colors.text.error};
+`
+
+//Card accordionSummary
+
+export const StyledCardSummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `
 
 export const GradientHeader = styled.h1`

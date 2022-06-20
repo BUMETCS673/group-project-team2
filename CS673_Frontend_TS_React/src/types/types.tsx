@@ -1,7 +1,3 @@
-// type JobData = {
-//   [key:string]:
-// }
-
 export interface Activity {
   ID: number | undefined
   job_id: string
