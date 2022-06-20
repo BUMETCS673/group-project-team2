@@ -9,6 +9,7 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import BasicModal from './BasicModal'
 import { Paper } from '@mui/material'
+import { LegendToggle } from '@mui/icons-material'
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -36,7 +37,7 @@ const HomePageHeader = () => {
         }}
       >
         <GradientHeader>Jobs</GradientHeader>
-        <Button sx= {{":focus": {backgroundColor: "transparent"}}} onClick={handleOpen}>Card Legend</Button>
+        <Button sx= {{":focus": {backgroundColor: "transparent"}}} onClick={handleOpen}><LegendToggle /></Button>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
