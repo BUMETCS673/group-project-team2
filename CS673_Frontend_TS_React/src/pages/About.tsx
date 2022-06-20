@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
 import { AboutPageContent } from '../styles/styles'
 import { ImageBox } from '../styles/styles'
 import { LandingPageSubContentLeft } from '../styles/styles'
@@ -9,43 +8,37 @@ import Taina from '../assets/images/memberProfile/Taina.jpg'
 import Ben from '../assets/images/memberProfile/Ben.jpg'
 
 export const About: React.FC = () => {
-  const history = useHistory()
-
   return (
     <Fragment>
       <AboutPageContent>
-        <h1>About</h1>
-        <div style={{ display: 'grid' }}>
+        <h1>Meet Our Team</h1>
           <LandingPageSubContentLeft>
             <div style={{ padding: '40px' }} >
               <ImageBox>
-                {<img src={Taina} style={{ width: 'auto', height: '200px' }} alt={'Bharat image'} />}
-                <h5>Bharat Gogineni  </h5>
-                <h6>Team Leader</h6>
+                {<img  style={{ width: 'auto', height: '200px' }} alt={'Bharat image'} />}
               </ImageBox>
+              <h5>Bharat Gogineni  </h5>
+              <h6>Team Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
-                {'\n'}{'\n'}{'\n'}
-                Hi everyone! My name is Taina {'\n'}
-                I'm currently enrolled on the MSSD program.{'\n'}
-                I graduated in Economics and Law in Brazil, {'\n'}
-                but I wasn't passionate about any of them.{'\n'}
-                I decided to give Programming a try and {'\n'}
-                I ended up enjoying it more than I expected.{'\n'}
-                I've been coding individually on my own {'\n'}
-                projects for the past two years. I'm {'\n'}
-                excited to work as a team in our project {'\n'}
-                this semester. In my free time, my husband {'\n'}
-                and I love to explore NYC and travel.{'\n'}
+              Hello everyone! My name is Bharat Gogineni {'\n'}
+              and I'm enrolled on the MS CIS Program with{'\n'}
+              the Web Application Development concentration.{'\n'}
+              I completed my computer science engineering {'\n'}
+              in 2014 and worked for the past 7 years as {'\n'}
+              a Software Architect at Vantage Agora Inc.{'\n'}
+              I've been working mainly in a Product's {'\n'}
+              division ,Building Web applications for the {'\n'}
+              insurance industry. Apart from development{'\n'}
+              I enjoy travelling and photography{'\n'}
               </p>
             </div>
             <div style={{ padding: '40px' }} >
               <ImageBox>
                 {<img src={Chinmay} style={{ width: '200x', height: '200px' }} alt={'Chinmay image'} />}
-                <h5>Chinmay Bhelke</h5>
-                <h6>Design and Implementation Leader/ Security Leader</h6>
               </ImageBox>
+              <h5>Chinmay Bhelke</h5>
+              <h6>Design and Implementation Leader/ Security Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
-                {'\n'}{'\n'}{'\n'}
                 Hey all! I am Chinmay and I am completing{'\n'}
                 the Masters in Computer Information Systems{'\n'}
                 with a Minor in Web App Development :) {'\n'}
@@ -64,11 +57,10 @@ export const About: React.FC = () => {
           <div style={{ padding: '40px' }} >
               <ImageBox>
                 {<img src={Taina} style={{ width: 'auto', height: '200px' }} alt={'Taina image'} />}
-                <h5>Taina Conde </h5>
-                <h6>Configuration Leader</h6>
               </ImageBox>
+              <h5>Taina Conde </h5>
+              <h6>Configuration Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
-                {'\n'}{'\n'}{'\n'}
                 Hi everyone! My name is Taina {'\n'}
                 I'm currently enrolled on the MSSD program.{'\n'}
                 I graduated in Economics and Law in Brazil, {'\n'}
@@ -86,13 +78,11 @@ export const About: React.FC = () => {
             <div style={{ padding: '40px' }} >
               <ImageBox>
                 {<img src={Ben} style={{ width: '200x', height: '200px' }} alt={'Ben image'} />}
-                <h5> Benoît Clemenceau </h5>
-                <h6>Requirement Leader</h6>
               </ImageBox>
+              <h5> Benoît Clemenceau </h5>
+              <h6>Requirement Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
-                {'\n'}
-                {'\n'}
-                {'\n'}
+                
                 Hello everyone! My name is Benoît Clemenceau,{'\n'}
                 I come from Paris, France, and I have been {'\n'}
                 in Boston since January. I am doing the MS {'\n'}
@@ -112,11 +102,10 @@ export const About: React.FC = () => {
             <div style={{ padding: '40px' }} >
               <ImageBox>
                 {<img src={Ruiqi_Chang} style={{ width: '200x', height: '200px' }} alt={'Ruiqi image'} />}
-                <h5> Ruiqi Chang </h5>
-                <h6>Requirement Leader</h6>
               </ImageBox>
+              <h5> Ruiqi Chang </h5>
+                <h6>Requirement Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
-                {'\n'}{'\n'}
                 Hello everyone! My name is Ruiqi Chang.{'\n'}
                 I am in MSCS program. I graduated in {'\n'}
                 Management Information System major at{'\n'}
@@ -129,15 +118,6 @@ export const About: React.FC = () => {
 
             </div>
             </LandingPageSubContentLeft>
-        </div>
-        <button
-          type="button"
-          className="btn"
-          cy-data="go-back-button"
-          onClick={() => history.push('/')}
-        >
-          Go back
-        </button>
       </AboutPageContent>
     </Fragment>
   )

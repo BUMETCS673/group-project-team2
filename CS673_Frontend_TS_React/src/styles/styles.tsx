@@ -275,6 +275,10 @@ export const LandingPageSubContentRight = styled.div`
 
 export const AboutPageContent = styled.div`
   margin-left: 5%;
+  font-family: 'Raleway', sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 export const ImageBox = styled.div`
   width: 200px;
