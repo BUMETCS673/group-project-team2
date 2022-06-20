@@ -245,7 +245,7 @@ export const LandingPageContent = styled.div`
 `
 
 export const LandingPageSubContentLeft = styled.div`
-  width: 25%;
+  width: 80%;
   align-self: 'flex-start';
   justify-self: 'flex-start';
   margin-bottom: 5%;
@@ -253,22 +253,41 @@ export const LandingPageSubContentLeft = styled.div`
   margin-right: auto;
   margin-left: 10%;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: start;
+  align-items: center; 
 `
 export const LandingPageSubContentRight = styled.div`
-  width: 25%;
+  width: 80%;
   align-self: 'flex-end';
   justify-self: 'flex-end';
   margin-left: auto;
   margin-right: 10%;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: start;
+  align-items: center; 
+  margin-top: 5%;
 `
+
 
 // About Page CSS Components
 
 export const AboutPageContent = styled.div`
   margin-left: 5%;
 `
-
+export const ImageBox = styled.div`
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  border: 1px solid rgba(25,4,69,0.1);
+  box-shadow: 0px 4px 10px rgb(25 4 69 / 10%);
+  background-size: 269px 212px;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+  justify-content: start;
+  align-items: center; 
+`
 // if User has no Jobs they are tracking
 
 export const NoJobsComponent = styled.div`
