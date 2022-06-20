@@ -143,27 +143,21 @@ const JobCardNew: React.FC<CardProps> = ({
             <StyledCardSummary>
               <Tooltip title="Company">
                 <Typography fontSize={16} mr={10}>
-                  <div style={{ marginRight: '1rem' }}>
-                    <BusinessIcon />
-                  </div>
+                    <BusinessIcon sx = {{ marginRight: '1rem' }} />
                   {`${capitalizeStr(companyName)}`}
                 </Typography>
               </Tooltip>
 
               <Tooltip title="Position">
                 <Typography fontSize={16} mr={10} ml={2}>
-                  <div style={{ marginRight: '1rem' }}>
-                    <WorkOutlineIcon />
-                  </div>
+                    <WorkOutlineIcon sx = {{ marginRight: '1rem' }}/>
                   {`${capitalizeStr(jobTitle)}`}{' '}
                 </Typography>
               </Tooltip>
 
               <Tooltip title="Application Status">
                 <Typography fontSize={16} ml={2} mr={4}>
-                  <div style={{ marginRight: '1rem' }}>
-                    <SyncAltIcon />
-                  </div>
+                    <SyncAltIcon sx = {{ marginRight: '1rem' }}/>
                   {`${status}`}
                 </Typography>
               </Tooltip>
