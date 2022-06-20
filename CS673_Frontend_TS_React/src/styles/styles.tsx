@@ -275,7 +275,7 @@ export const LandingPageSubContentRight = styled.div`
 export const AboutPageSubContentLeft = styled.div`
   align-self: center;
   justify-self: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: flex;
   justify-content: center;
   align-items: start; 

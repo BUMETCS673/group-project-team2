@@ -20,9 +20,10 @@ export const About: React.FC = () => {
               <h5>Bharat Gogineni  </h5>
               <h6>Team Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
-              Hello everyone! My name is Bharat Gogineni {'\n'}
-              and I'm enrolled on the MS CIS Program with{'\n'}
-              the Web Application Development concentration.{'\n'}
+              Hello everyone! My name is Bharat {'\n'}
+              Gogineni and I'm enrolled on the MS CIS  {'\n'}
+              Program with the Web Application {'\n'}
+              Development concentration.{'\n'}
               I completed my computer science engineering {'\n'}
               in 2014 and worked for the past 7 years as {'\n'}
               a Software Architect at Vantage Agora Inc.{'\n'}
@@ -67,7 +68,7 @@ export const About: React.FC = () => {
                 excited to work as a team in our project {'\n'}
                 this semester. In my free time, my husband {'\n'}
                 and I love to explore NYC and travel.{'\n'}
-                {'\n'}
+        
               </p>
               </ImageBox>
             </div>
@@ -108,7 +109,8 @@ export const About: React.FC = () => {
                   withJavaScript, Node.js, Java and mySql. I am {'\n'}
                   with exciting to create a amazing project for {'\n'}
                   my first online class with yours.
-                  {'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}
+                  {'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}
+                  
                 </p>
               </ImageBox>
 
