@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useFetchJobsQuery } from '../../redux/slices/api/jobs'
-import JobCardNew from './JobCardNew'
+import JobCardNew from './JobCard'
 import NoJobs from './NoJobs'
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
 import Stack from '@mui/material/Stack'
