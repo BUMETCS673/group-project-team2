@@ -1,6 +1,7 @@
 import { StyledNavLink, MenuLinkGroup } from '../styles/styles'
 import Logout from './Logout'
 import Login from './Login'
+import { Home,People,Rocket } from '@mui/icons-material'
 // import UserMenuItem from './UserMenuItem'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -13,13 +14,10 @@ const NavMenuItems = () => {
       <MenuLinkGroup>
         <div style={{ marginRight: '2rem' }}>{user.name}</div>
 
-        <StyledNavLink to="/home">Home</StyledNavLink>
-        <StyledNavLink to="/about">About</StyledNavLink>
-        <StyledNavLink to="/" exact>
-          Our Mission
-        </StyledNavLink>
+        <StyledNavLink to="/home"><Home /></StyledNavLink>
+        <StyledNavLink to="/about"><People /></StyledNavLink>
+        <StyledNavLink to="/" exact><Rocket /></StyledNavLink>
         <Logout />
-        {/* <UserMenuItem/> */}
       </MenuLinkGroup>
     )
 
@@ -29,9 +27,6 @@ const NavMenuItems = () => {
       <StyledNavLink to="/" exact>
         <Login />
       </StyledNavLink>
-      {/* <StyledNavLink to="/home">Home</StyledNavLink>
-      <StyledNavLink to="/about">About</StyledNavLink> */}
-      {/* <UserMenuItem/> */}
     </MenuLinkGroup>
   )
 }
