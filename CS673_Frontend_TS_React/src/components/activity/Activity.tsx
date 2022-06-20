@@ -1,4 +1,4 @@
-import BasicModal from '../BasicModal'
+import BasicModal from '../general/BasicModal'
 import ActivityForm from './ActivityForm'
 
 import { Activity as ActivityType } from '../../redux/slices/api/activities'

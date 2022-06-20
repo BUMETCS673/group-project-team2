@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyledHomeHeaderContainer, GradientHeader } from '../styles/styles'
+import { StyledHomeHeaderContainer, GradientHeader } from '../../styles/styles'
 
 import Backdrop from '@mui/material/Backdrop'
 import Box from '@mui/material/Box'
@@ -7,7 +7,7 @@ import Modal from '@mui/material/Modal'
 import Fade from '@mui/material/Fade'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import BasicModal from './BasicModal'
+import BasicModal from '../general/BasicModal'
 import { Paper } from '@mui/material'
 import { LegendToggle } from '@mui/icons-material'
 

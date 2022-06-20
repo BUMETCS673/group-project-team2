@@ -4,16 +4,16 @@ import {
   StyledBox,
   StyledModalHeader,
   StyledCloseButton,
-} from '../styles/styles'
+} from '../../styles/styles'
 import { IoCloseCircleOutline } from 'react-icons/io5'
 import Modal from '@mui/material/Modal'
 import { Button } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
- import JobForm from './Job_Components/JobForm'
- import ActivityForm from './Activity_Components/ActivityForm'
+ import JobForm from '../job/JobForm'
+ import ActivityForm from '../activity/ActivityForm'
  import EditIcon from '@mui/icons-material/Edit';
  import useMediaQuery from '@mui/material/useMediaQuery';
- import {Activity} from '../types/types'
+ import {Activity} from '../../types/types'
 
 type ModalProps = {
   type: string 

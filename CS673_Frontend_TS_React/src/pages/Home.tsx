@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react'
 import { StyledCardsContainer } from '../styles/styles'
-import HomePageHeader from '../components/HomePageHeader'
+import HomePageHeader from '../components/home/HomePageHeader'
 import { useAuth0 } from '@auth0/auth0-react'
 import {useAppDispatch, useAppSelector} from '../redux/app/hooks'
 import { setUserToken } from '../redux/slices/model/user'
-import JobCardList from '../components/Job_Components/JobCardList'
+import JobCardList from '../components/job/JobCardList'
 
 
 export const Home = () => {
