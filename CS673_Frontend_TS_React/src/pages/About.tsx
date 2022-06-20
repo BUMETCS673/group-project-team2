@@ -1,22 +1,22 @@
 import React, { Fragment } from 'react'
 import { AboutPageContent } from '../styles/styles'
 import { ImageBox } from '../styles/styles'
-import { LandingPageSubContentLeft } from '../styles/styles'
+import { AboutPageSubContentLeft } from '../styles/styles'
 import Ruiqi_Chang from '../assets/images/memberProfile/Ruiqi_Chang.jpg'
 import Chinmay from '../assets/images/memberProfile//Chinmay_pic.jpg'
 import Taina from '../assets/images/memberProfile/Taina.jpg'
 import Ben from '../assets/images/memberProfile/Ben.jpg'
+import Bharat from '../assets/images/memberProfile/Bharat.jpg'
 
 export const About: React.FC = () => {
   return (
     <Fragment>
       <AboutPageContent>
         <h1>Meet Our Team</h1>
-          <LandingPageSubContentLeft>
+          <AboutPageSubContentLeft>
             <div style={{ padding: '40px' }} >
               <ImageBox>
-                {<img  style={{ width: 'auto', height: '200px' }} alt={'Bharat image'} />}
-              </ImageBox>
+                {<img src={Bharat}  style={{ width: 'auto', height: '200px',marginTop: '10px' }} alt={'Bharat image'} />}
               <h5>Bharat Gogineni  </h5>
               <h6>Team Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
@@ -31,11 +31,11 @@ export const About: React.FC = () => {
               insurance industry. Apart from development{'\n'}
               I enjoy travelling and photography{'\n'}
               </p>
+              </ImageBox>
             </div>
             <div style={{ padding: '40px' }} >
               <ImageBox>
-                {<img src={Chinmay} style={{ width: '200x', height: '200px' }} alt={'Chinmay image'} />}
-              </ImageBox>
+                {<img src={Chinmay} style={{ width: 'auto', height: '200px',marginTop: '10px' }} alt={'Chinmay image'} />}
               <h5>Chinmay Bhelke</h5>
               <h6>Design and Implementation Leader/ Security Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
@@ -48,16 +48,11 @@ export const About: React.FC = () => {
                 project.
                 {'\n'}{'\n'}{'\n'}{'\n'}{'\n'}
               </p>
+              </ImageBox>
             </div>
-          </LandingPageSubContentLeft>
-
-
-
-          <LandingPageSubContentLeft>
           <div style={{ padding: '40px' }} >
               <ImageBox>
-                {<img src={Taina} style={{ width: 'auto', height: '200px' }} alt={'Taina image'} />}
-              </ImageBox>
+                {<img src={Taina} style={{ width: 'auto', height: '200px',marginTop: '10px' }} alt={'Taina image'} />}
               <h5>Taina Conde </h5>
               <h6>Configuration Leader</h6>
               <p style={{ whiteSpace: 'break-spaces' }}>
@@ -74,50 +69,51 @@ export const About: React.FC = () => {
                 and I love to explore NYC and travel.{'\n'}
                 {'\n'}
               </p>
+              </ImageBox>
             </div>
+          </AboutPageSubContentLeft>
+          <AboutPageSubContentLeft>
             <div style={{ padding: '40px' }} >
               <ImageBox>
-                {<img src={Ben} style={{ width: '200x', height: '200px' }} alt={'Ben image'} />}
-              </ImageBox>
-              <h5> Benoît Clemenceau </h5>
-              <h6>Requirement Leader</h6>
-              <p style={{ whiteSpace: 'break-spaces' }}>
-                
-                Hello everyone! My name is Benoît Clemenceau,{'\n'}
-                I come from Paris, France, and I have been {'\n'}
-                in Boston since January. I am doing the MS {'\n'}
-                in Computer Information Systems and not {'\n'}
-                following any specific concentration. {'\n'}
-                The technology I am most comfortable with is {'\n'}
-                JavaScript, especially with React. I have {'\n'}
-                done a couple of internships and freelancing {'\n'}
-                in Java, JavaScript, React, React Native, {'\n'}
-                and Kotlin. My last side-project was building {'\n'}
-                a web portfolio/blog in React with Next.js, {'\n'}
-                you can check it out live here: benclem.dev{'\n'}
-              </p>
-            </div>
-          </LandingPageSubContentLeft>
-          <LandingPageSubContentLeft>
-            <div style={{ padding: '40px' }} >
-              <ImageBox>
-                {<img src={Ruiqi_Chang} style={{ width: '200x', height: '200px' }} alt={'Ruiqi image'} />}
-              </ImageBox>
-              <h5> Ruiqi Chang </h5>
+                {<img src={Ben} style={{ width: 'auto', height: '200px',marginTop: '10px' }} alt={'Ben image'} />}
+                <h5> Benoît Clemenceau </h5>
                 <h6>Requirement Leader</h6>
-              <p style={{ whiteSpace: 'break-spaces' }}>
-                Hello everyone! My name is Ruiqi Chang.{'\n'}
-                I am in MSCS program. I graduated in {'\n'}
-                Management Information System major at{'\n'}
-                Temple University in Phily. I am comfortable {'\n'}
-                withJavaScript, Node.js, Java and mySql. I am {'\n'}
-                with exciting to create a amazing project for {'\n'}
-                my first online class with yours.
-                {'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}
-              </p>
+                <p style={{ whiteSpace: 'break-spaces' }}>
+                  
+                  Hello everyone! My name is Benoît Clemenceau,{'\n'}
+                  I come from Paris, France, and I have been {'\n'}
+                  in Boston since January. I am doing the MS {'\n'}
+                  in Computer Information Systems and not {'\n'}
+                  following any specific concentration. {'\n'}
+                  The technology I am most comfortable with is {'\n'}
+                  JavaScript, especially with React. I have {'\n'}
+                  done a couple of internships and freelancing {'\n'}
+                  in Java, JavaScript, React, React Native, {'\n'}
+                  and Kotlin. My last side-project was building {'\n'}
+                  a web portfolio/blog in React with Next.js, {'\n'}
+                  you can check it out live here: benclem.dev{'\n'}
+                </p>
+              </ImageBox>
+            </div>
+            <div style={{ padding: '40px' }} >
+              <ImageBox>
+                {<img src={Ruiqi_Chang} style={{ width: 'auto', height: '200px',marginTop: '10px' }} alt={'Ruiqi image'} />}
+                <h5> Ruiqi Chang </h5>
+                <h6>Requirement Leader</h6>
+                <p style={{ whiteSpace: 'break-spaces' }}>
+                  Hello everyone! My name is Ruiqi Chang.{'\n'}
+                  I am in MSCS program. I graduated in {'\n'}
+                  Management Information System major at{'\n'}
+                  Temple University in Phily. I am comfortable {'\n'}
+                  withJavaScript, Node.js, Java and mySql. I am {'\n'}
+                  with exciting to create a amazing project for {'\n'}
+                  my first online class with yours.
+                  {'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}{'\n'}
+                </p>
+              </ImageBox>
 
             </div>
-            </LandingPageSubContentLeft>
+          </AboutPageSubContentLeft>
       </AboutPageContent>
     </Fragment>
   )
