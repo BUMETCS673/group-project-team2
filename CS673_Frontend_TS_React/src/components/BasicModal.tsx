@@ -9,9 +9,6 @@ import { IoCloseCircleOutline } from 'react-icons/io5'
 import Modal from '@mui/material/Modal'
 import { Button } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
-// import { useAppDispatch, useAppSelector } from '../app/hooks'
-// import { openBasicModal, closeBasicModal } from '../features/UI/ui_slice'
-//import { useState } from 'react'
  import JobForm from './Job_Components/JobForm'
  import ActivityForm from './Activity_Components/ActivityForm'
  import EditIcon from '@mui/icons-material/Edit';
@@ -100,7 +97,6 @@ const BasicModal: React.FC<ModalProps> = ({
             </StyledCloseButton>
           </StyledModalHeader>
 
-          {/* <JobForm /> */}
           {type == 'job' ? <JobForm job_id = {job_id} closePopup = {handleClose} /> : <ActivityForm job_id = {job_id} closePopup = {handleClose} currentActivity = {currentActivity}/> }
         </StyledBox>
       </Modal>

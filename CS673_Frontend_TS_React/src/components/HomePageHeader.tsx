@@ -92,22 +92,6 @@ const HomePageHeader = () => {
                 No Upcoming Activities within 7 days
               </Paper>
 
-              
-
-              {/* <table style={{ marginTop: '1rem', padding: '1rem' }}>
-                <tr style={{ backgroundColor: '#ffe8cc' }}>
-                  <td>Yellow</td>
-                  <td>Activity is coming up within 7 days</td>
-                </tr>
-                <tr style={{ backgroundColor: '#ebfbee' }}>
-                  <td>Green</td>
-                  <td>No Upcoming Activities within 7 days</td>
-                </tr>
-                <tr style={{ backgroundColor: '#ffe3e3' }}>
-                  <td>Red</td>
-                  <td>Activity is past the due date</td>
-                </tr>
-              </table> */}
             </Box>
           </Fade>
         </Modal>
@@ -119,10 +103,8 @@ const HomePageHeader = () => {
           marginRight: '10%',
         }}
       >
-        {/* <SortBySelect /> */}
         <BasicModal type="job" title="add" buttonTitle="Add Job" />
 
-        {/*<AddBtn />*/}
       </div>
     </StyledHomeHeaderContainer>
   )

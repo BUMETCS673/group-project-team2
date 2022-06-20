@@ -13,7 +13,6 @@ import {
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { Job } from '../../types/types'
-// import { useHistory } from 'react-router-dom'
 
 interface Values {
   companyname: string
@@ -31,15 +30,11 @@ const JobForm: React.FC<JobFormType> = ({
   job_id,
   closePopup,
 }: JobFormType) => {
-  // const { push } = useHistory()
   const dispatch = useAppDispatch()
   const jobsList = useAppSelector((state) => state.user.jobs)
   const jobToEdit: Job | null = jobsList.filter((job) => job.ID == job_id)[0]
   const [createJob] = useCreateJobMutation()
   const [updateJob] = useUpdateJobMutation()
-  // console.log(newJob, job_id)
-  // console.log(editJob, job_id)
-  //const job = useAppSelector(state => state.job)
 
   return (
     <div>
@@ -73,11 +68,9 @@ const JobForm: React.FC<JobFormType> = ({
           } else {
             dispatch(setJob(values))
             await createJob(values)
-            //if is successful
           }
           setSubmitting(false)
           closePopup()
-          // push('/home')
         }}
       >
         {({
@@ -105,7 +98,6 @@ const JobForm: React.FC<JobFormType> = ({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.companyname}
-                  //border = {!(touched.companyname  && errors.companyname && "1px solid red" )}
                   id="companyname"
                   data-testid="companyname"
                   name="companyname"
@@ -133,7 +125,6 @@ const JobForm: React.FC<JobFormType> = ({
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.jobtitle}
-                  //border = {!(touched.jobtitle  && errors.jobtitle && "1px solid red")}
                   id="jobtitle"
                   name="jobtitle"
                   data-testid="jobtitle"

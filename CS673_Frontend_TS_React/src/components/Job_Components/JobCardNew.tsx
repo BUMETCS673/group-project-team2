@@ -44,7 +44,6 @@ const JobCardNew: React.FC<CardProps> = ({
   const [daysToActivity, setDaysToActivity] = useState(-1)
   const [expired, setExpired] = useState(false)
   const [numExpired, setNumExpired] = useState(0)
-  //const [started, setStarted] = useState(false)
   const matches = useMediaQuery('(min-width:600px)')
   const { data = [], isLoading } = useFetchActivitiesQuery(id)
   const toTimestamp = (strDate: string) => {

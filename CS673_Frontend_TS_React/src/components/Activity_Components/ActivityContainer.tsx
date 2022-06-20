@@ -4,7 +4,6 @@ import {
   useDeleteActivityMutation,
 } from '../../features/activities/activities-slice'
 import { Activity } from '../../types/types'
-// import Activity from '../Activity_Components/Activity'
 import { DataGrid, GridColDef, GridCellParams } from '@mui/x-data-grid'
 import ActivityForm from '../Activity_Components/ActivityForm'
 import EditIcon from '@mui/icons-material/Edit'
@@ -17,16 +16,10 @@ import {
 } from '../../styles/styles'
 import { IoCloseCircleOutline } from 'react-icons/io5'
 
-// import {useAppDispatch}  from '../../app/hooks'
-// import { setPriority } from '../../features/user/user-slice'
 
 type ActivitiesProps = {
   jobId: string | undefined
 }
-
-// type ActivityDeleteProps = {
-//   id: number
-// }
 
 const ActivityContainer: React.FC<ActivitiesProps> = ({
   jobId,
@@ -49,13 +42,11 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
   }
 
   const DoEdit = (activity: Activity): void => {
-    // console.log(activity)
     setCurrentActivity(activity)
     setOpen(true)
   }
 
   const columns: GridColDef[] = [
-    // { field: 'JobID', headerName: 'JobID', width: 70 },
     { field: 'Category', headerName: 'Category' },
     { field: 'Description', headerName: 'Description' },
     {
@@ -111,14 +102,11 @@ const ActivityContainer: React.FC<ActivitiesProps> = ({
     },
   ]
 
-  // console.log(data)
   if (isLoading) return <div>Is loading</div>
-  // if (data) console.log(data)
 
   const rows = data.map((activity) => {
     return {
       ID: activity.ID,
-      // JobID: activity.job_id,
       Category: activity.category,
       Description: activity.description,
       StartDate: activity.start_date,

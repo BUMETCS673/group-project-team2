@@ -1,5 +1,5 @@
 import React from 'react'
-import Login from '../components/Login'
+import Login from '../components/Navbar_Components/Login'
 import Waves from '../components/Landing_Page_Components/Waves'
 import Job from '../assets/images/job.jpg'
 import JobProtal from '../assets/images/jobProtal.jpg'

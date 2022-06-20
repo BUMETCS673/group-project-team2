@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { SimpleButtonLogout } from '../styles/styles'
+import { SimpleButtonLogout } from '../../styles/styles'
 import { Logout as LogoutButton } from '@mui/icons-material'
 
 const Logout: React.FC = () => {

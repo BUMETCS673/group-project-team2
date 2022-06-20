@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import { StyledNav, Logo, Collapse, StyledMenuButton, StyledSidebar, StyledCloseButton } from '../styles/styles';
+import { StyledNav, Logo, Collapse, StyledMenuButton, StyledSidebar, StyledCloseButton } from '../../styles/styles';
 import { IoCloseCircleOutline } from "react-icons/io5";
-import followUpLogo from '../assets/images/logo.png'
+import followUpLogo from '../../assets/images/logo.png'
 import NavMenuItems from './NavMenuItems'
 import { BiMenu } from "react-icons/bi";
 
