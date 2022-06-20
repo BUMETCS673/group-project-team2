@@ -1,12 +1,12 @@
 import { fireEvent, render, RenderResult } from 'test-utils'
 import JobCardNew from './JobCardNew'
-import { useFetchActivitiesQuery } from '../../redux/features/activities/activities-slice'
+import { useFetchActivitiesQuery } from '../../redux/slices/api/activities'
 import { useAppDispatch } from '../../redux/app/hooks'
-import { useDeleteJobMutation } from '../../redux/features/jobs/jobs-api-slice'
+import { useDeleteJobMutation } from '../../redux/slices/api/jobs'
 
 let documentBody: RenderResult
 
-jest.mock('../../features/activities/activities-slice', () => ({
+jest.mock('../../slices/activities/activities-slice', () => ({
   useFetchActivitiesQuery: jest.fn(),
 }))
 const mockUseFetchActivitiesQuery = useFetchActivitiesQuery as jest.Mock
@@ -16,7 +16,7 @@ jest.mock('../../app/hooks', () => ({
 }))
 const mockUseAppDispatch = useAppDispatch as jest.Mock
 
-jest.mock('../../features/jobs/jobs-api-slice', () => ({
+jest.mock('../../slices/jobs/jobs-api-slice', () => ({
   useDeleteJobMutation: jest.fn(),
 }))
 const mockUseDeleteJobMutation = useDeleteJobMutation as jest.Mock

@@ -1,7 +1,7 @@
 import { Formik, FormikHelpers, FormikErrors, Field } from 'formik'
 import { Row, Col, Form, FormSubtitle, HelperText } from '../../styles/styles'
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
-import { setJob } from '../../redux/features/job/job-slice'
+import { setJob } from '../../redux/slices/model/job'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
@@ -9,7 +9,7 @@ import Select from '@mui/material/Select'
 import {
   useCreateJobMutation,
   useUpdateJobMutation,
-} from '../../redux/features/jobs/jobs-api-slice'
+} from '../../redux/slices/api/jobs'
 import { Button } from '@mui/material'
 import CheckIcon from '@mui/icons-material/Check'
 import { Job } from '../../types/types'

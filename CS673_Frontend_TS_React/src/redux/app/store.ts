@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import jobReducer from '../features/job/job-slice'
-import userReducer from '../features/user/user-slice'
-import activityReducer from '../features/activity/activity-slice'
-import uiReducer from '../features/UI/ui_slice'
-import { apiSlice } from '../features/jobs/jobs-api-slice'
-import { activitySlice } from '../features/activities/activities-slice'
+import jobReducer from '../slices/model/job'
+import userReducer from '../slices/model/user'
+import activityReducer from '../slices/model/activity'
+import uiReducer from '../slices/model/ui'
+import { apiSlice } from '../slices/api/jobs'
+import { activitySlice } from '../slices/api/activities'
 
 export const store = configureStore({
   reducer: {

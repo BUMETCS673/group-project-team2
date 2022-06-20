@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
-import { useFetchJobsQuery } from '../../redux/features/jobs/jobs-api-slice'
+import { useFetchJobsQuery } from '../../redux/slices/api/jobs'
 import JobCardNew from './JobCardNew'
 import NoJobs from './NoJobs'
 import { useAppDispatch, useAppSelector } from '../../redux/app/hooks'
 import Stack from '@mui/material/Stack'
 import LinearProgress from '@mui/material/LinearProgress'
-import { receiveJobs } from '../../redux/features/user/user-slice'
+import { receiveJobs } from '../../redux/slices/model/user'
 import {Job} from '../../types/types'
 
 const JobCardList = () => {

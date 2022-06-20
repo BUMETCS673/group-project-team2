@@ -3,7 +3,7 @@ import { StyledCardsContainer } from '../styles/styles'
 import HomePageHeader from '../components/HomePageHeader'
 import { useAuth0 } from '@auth0/auth0-react'
 import {useAppDispatch, useAppSelector} from '../redux/app/hooks'
-import { setUserToken } from '../redux/features/user/user-slice'
+import { setUserToken } from '../redux/slices/model/user'
 import JobCardList from '../components/Job_Components/JobCardList'
 
 

@@ -9,7 +9,7 @@ import {
 import {
   useCreateActivityMutation,
   useUpdateActivityMutation,
-} from '../../redux/features/activities/activities-slice'
+} from '../../redux/slices/api/activities'
 import { Activity } from '../../types/types'
 import React from 'react'
 import { Button, TextField } from '@mui/material'

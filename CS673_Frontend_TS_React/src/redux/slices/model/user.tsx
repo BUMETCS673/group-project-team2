@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Job }from '../../../types/types'
+import { Job } from '../../../types/types'
 interface UserState {
     token: string
     jobs: Job[]
