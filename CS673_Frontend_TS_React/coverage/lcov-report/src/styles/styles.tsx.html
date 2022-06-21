@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.78% </span>
+                <span class="strong">97.89% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>441/451</span>
+                <span class='fraction'>465/475</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.78% </span>
+                <span class="strong">97.89% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>441/451</span>
+                <span class='fraction'>465/475</span>
             </div>
         
             
@@ -514,7 +514,50 @@
 <a name='L449'></a><a href='#L449'>449</a>
 <a name='L450'></a><a href='#L450'>450</a>
 <a name='L451'></a><a href='#L451'>451</a>
-<a name='L452'></a><a href='#L452'>452</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L452'></a><a href='#L452'>452</a>
+<a name='L453'></a><a href='#L453'>453</a>
+<a name='L454'></a><a href='#L454'>454</a>
+<a name='L455'></a><a href='#L455'>455</a>
+<a name='L456'></a><a href='#L456'>456</a>
+<a name='L457'></a><a href='#L457'>457</a>
+<a name='L458'></a><a href='#L458'>458</a>
+<a name='L459'></a><a href='#L459'>459</a>
+<a name='L460'></a><a href='#L460'>460</a>
+<a name='L461'></a><a href='#L461'>461</a>
+<a name='L462'></a><a href='#L462'>462</a>
+<a name='L463'></a><a href='#L463'>463</a>
+<a name='L464'></a><a href='#L464'>464</a>
+<a name='L465'></a><a href='#L465'>465</a>
+<a name='L466'></a><a href='#L466'>466</a>
+<a name='L467'></a><a href='#L467'>467</a>
+<a name='L468'></a><a href='#L468'>468</a>
+<a name='L469'></a><a href='#L469'>469</a>
+<a name='L470'></a><a href='#L470'>470</a>
+<a name='L471'></a><a href='#L471'>471</a>
+<a name='L472'></a><a href='#L472'>472</a>
+<a name='L473'></a><a href='#L473'>473</a>
+<a name='L474'></a><a href='#L474'>474</a>
+<a name='L475'></a><a href='#L475'>475</a>
+<a name='L476'></a><a href='#L476'>476</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -929,6 +972,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -965,9 +1012,29 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from 'styled-components'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled, { keyframes } from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import Box from '@mui/material/Box'
+import FormHelperText from '@mui/material/FormHelperText'
+&nbsp;
+//text animation
+const animation = keyframes`
+  0% { opacity: 0;  }
+  20% { opacity: 0.5; }
+  30% { opacity: 1; }
+  50% { opacity: 1; }
+  70% { opacity: 1; }
+  80% { opacity: 0.5; }
+  100% { opacity: 0;  }
+`
+&nbsp;
+export const TextAnimation = styled.span`
+  animation-name: ${animation};
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+`
 &nbsp;
 export const button = styled.button`
   border: 1px dotted yellow;
@@ -1124,6 +1191,8 @@ export const StyledSidebar = styled.div&lt;SidebarProps&gt;`
 // job cards
 &nbsp;
 export const StyledCardsContainer = styled.div`
+  min-height: 100vh;
+  height: 100%;
   margin: auto;
   background-color: ${(props) =&gt; props.theme.colors.background.secondary.light};
   padding: 20px;
@@ -1168,12 +1237,14 @@ export const StyledHomeHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
   div {
     display: flex;
     justify-content: space-between;
   }
   h1 {
-    border-bottom: 1px solid ${(props) =&gt; props.theme.colors.text.main};
+    /* border-bottom: 1px solid ${(props) =&gt; props.theme.colors.text.main}; */
     color: ${(props) =&gt; props.theme.colors.text.main};
   }
 `
@@ -1406,15 +1477,16 @@ export const StyledPrimaryBtn = styled.button&lt;MenuItemsProps&gt;`
 //   background-color: ${(props) =&gt; props.theme.input.backgroundColor.primary};
 &nbsp;
 // `
-export const HelperText = styled.p`
-  margin: 3px 0;
+export const HelperText = styled(FormHelperText)`
   color: ${(props) =&gt; props.theme.colors.text.error};
 `
 &nbsp;
 export const GradientHeader = styled.h1`
-  background: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+  background: linear-gradient(to right, #30cfd0 20%, #12b886 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* padding-bottom: 1rem; */
+  text-decoration: none;
 `
 &nbsp;</pre></td></tr></table></pre>
 
@@ -1423,7 +1495,7 @@ export const GradientHeader = styled.h1`
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Jun 14 2022 01:24:10 GMT-0400 (Eastern Daylight Time)
+                at Mon Jun 20 2022 03:32:16 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
