@@ -258,7 +258,11 @@ export const LandingPageSubContentLeft = styled.div`
   font-size: 1.5rem;
   display: flex;
   justify-content: start;
-  align-items: center; 
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
 `
 export const LandingPageSubContentRight = styled.div`
   width: 80%;
@@ -269,10 +273,9 @@ export const LandingPageSubContentRight = styled.div`
   font-size: 1.5rem;
   display: flex;
   justify-content: start;
-  align-items: center; 
+  align-items: center;
   margin-top: 5%;
 `
-
 
 // About Page CSS Components
 export const AboutPageSubContentLeft = styled.div`
@@ -281,7 +284,7 @@ export const AboutPageSubContentLeft = styled.div`
   font-size: 1.3rem;
   display: flex;
   justify-content: center;
-  align-items: start; 
+  align-items: start;
 `
 export const AboutPageContent = styled.div`
   font-family: 'Raleway', sans-serif;
@@ -292,7 +295,7 @@ export const AboutPageContent = styled.div`
 `
 export const ImageBox = styled.div`
   border-radius: 8px;
-  border: 1px solid rgba(25,4,69,0.1);
+  border: 1px solid rgba(25, 4, 69, 0.1);
   box-shadow: 0px 4px 10px rgb(25 4 69 / 10%);
   margin-bottom: 40px;
   justify-content: start;
