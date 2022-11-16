@@ -1,0 +1,90 @@
+"filename", "language", "TypeScript React", "JSON", "Go Checksum File", "HTML", "XML", "TypeScript", "comment", "blank", "total"
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Backend_Go_Microservices/activityController/go.sum", "Go Checksum File", 0, 0, 191, 0, 0, 0, 0, 1, 192
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Backend_Go_Microservices/hello-world/go.sum", "Go Checksum File", 0, 0, 17, 0, 0, 0, 0, 1, 18
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Backend_Go_Microservices/jobController/go.sum", "Go Checksum File", 0, 0, 191, 0, 0, 0, 0, 1, 192
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Backend_Go_Microservices/userController/go.sum", "Go Checksum File", 0, 0, 193, 0, 0, 0, 0, 1, 194
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/clover.xml", "XML", 0, 0, 0, 0, 2228, 0, 0, 0, 2228
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/coverage-final.json", "JSON", 0, 36, 0, 0, 0, 0, 0, 0, 36
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/index.html", "HTML", 0, 0, 0, 168, 0, 0, 0, 12, 180
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/src/components/Job_Components/JobForm.tsx.html", "HTML", 0, 0, 0, 24, 0, 0, 0, 0, 24
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/src/components/User.tsx.html", "HTML", 0, 0, 0, -9, 0, 0, 0, 0, -9
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/src/features/jobs/jobs-api-slice.ts.html", "HTML", 0, 0, 0, 3, 0, 0, 0, 0, 3
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/src/index.html", "HTML", 0, 0, 0, -14, 0, 0, 0, -1, -15
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/src/utils/index.html", "HTML", 0, 0, 0, 102, 0, 0, 0, 14, 116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/coverage/lcov-report/src/utils/test-utils.tsx.html", "HTML", 0, 0, 0, 149, 0, 0, 0, 14, 163
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/jest.setup.ts", "TypeScript", 0, 0, 0, 0, 0, -1, 0, 0, -1
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/src/components/NavMenuItems.test.tsx", "TypeScript React", 45, 0, 0, 0, 0, 0, 0, 11, 56
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/src/components/SortBySelect.test.tsx", "TypeScript React", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/src/components/User.test.tsx", "TypeScript React", 37, 0, 0, 0, 0, 0, 0, 9, 46
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/src/components/UserMenuItem.test.tsx", "TypeScript React", 32, 0, 0, 0, 0, 0, 0, 10, 42
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/src/pages/About.test.tsx", "TypeScript React", 19, 0, 0, 0, 0, 0, 0, 8, 27
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/CS673_Frontend_TS_React/src/utils/test-utils.tsx", "TypeScript React", 23, 0, 0, 0, 0, 0, 0, 4, 27
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/clover.xml", "XML", 0, 0, 0, 0, -2072, 0, 0, -1, -2073
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/coverage-final.json", "JSON", 0, -35, 0, 0, 0, 0, 0, -1, -36
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/components/Login.tsx.html", "HTML", 0, 0, 0, -122, 0, 0, 0, -14, -136
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/components/Logout.tsx.html", "HTML", 0, 0, 0, -122, 0, 0, 0, -14, -136
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/components/User.tsx.html", "HTML", 0, 0, 0, -164, 0, 0, 0, -14, -178
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/components/UserMenuItem.tsx.html", "HTML", 0, 0, 0, -143, 0, 0, 0, -14, -157
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/components/index.html", "HTML", 0, 0, 0, -116, 0, 0, 0, -15, -131
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/index.html", "HTML", 0, 0, 0, -270, 0, 0, 0, -26, -296
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/App.tsx.html", "HTML", 0, 0, 0, -152, 0, 0, 0, -14, -166
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/BasicModal.tsx.html", "HTML", 0, 0, 0, -194, 0, 0, 0, -14, -208
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/ExternalAPI.tsx.html", "HTML", 0, 0, 0, -230, 0, 0, 0, -14, -244
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/HomePageHeader.tsx.html", "HTML", 0, 0, 0, -116, 0, 0, 0, -14, -130
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Job_Components/AddBtn.tsx.html", "HTML", 0, 0, 0, -101, 0, 0, 0, -14, -115
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Job_Components/DeleteBtn.tsx.html", "HTML", 0, 0, 0, -98, 0, 0, 0, -14, -112
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Job_Components/JobCard.tsx.html", "HTML", 0, 0, 0, -146, 0, 0, 0, -14, -160
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Job_Components/JobCardNew.tsx.html", "HTML", 0, 0, 0, -212, 0, 0, 0, -14, -226
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Job_Components/NoJobs.tsx.html", "HTML", 0, 0, 0, -110, 0, 0, 0, -14, -124
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Job_Components/index.html", "HTML", 0, 0, 0, -158, 0, 0, 0, -18, -176
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Landing_Page_Components/Waves.tsx.html", "HTML", 0, 0, 0, -215, 0, 0, 0, -14, -229
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Landing_Page_Components/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Login.tsx.html", "HTML", 0, 0, 0, -122, 0, 0, 0, -14, -136
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Logout.tsx.html", "HTML", 0, 0, 0, -122, 0, 0, 0, -14, -136
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/NavMenuItems.tsx.html", "HTML", 0, 0, 0, -185, 0, 0, 0, -14, -199
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/Navbar.tsx.html", "HTML", 0, 0, 0, -183, 0, 0, 0, -16, -199
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/SortBySelect.tsx.html", "HTML", 0, 0, 0, -80, 0, 0, 0, -14, -94
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/User.tsx.html", "HTML", 0, 0, 0, -164, 0, 0, 0, -14, -178
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/UserMenuItem.tsx.html", "HTML", 0, 0, 0, -143, 0, 0, 0, -14, -157
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/components/index.html", "HTML", 0, 0, 0, -228, 0, 0, 0, -23, -251
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/data/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/data/mockdata.tsx.html", "HTML", 0, 0, 0, -1928, 0, 0, 0, -14, -1942
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/index.html", "HTML", 0, 0, 0, -130, 0, 0, 0, -16, -146
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/index.tsx.html", "HTML", 0, 0, 0, -125, 0, 0, 0, -14, -139
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/middleware/auth/AxiosInterceptorProvider.tsx.html", "HTML", 0, 0, 0, -224, 0, 0, 0, -14, -238
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/middleware/auth/CommonAuthProvider.tsx.html", "HTML", 0, 0, 0, -179, 0, 0, 0, -14, -193
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/middleware/auth/index.html", "HTML", 0, 0, 0, -130, 0, 0, 0, -16, -146
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/middleware/auth/index.tsx.html", "HTML", 0, 0, 0, -143, 0, 0, 0, -14, -157
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/middleware/restclient/api.tsx.html", "HTML", 0, 0, 0, -125, 0, 0, 0, -14, -139
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/middleware/restclient/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/model/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/model/job.type.tsx.html", "HTML", 0, 0, 0, -89, 0, 0, 0, -14, -103
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/pages/About.tsx.html", "HTML", 0, 0, 0, -158, 0, 0, 0, -14, -172
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/pages/Home.tsx.html", "HTML", 0, 0, 0, -209, 0, 0, 0, -14, -223
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/pages/Loading.tsx.html", "HTML", 0, 0, 0, -239, 0, 0, 0, -14, -253
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/pages/index.html", "HTML", 0, 0, 0, -130, 0, 0, 0, -16, -146
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/react-app-env.d.ts.html", "HTML", 0, 0, 0, -77, 0, 0, 0, -14, -91
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/services/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/services/jobs.service.tsx.html", "HTML", 0, 0, 0, -143, 0, 0, 0, -14, -157
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/setupTests.ts.html", "HTML", 0, 0, 0, -83, 0, 0, 0, -14, -97
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/styles/app-theme.ts.html", "HTML", 0, 0, 0, -202, 0, 0, 0, -15, -217
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/styles/index.html", "HTML", 0, 0, 0, -130, 0, 0, 0, -16, -146
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/styles/styled.d.ts.html", "HTML", 0, 0, 0, -209, 0, 0, 0, -14, -223
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/styles/styles.tsx.html", "HTML", 0, 0, 0, -1265, 0, 0, 0, -14, -1279
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/types/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/types/types.tsx.html", "HTML", 0, 0, 0, -134, 0, 0, 0, -14, -148
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/utils/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/src/utils/test-utils.tsx.html", "HTML", 0, 0, 0, -149, 0, 0, 0, -14, -163
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/styles/app-theme.ts.html", "HTML", 0, 0, 0, -202, 0, 0, 0, -15, -217
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/styles/index.html", "HTML", 0, 0, 0, -116, 0, 0, 0, -15, -131
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/styles/styles.tsx.html", "HTML", 0, 0, 0, -1264, 0, 0, 0, -15, -1279
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/utils/index.html", "HTML", 0, 0, 0, -102, 0, 0, 0, -14, -116
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/coverage/lcov-report/utils/test-utils.tsx.html", "HTML", 0, 0, 0, -149, 0, 0, 0, -14, -163
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/components/NavMenuItems.test.tsx", "TypeScript React", -45, 0, 0, 0, 0, 0, 0, -11, -56
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/components/SortBySelect.test.tsx", "TypeScript React", -9, 0, 0, 0, 0, 0, 0, -3, -12
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/components/User.test.tsx", "TypeScript React", -37, 0, 0, 0, 0, 0, 0, -9, -46
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/components/UserMenuItem.test.tsx", "TypeScript React", -32, 0, 0, 0, 0, 0, 0, -10, -42
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/pages/About.test.tsx", "TypeScript React", -19, 0, 0, 0, 0, 0, 0, -8, -27
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/pages/Home.tsx", "TypeScript React", -43, 0, 0, 0, 0, 0, -2, -2, -47
+"/Users/benzinho/dev/BU/MET CS673 - Software Engineering/group-project-team2/jobs-tracker-frontend/src/utils/test-utils.tsx", "TypeScript React", -23, 0, 0, 0, 0, 0, 0, -4, -27
+"Total", "-", -43, 1, 592, -12221, 156, -1, -2, -827, -12345
